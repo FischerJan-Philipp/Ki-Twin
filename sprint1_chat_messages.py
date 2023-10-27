@@ -14,8 +14,6 @@ from langchain.document_loaders import PyPDFLoader
 import os
 import getpass
 
-os.environ["OPENAI_API_KEY"] = "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"
-
 os.environ.get("OPENAI_API_KEY")
 
 with open('gefilterte_nachrichten_emoji.txt') as f:

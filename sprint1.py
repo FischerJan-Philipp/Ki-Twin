@@ -14,7 +14,7 @@ from langchain.document_loaders import PyPDFLoader
 import os
 import getpass
 
-os.environ["OPENAI_API_KEY"] = "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"
+#os.environ["OPENAI_API_KEY"] = "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"
 
 os.environ.get("OPENAI_API_KEY")
 
