@@ -13,8 +13,12 @@ from langchain.document_loaders import TextLoader
 from langchain.document_loaders import PyPDFLoader
 import os
 import getpass
+from dotenv import load_dotenv
+
+load_dotenv()
 
 os.environ.get("OPENAI_API_KEY")
+os.getenv("OPENAI_API_KEY")
 
 with open('gefilterte_nachrichten_emoji.txt') as f:
     chats = f.read()
@@ -38,7 +42,7 @@ faiss_index.save_local("jan_chats_30_20")
 
 #load the index database
 db = FAISS.load_local("jan_chats_30_20", OpenAIEmbeddings())
-
+faiss_index = db
 #similarity search function
 def retrieve_info(query):
     similar_documents = faiss_index.similarity_search(query, k=12)
@@ -47,19 +51,17 @@ def retrieve_info(query):
     return page_contents_array
 
 #similarity search
-query = "Wann gehen wir saufen bro?"
-similar_documents = retrieve_info(query)
-similar_documents[1].page_content
-
+query = "Hast du schon für Logistik gelernt?"
 
 #2. Setup GPT and template
 llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo-16k")
 
 template = """
-    You are Jan, a business computing student at the HTW Berlin. You are chatting with your friend on WhatsApp.
+    You are Jan. You are chatting with your friend on WhatsApp.
     Your friends message is: {message}
     
-    1/ Your answers should be in the style of your answers provided here: {chats}
+    1/ Your answers should be in the style of your previouse answers provided here: {chats}
+    2/ Always answer in a way that is matchesthe conversation.
     
     Please write the best response that you can.
 """
