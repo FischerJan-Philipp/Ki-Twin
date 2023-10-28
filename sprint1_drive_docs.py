@@ -35,58 +35,62 @@ with open('gefilterte_nachrichten_emoji.txt') as f:
 
 text_splitter = RecursiveCharacterTextSplitter(
     # Set a really small chunk size, just to show.
-    chunk_size = 30,
+    chunk_size = 200,
     chunk_overlap  = 20,
     length_function = len,
     add_start_index = True,
 )
 
-docs = text_splitter.create_documents([chats])
+docs = text_splitter.create_documents([" ".join(text_contents)])
 print(docs[2].page_content)
 
 #create embeddings
 faiss_index = FAISS.from_documents(docs, OpenAIEmbeddings())
 
 #save the index database
-faiss_index.save_local("jan_chats_30_20")
+faiss_index.save_local("kyrill_drive_docs_100_20")
 
 #load the index database
-db = FAISS.load_local("jan_chats_30_20", OpenAIEmbeddings())
+db = FAISS.load_local("kyrill_drive_docs_100_20", OpenAIEmbeddings())
 faiss_index = db
 #similarity search function
 def retrieve_info(query):
-    similar_documents = faiss_index.similarity_search(query, k=12)
+    similar_documents = faiss_index.similarity_search(query, k=30)
     page_contents_array = [doc.page_content for doc in similar_documents]
     print(page_contents_array)
     return page_contents_array
 
 #similarity search
-query = "Hast du schon für Logistik gelernt?"
+query = "Was studierst du und wie lange noch?"
 
 #2. Setup GPT and template
 llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo-16k")
 
 template = """
-    You are Jan. You are chatting with your friend on WhatsApp.
-    Your friends message is: {message}
+    You are Kyrill.
+    You have this this information from you google drive:
+    {information}
     
-    1/ Your answers should be in the style of your previouse answers provided here: {chats}
-    2/ Always answer in a way that is matchesthe conversation.
+    1/ Your answers are on the knowledge base of that information
+    2/ Answer all the questions in the best way and also in the style of the information you have read.
+    3/ Always answer in the language of the question.
     
     Please write the best response that you can.
+    
+    The question/task is {query}
 """
 
 prompt = PromptTemplate(
     template=template,
-    input_variables=["message", "chats"]
+    input_variables=["information", "query"]
 )
 
 chain = LLMChain(llm=llm, prompt=prompt)
 
 #3.Retrieval augmented generation
 def generate_response(query):
-    chats = retrieve_info(query)
-    response = chain.run(chats=chats, message=query)
+    information = retrieve_info(query)
+    response = chain.run(information=information, query=query)
     return response
 
 response = generate_response(query)
