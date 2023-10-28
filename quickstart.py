@@ -39,7 +39,7 @@ def main():
 
         # Call the Drive v3 API
         results = service.files().list(
-            pageSize=100, fields="nextPageToken, files(id, name, mimeType)").execute()
+            pageSize=10, fields="nextPageToken, files(id, name, mimeType)").execute()
         items = results.get('files', [])
 
         if not items:
@@ -51,11 +51,14 @@ def main():
             print(item['mimeType'])
             if(item['mimeType'] == 'application/vnd.google-apps.document'):
                 textFiel.append(service.files().export(fileId=item['id'], mimeType="text/plain").execute())
+
     except HttpError as error:
         # TODO(developer) - Handle errors from drive API.
         print(f'An error occurred: {error}')
 
     #file = service.files().export(fileId='1WKOiHDF6-gw1CC1XrSmatjwAjUK3Ou2ci1SigDk4xlM', mimeType="text/plain").execute()
+    for field in textFiel:
+        field.write("Data/" + field['name'])
     print("_____________________________")
     print(textFiel)
     print("_____________________________")
