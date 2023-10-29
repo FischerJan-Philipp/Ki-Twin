@@ -48,7 +48,7 @@ print(docs[2].page_content)
 faiss_index = FAISS.from_documents(docs, OpenAIEmbeddings())
 
 #save the index database
-faiss_index.save_local("kyrill_drive_docs_100_20")
+faiss_index.save_local("kyrill_drive_docs_200_20")
 
 #load the index database
 db = FAISS.load_local("kyrill_drive_docs_100_20", OpenAIEmbeddings())
@@ -92,6 +92,7 @@ def generate_response(query):
     information = retrieve_info(query)
     response = chain.run(information=information, query=query)
     return response
+information = retrieve_info(query)
 
 response = generate_response(query)
 print(response)
