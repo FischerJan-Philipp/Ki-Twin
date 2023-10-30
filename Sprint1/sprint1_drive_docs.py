@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-data_directory = "./Data"  # Path to your "Data" directory
+data_directory = "Data/Kyrill_Drive_Docs"  # Path to your "Data" directory
 text_contents = []  # Initialize an empty list to store the text content
 
 for filename in os.listdir(data_directory):
@@ -26,12 +26,6 @@ for filename in os.listdir(data_directory):
         with open(file_path, "r", encoding="utf-8") as file:
             text_content = file.read()
             text_contents.append(text_content)
-
-os.environ.get("OPENAI_API_KEY")
-os.getenv("OPENAI_API_KEY")
-
-with open('../Data/gefilterte_nachrichten_emoji.txt') as f:
-    chats = f.read()
 
 text_splitter = RecursiveCharacterTextSplitter(
     # Set a really small chunk size, just to show.
@@ -48,10 +42,10 @@ print(docs[2].page_content)
 faiss_index = FAISS.from_documents(docs, OpenAIEmbeddings())
 
 #save the index database
-faiss_index.save_local("kyrill_drive_docs_200_20")
+faiss_index.save_local("Vector_DBs/kyrill_drive_docs_200_20")
 
 #load the index database
-db = FAISS.load_local("kyrill_drive_docs_100_20", OpenAIEmbeddings())
+db = FAISS.load_local("Vector_DBs/kyrill_drive_docs_200_20", OpenAIEmbeddings())
 faiss_index = db
 #similarity search function
 def retrieve_info(query):
