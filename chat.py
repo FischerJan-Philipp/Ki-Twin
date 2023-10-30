@@ -6,57 +6,6 @@ import logging
 config = dotenv.dotenv_values(".env")
 openai.api_key = config['OPENAI_API_KEY']
 
-completion = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo-0613",
-    messages=[{"role": "user", "content": "What's the weather like in Boston?"}],
-)
-
-reply_content = completion.choices[0].message.content
-print(reply_content)
-
-
-functions = [
-    {
-        'name': 'get_current_weather',
-        'description': 'Get the current weather at a given location.',
-        'parameters': {
-            'type': 'object',
-            'properties': {
-                'location': {
-                    'type': 'string',
-                    'description': 'Name of the location'
-                },
-            }
-        }
-    }
-]
-
-
-# function calling
-
-completion = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo-0613",
-    messages=[{"role": "user", "content": "What's the weather like in Boston?"}],
-    functions=[
-    {
-        "name": "get_current_weather",
-        "description": "Get the current weather in a given location",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "location": {
-                    "type": "string",
-                    "description": "The city and state, e.g. San Francisco, CA",
-                },
-                "unit": {"type": "string", "enum": ["celsius", "fahrenheit"]},
-            },
-            "required": ["location"],
-        },
-    }
-    ],
-    function_call="auto",
-)
-
 testResponseOfCallFuntion = ""
 
 def get_person_description(name, position):
@@ -105,9 +54,9 @@ json_response = json.loads(completion['choices'][0]['message']['function_call'][
 print(json_response)
 
 reply_content = completion.choices[0]
-funcs = reply_content.to_dict()['function_call']['arguments']
-funcs = json.loads(funcs)
-print(funcs)
-print(funcs['location'])
+#funcs = reply_content.to_dict()['function_call']['arguments']
+#funcs = json.loads(funcs)
+#print(funcs)
+#print(funcs['location'])
 
 print(reply_content)

@@ -30,7 +30,7 @@ for filename in os.listdir(data_directory):
 os.environ.get("OPENAI_API_KEY")
 os.getenv("OPENAI_API_KEY")
 
-with open('gefilterte_nachrichten_emoji.txt') as f:
+with open('../Data/gefilterte_nachrichten_emoji.txt') as f:
     chats = f.read()
 
 text_splitter = RecursiveCharacterTextSplitter(
