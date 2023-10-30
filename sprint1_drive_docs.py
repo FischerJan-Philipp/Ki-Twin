@@ -96,3 +96,4 @@ information = retrieve_info(query)
 
 response = generate_response(query)
 print(response)
+print(response)
