@@ -16,7 +16,7 @@ chat = cc.ChatCalendar()
 st.set_page_config(layout='wide')
 
 st.title("Chat with AI clone")
-
+st.image("Stanley.png", width=200)
 
 
 st.info("Chat Below")
