@@ -15,26 +15,16 @@ chat = cc.ChatCalendar()
 
 st.set_page_config(layout='wide')
 
-st.title("ChatCSV powered by LLM")
+st.title("Chat with AI clone")
 
-input_csv = st.file_uploader("Upload your CSV file", type=['csv'])
 
-if input_csv is not None:
-    col1, col2 = st.columns([1, 1])
 
-    with col1:
-        st.info("CSV Uploaded Successfully")
-        data = pd.read_csv(input_csv)
-        st.dataframe(data, use_container_width=True)
+st.info("Chat Below")
 
-    with col2:
+input_text = st.text_area("Enter your query")
 
-        st.info("Chat Below")
-
-        input_text = st.text_area("Enter your query")
-
-        if input_text is not None:
-            if st.button("Chat with CSV"):
-                st.info("Your Query: " + input_text)
-                result = chat.test(input_text)
-                st.success(result)
+if input_text is not None:
+    if st.button("Chat with CSV"):
+        st.info("Your Query: " + input_text)
+        result = chat.test(input_text)
+        st.success(result)
