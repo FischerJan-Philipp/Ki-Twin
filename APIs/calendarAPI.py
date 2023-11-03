@@ -13,8 +13,9 @@ import pandas as pd
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-class calendarAPI:
-    def getData(self):
+
+class CalendarAPI:
+    def get_data(self):
         creds = None
         if os.path.exists('../token.json'):
             creds = Credentials.from_authorized_user_file('../token.json', SCOPES)
@@ -54,7 +55,7 @@ class calendarAPI:
                         attendees = [attendee['email'] for attendee in event.get('attendees', [])]
                         print(start, event['summary'])
 
-                        rowData = {'id': event['id'],
+                        row_data = {'id': event['id'],
                                    'summary': event['summary'],
                                    'start': start,
                                    'end': end,
@@ -62,14 +63,14 @@ class calendarAPI:
                                    'description': event.get('description', 'No description provided'),
                                    'attendees': attendees
                                   }
-                        event_data.append(rowData)
+                        event_data.append(row_data)
 
                 # Create a DataFrame after the loop
                 df = pd.DataFrame(event_data)
                 df.to_csv(f'./Data/Calendar/{creds.client_id}.csv', index=False)
 
         except HttpError as error:
-        print('An error occurred: %s' % error)
+            print('An error occurred: %s' % error)
 
-calendarAPI = calendarAPI()
-calendarAPI.getData()
+calendarAPI = CalendarAPI()
+calendarAPI.get_data()

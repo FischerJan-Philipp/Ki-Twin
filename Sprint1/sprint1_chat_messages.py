@@ -22,7 +22,7 @@ with open('Data/Chat/gefilterte_nachrichten_emoji.txt') as f:
 
 text_splitter = RecursiveCharacterTextSplitter(
     # Set a really small chunk size, just to show.
-    chunk_size = 30,
+    chunk_size = 100,
     chunk_overlap  = 20,
     length_function = len,
     add_start_index = True,
@@ -35,7 +35,7 @@ print(docs[2].page_content)
 faiss_index = FAISS.from_documents(docs, OpenAIEmbeddings())
 
 #save the index database
-faiss_index.save_local("./Vector_DBs/jan_chats_30_20")
+faiss_index.save_local("./Vector_DBs/jan_chats_100_20")
 
 #load the index database
 db = FAISS.load_local("./Vector_DBs/jan_chats_30_20", OpenAIEmbeddings())
