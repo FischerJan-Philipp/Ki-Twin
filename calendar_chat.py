@@ -121,11 +121,11 @@ class ChatCalendar:
         return response.choices[0].message.content
 
 
-chat = ChatCalendar()
+#chat = ChatCalendar()
 
-query = "Hast du Lust dich die Tage zu treffen?"
-response = chat.test(query=query)
+#query = "Hast du Lust dich die Tage zu treffen?"
+#response = chat.test(query=query)
 
-print(response)
+#print(response)
 
 
