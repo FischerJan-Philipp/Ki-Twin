@@ -1,0 +1,18 @@
+﻿Exposé MIPO - Kyrill Pysarenko
+Problemstellung:
+
+In der heutigen medizinischen Praxis sind offene Operationen der Standard bei Unterarmfrakturen. Hierbei werden Metallplatten am Knochen angebracht, um diesen zu stabilisieren. Dabei gibt es eine Korrelation von der Größe der Wunde der Operation, mit den nachfolgenden Komplikationen. Allein in Deutschland werden jährlich mehrere Tausende dieser Operationen durchgeführt.
+
+
+Die Alternative ist die minimal-invasive Plattenosteosynthese (MIPO). Diese Methode basiert auf kleinen Schnitten, welche benötigt werden, um die Metallplatten über die kleinen Öffnungen zur Stabilisierung einzuführen. Hierbei ist durch die nur kleinen Schnitte die Position der Metallplatten für den Chirurgen nicht sichtbar. Dafür werden oft Ultraschall oder Röntgenstrahlungen angewendet, diese bieten allerdings nicht die Möglichkeit, Weichgewebe darzustellen. So kann der Chirurg nicht erkennen, ob Weichgewebe eingeklemmt werden.
+Die Lösung:
+
+Aktuell gibt es keine Möglichkeit Weichgewebe während einer minimal-invasive Plattenosteosynthese (MIPO) zu visualisieren, deshalb haben wir den C-Bogen-Computertomographen innoviert, um dem Chirurgen die Sicht auf das Weichgewebe zu ermöglichen.
+Durch die Nutzung von verschiedenen Energieniveaus und die darauf folgende Differenzierung dieser beiden, ist es möglich, die Trennung von Weichgewebe und Knochen herzuleiten. Bereits unser erster Test an einer Schweinshaxe konnte dies bestätigen, hier konnte man das Weichgewebe abbilden.
+
+Allerdings, wenn man bei einem Menschen bei jeder Operation zwei Bilder erstellen würde, mit unterschiedlichen Energieniveaus, wäre die Röntgenbelastung zu hoch. Darum ist unsere Lösung der Wechsel der Energieniveaus in gewissen Abständen bei der Rotation des C-Bogens. So schaffen wir es die Röntgenbelastung nicht zu erhöhen und können daraufhin mit Hilfe von einer Software die Differenzierung erstellen.
+Darüber hinaus streben wir die Weiterentwicklung der Software passend zum Forschungsstand an..
+
+Neben der technologischen Innovation ist ein weiterer wichtiger Aspekt die Kompaktheit und Mobilität des Computertomographen. Diese ermöglichen den Einsatz bei mobilen Operationen.
+
+Insgesamt stellt unsere Forschung einen bedeutenden Fortschritt in der minimal-invasive Plattenosteosynthese dar, in dem die Visualisierung von Weichgewebe ermöglicht und gleichzeitig die Strahlenbelastung minimiert wird. Dies trägt dazu bei, die Sicherheit und den Erfolg von Operationen, insbesondere bei Unterarmfrakturen, erheblich zu verbessern.

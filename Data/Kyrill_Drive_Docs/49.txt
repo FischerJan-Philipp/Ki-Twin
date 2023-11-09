@@ -1,0 +1,30 @@
+﻿Disposition und Bestände
+* Unterschiedliche Arten von Bestand
+
+
+
+
+* Umschlag ist der Reziprokwert der Reichweite
+* Umschlagshäufigkeit = Lagerabgänge pro Periode / durchschnittlicher Lagerbestand
+
+
+* Sicherheitsbestand soll Lieferfähigkeit sicherstellen
+
+
+
+
+Disposition und Bestellung
+Drei Arten für Beschaffung:
+* Einzelfallbeschaffung
+   * konkreter Bedarf liegt im Einzelfall vor
+* Vorratsbeschaffung
+   * es wird ein Vorrat angelegt, damit Bedarf immer gedeckt werden kann
+   * 3 Verfahren:
+      * Bereitstellverfahren
+         * Verbrauch
+      * Meldebestandsverfahren
+         * Bestand
+      * Zykluszeitverfahren
+         * Zeitpunkt
+* (produktions)-synchrone Beschaffung
+   * Material trifft zum Zeitpunkt des Bedarfs ein

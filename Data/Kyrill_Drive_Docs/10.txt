@@ -1,0 +1,37 @@
+﻿* Röntgengeräte
+* industrielle computertomographen
+* ursprung in der medizintechnik
+* knochen des unterarms bei fraktur
+   * Standard ist offene Operation
+   * mit Metallplatten fixiert
+   * mehrere 1000 Operationen jedes Jahr in Deutschland
+   * je größer die Wunde, desto größer die Schmerzen und Komplikationen später
+* → Minimal inversive Plattenosziosynthese  (MICO)
+   * osziosynthese Platten unter Haute geschoben mit kleinen Schnitten
+   * Chirurg kann nichts sehen, aufgrund von kleinen Schnitten
+      * → oft Ultraschall oder Röntgen genutzt
+         * Röntgen kann Weichgewebe nicht gut abbilden
+            * eingeklemmtes Weichgewebe nicht zu sehen
+
+
+
+
+
+
+* → computertomographie in Form eines C-Bogens
+   * folgende Verbesserungen:
+      * Strahlenbelastung reduzieren
+      * Weichgewebe visualisieren → heute nicht möglich
+      * unterschiedliche Energieniveaus nutzen, um Differenzierung zwischen weichgewebe und knochen herzuleiten → möglich, hat aber noch niemand gemacht
+      * Tes ant Schweinshaxe
+         * Weichgewebe können abgebildet werden mit Variation der Strahlen
+      * Kompliziert
+         * zwei unterschiedliche Energie Niveaus, zwei komplette Scans
+            * → zu starke Röntgenbelastung
+         * Bei Drehung des Cs, sollen unterschiedliche Energieniveaus bei jedem Schritt genutzt werden
+            * mit Software Differenzierung erstellen
+            * Software wird richtung der Forschung entwickelt
+         * Gerät muss klein und mobil
+
+
+________________

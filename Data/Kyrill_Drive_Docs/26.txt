@@ -1,0 +1,117 @@
+﻿Vier Vorteile von verteilten Anwendungen gegenüber Workstation Anwendungen?
+* Skalierbarkeit: horizontal und vertikal
+* Verfügbarkeit für viele User
+* Ausfallsicherheit
+
+
+Drei fundamentale Service Modelles des Cloud Computing?
+* PaaS
+* IaaS
+* SaaS
+
+
+Drei der vier Deployment Modelle des Cloud Computing
+* Private
+* Public
+* Hybrid
+
+
+Vier Vorteile einer Microservice Architektur gegenüber einer monolithischen Architektur
+* können unabhängig entwickelt werden
+* keine Downtimes beim Deployen
+
+
+Unterschied Dockerfile und Docker-Compose File
+* Dockerfile beschreibt ein Image, erweitert ein Image
+* Docker-Compose File startet container
+
+
+Unterschied normaler Jar und Uber-Jar (auch fat Jar genannt)?
+* Uber-Jar enthält dependencies
+* Uber-jar kann man starten
+* Jar enthält nur die Java Klassen (Code)
+
+
+Wie viele Applikationen können gleichzeitig auf einen Port lauschen?
+* 1
+
+
+Unterschiede zwischen Web Server und Application Server?
+* Web Server liefert - verarbeitet statische Inhalte
+* Application Server - Application läuft darauf (führt code aus) 
+
+
+________________
+
+
+RESTful APIs
+  
+
+
+
+Request Header
+HTTP Request
+GET /api/v1/topics/stephan HTTP/1.1
+Accept-Language: de
+Accept: application/xml
+
+
+Response Header
+HTTP Response
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Cache-Control: private, max-age=60
+Response Body
+<topic>stephan-de</topic>
+
+
+
+
+________________
+Middleware-Konzepte
+Wer entscheidet beim HTTP Caching über das Caching-Verhalten und wie wird das Caching-Verhalten gesteuert?
+* header parameter vom Host (server)
+
+
+zwei Anwendungsfälle für einen Distributed Cache und erläutere die Vorteile?
+* wenn man verkraften kann, dass die Daten verloren gehen
+   * Arbeitsspeicher verliert Daten beim PC Neustart
+
+
+
+
+zwei Anwendungsfälle für einen Message Broker und erläutere die Vorteile?
+* Microservices können über Broker kommunizieren
+* Entkopplung zwischen Sender und Empfänger
+   * Anfragen können nacheinander abgewickelt werden, asynchrone Verarbeitung
+
+
+Wofür steht Abkürzung TTL:
+* time to live
+   * redis: “TTL”
+   * http caching: “max-age”
+   * kafka: “retention”
+
+
+
+
+
+
+
+
+
+
+
+
+________________
+
+
+Error unterscheiden
+        400er - client errors
+        500er - server errors
+
+
+Escaping: 
+* nicht erlaubten Programmzeichen kodieren
+* z.B. xml code sollen die Sonderzeichen in <topic>, nicht größer gleich sein sondern in Unicode kodiert werden
+* in Java mit Anführungszeichen möglich

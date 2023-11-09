@@ -1,0 +1,346 @@
+﻿REST Constraints (Einschränkungen)
+1. Client-Server - Client und Server agieren unabhängig voneinander
+2. Stateless - Server erfasst State des Clients NICHT
+3. Cacheable - der Server markiert, ob die Daten cacheable sind
+4. Uniform Interface - alles ist einheitlich und vorhersehbar, da Server alles als Ressource darstellt
+5. Layered System - Client kann nicht unterscheiden, ob er direkt zum Server oder zu einer Zwischeninstanz verbunden ist
+Liquibase
+  
+
+ <changeSet id="verteilte-anwendungen-0.0.3" author="s0582973@htw-berlin.de">
+        <createTable tableName="USER_PROJECT">
+            <column name="USER_ID" type="char(36)">
+                <constraints nullable="false" />
+            </column>
+            <column name="PROJECT_ID" type="char(36)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="USER_PROJECT" baseColumnNames="USER_ID"
+                                 referencedTableName="USER" referencedColumnNames="ID" constraintName="FK_USER_PROJECT_USER" />
+        <addForeignKeyConstraint baseTableName="USER_PROJECT" baseColumnNames="PROJECT_ID"
+                                 referencedTableName="PROJECT" referencedColumnNames="ID" constraintName="FK_USER_PROJECT_PROJECT"        />
+        <addUniqueConstraint tableName="USER_PROJECT" columnNames="USER_ID, PROJECT_ID"
+                             constraintName="UNIQUE_USER_PROJECT" />
+    </changeSet>
+
+
+Transactions
+* UserTransaction
+* Container-managed transaction
+
+
+        Transaction Boundaries:
+        REQUIRED, REQUIRED_NEW, MANDATORY, SUPPORTS, NOT_SUPPORTED, NEVER
+Validation
+* Entity Validation - automatische Validation, erst nach Umwandlung in Entity
+* Boundary Validation - ‘@JsonbProperty(“user_name”) @Size(...)’
+   * kann JSON direkt bei Request nach Werten überprüfen
+* Controller Validation - im controller validieren
+
+
+SQL Injection verhindern
+* parameterized Queries:
+  
+
+* named Query: in der Entity definierte parameterized Query
+
+
+Caching
+        Arten von HTTP Caching
+* public - im Proxy, private, no-cache, no-store
+        HTTP Cache Busting
+* version oder hash im header mitgeben → nur cash geladen, wenn neue v.
+
+
+* in Quarkus: ‘@CacheResult(cacheName= “weather-cache”)
+        Distributed Cache
+* geteilter cache - genutzt von mehreren Servern
+* oft verwendete Daten gecached, die sich nicht dauerhaft ändern
+Kafka
+* Data Element /Message, Event, Record) besteht aus: 
+   * Metadata - topic, partition, timestamp, key
+   * Body - text / json / …
+* Consumer Events - Consumer können an einen bestimmten Offset gesetzt werden
+Many to Many
+  
+
+Boundary Validation
+‘@JsonbProperty(“user_name”)
+‘@Size(min = 3, max = 99, message = “The name…”)
+private String name;
+Entity Validation
+
+  
+
+
+RESTful APIs
+  
+  
+
+Request Header
+HTTP Request
+GET /api/v1/topics/stephan HTTP/1.1
+Accept-Language: de
+Accept: application/xml
+
+
+Response Header  
+HTTP Response
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Cache-Control: private, max-age=60
+Response Body
+<topic>stephan-de</topic>
+
+
+
+
+________________
+Dockerfile
+FROM nginx:stable
+LABEL maintainer="Jan und Kyrill"
+
+
+# Kopieren Sie die benutzerdefinierte HTML-Seite in den Container
+COPY test.html /usr/share/nginx/html/verteilte-anwendungen/
+
+
+# Exponieren Sie den Container-Port 80
+EXPOSE 80
+
+
+# Starten Sie NGINX beim Starten des Containers
+CMD ["nginx", "-g", "daemon off;"]
+Docker-Compose.yml
+version: "3.9"
+services:
+  nginx:
+    image: der-docker
+    ports:
+      - "8181:80"
+    environment:
+      - NGINX_PORT=80
+
+
+  quarkus:
+    image: quarkus/verteilte-anwendungen-jvm
+    ports:
+      - "8182:8080"
+    environment:
+      MYSQL_ROOT_PASSWORD: geheim
+      MYSQL_DATABASE: VA_APP
+
+
+  wildfly:
+    image: verteilte-anwendungen-wildfly
+    ports:
+      - "8183:80"
+Docker Run
+docker run -d -p 8080:8080 <image_name>
+Docker Build
+docker build -f <path_to_Dockerfile> -t <image_name> .
+________________
+Cloud Computing:
+F: Welche drei wesentlichen Service Modelle des Cloud Computing gibt es? 
+* Software as a Service (SaaS)
+* Infrastructure as a Service (IaaS)
+* Platform as a Service (PaaS)
+F: Drei der vier Deployment Modelle des Cloud Computing
+* Private
+* Public
+* Hybrid
+Verteilte Anwendungen - Architektur - Microservices:
+F: Was ist der Unterschied zwischen der vertikalen und der horizontalen Skalierung? 
+* vertikal ist das Erweitern der Rechenleistung einer Einheit
+* horizontal ist das Hinzufügen von Einheiten
+F: Aus welchen Komponenten besteht die Three-Tier Architecture?
+* Server
+* Client
+* Database
+F: Was sind die fünf wesentlichen Eigenschaften einer Microservice-Architektur?
+* lose gekoppelte Services
+* Services von kleinen Teams gecodet
+* Ausfallsicherheit - einzelne Services können ausfallen → ganzes funktioniert noch
+* Skalierbarkeit - jeder Service kann einzeln skaliert werden
+* Services sind eigenständige Dienste, die bestimmte Geschäftsfunktionen abbilden
+F: Worin unterscheidet sich eine Single Page Application von einem Composite User Interface?
+* Single Page Application fragt aktualisiert einzelne HTML Inhalte mit dem Empfangen von Änderungen im JSON Format
+* bei dem Composite User Interface stellt ein Service einen Bereich bei einer Web Application dar und ist selbst verantwortlich dafür, z.B. wie bei Amazon
+F: Mit welchen Situationen muss ein Microservice umgehen können? Und wie kann das API Gateway dabei helfen?
+* Sicherheit - Validation
+* bei Ausfall eines abhängigen Services - das API Gateway kann caching ermöglichen
+* Überwachung - API Gateway kann Metriken sammeln → Leistungsprobleme erkennen
+F: Vier Vorteile von verteilten Anwendungen gegenüber Workstation Anwendungen?
+* Skalierbarkeit: horizontal und vertikal
+* Verfügbarkeit für viele User
+* Ausfallsicherheit
+* Hardware nicht an einen Händler gebunden
+* Flexibilität - Einheiten tauschen
+F: Vier Vorteile einer Microservice Architektur gegenüber einer monolithischen Architektur
+* können unabhängig entwickelt werden
+* keine Downtimes beim Deployen
+* Ausfallsicher
+* Skalierung - können unabhängig voneinander skaliert werden
+F: Unterschied normaler Jar und Uber-Jar (auch fat Jar genannt)?
+* Uber-Jar enthält dependencies
+* Uber-jar kann man starten
+* Jar enthält nur die Java Klassen (Code)
+F: Wie viele Applikationen können gleichzeitig auf einen Port lauschen?
+* 1
+F: Unterschiede zwischen Web Server und Application Server?
+* Web Server liefert - verarbeitet statische Inhalte
+* Application Server - Application läuft darauf (führt code aus) 
+Docker und Virtualization:
+F: Welches Betriebssystem muss eine virtuelle Maschine haben, wenn das Host OS ein Ubuntu (Linux) ist? 
+* kann alle haben
+F: Hat ein Docker Container ein eigenes Betriebssystem?
+* nein
+F: Welches Betriebssystem muss installiert sein, um eine Container Engine auszuführen?
+* Linux, Windows, Mac
+F: Worin unterscheiden sich virtuelle Maschinen und Docker Container?
+* Docker Container
+   * hat kein eigenes Betriebssystem
+   * Apps von mehreren Containern teilen das selbe Betriebssystem (Host OS)
+   * schneller
+* VM
+   * hat eigenes Betriebssystem
+   * langsamer
+F: Was ist der Unterschied zwischen einem Dockerfile und einem Docker Compose File?
+* Dockerfile erweitert ein Image und beschreibt damit ein neues Image
+* Docker-Compose File startet Images
+F: Welche Techniken bzw. Vorgehensweisen können angewendet werden, um Fehlkonfigurationen bei unerwarteten Verhalten eines laufenden Docker Containers zu identifizieren?
+* Docker Logs überprüfen
+* Files in Container directories checken
+* Ressourcennutzunng überprüfen
+F: Unterschied Dockerfile und Docker-Compose File
+* Dockerfile beschreibt ein Image, erweitert ein Image
+* Docker-Compose File startet container
+Webentwicklung - REST - HTTP:
+F: Was ist der Unterschied zwischen einem Application Server und einem Web Server?
+* Webserver verarbeitet nur statischen Content mit dem HTTP-Protokoll
+* Application Server kann eine Anwendung ausführen
+F: Welches Protokoll nutzt ein Web Server, um statischen Content über das Netzwerk zur Verfügung zu stellen?
+* HTTP
+F: Was ist der Unterschied zwischen HTTP und HTTPS?
+* HTTPS → verschlüsselte Daten
+* HTTP → unverschlüsselte Daten, als Klartext lesbar
+F: Was beschreibt der Content-Type? (Kennen Sie ein Beispiel?)
+* das File Format, was angefragt / gesendet wird
+* Bsp.: video/mp4
+F: Welche wesentlichen Methoden existieren beim HTTP Protokoll?  
+* GET
+* PUT
+* PATCH
+* POST
+* DELETE
+* HEAD
+* CONNECTION
+* OPTIONS
+F: Welche zwei Arten der Content Negotiation gibt es?
+* Server-driven
+   * im Server definierte Settings
+* Agent-driven
+   * Server schickt akzeptierte Formate, wenn Request Format nicht vorhanden
+* Wird Content Negotiation bei APIs verwendet? - JA
+F: Welche HTTP Parameter können verwendet werden, um Informationen bei einem GET Request an den Server zu übertragen?
+* Body
+* Header
+* Query
+* Path
+F: Welche HTTP Methoden dürfen den Zustand auf dem Server ändern?
+* POST, PUT, PATCH, DELETE
+Datenbanken - JPA - ORM - JPQL:
+F: Wie können verschachtelte Ressourcen in einer relationalen Datenbank gespeichert werden?
+* über Many-to-Many oder One-to-Many Beziehungen
+F: Welche Annotation ist erforderlich, um eine Java Klasse als Entität zu kennzeichnen?
+* ‘@Entity’
+F: Was ist die „owning side“ bei einem Object-Relational Mapping (ORM)?
+* gibt bei einer One-to-Many Beziehung die Seite an, die den Fremdschlüssel “besitzt”
+   * z.B. Person und IdDocuments → IdDocuments ist owning side
+F: Was ist der Unterschied zwischen dem Lazy und dem Eager Loading? 
+* Lazy: Daten werden erst geladen, wenn sie benötigt werden
+* Eager: Es werden alle assoziierten Daten einer Entität bei der Abfrage geladen
+F: Wodurch unterscheidet sich die Jakarta Persistence Query Language von der normalen SQL Syntax?
+* Man kann Entity Objekte mit JPQL Abfragen, was mit SQL nicht geht
+F: Kann man Daten mit JPQL ändern?
+* ja es gibt einen UPDATE Befehl, auch DELETE
+Sicherheit:
+F: Wie reduzieren wir die Angreifbarkeit einer Anwendung?
+* mit Validations: Authorization and Authentication
+* so früh wie möglich Abfangen
+   * 1. Access Control
+   * 2. Business Logic
+   * 3. Data Layer
+* timeouts, request rates
+* mit Constraints
+F: Wie verhindern wir eine SQL Injection in JPA?
+* Named Queries nutzen
+* Variable als Parameter geben
+
+
+Caching und Performance - REDIS:
+F: Welche Daten sollte man cachen und welche besser nicht?
+* Daten die lange gespeichert werden sollen und wichtig sind sollten nicht gecached werden
+* Daten, die oft geladen werden sollten gecached werden
+F: Wie kann der Browser Cache kontrolliert werden?
+* der kann über den Header des Servers bei einer Response
+* “max-age”, “no-cache”, “no-store”
+F: Wieso ist ein Distributed Cache schneller als eine Datenbank?
+* weil die Daten auf dem RAM gespeichert werden
+F: Worin unterscheidet sich der Key eines Redis von einem primär Schlüssel einer SQL Datenbank?
+* in einer Datenbank werden Primärschlüssel indexiert, für schnellere Suche
+* Redis keys sind nicht abhängig von einer Tabelle, sondern gelten für den gesamten Redis Cache
+* Redis Key ist ein String, SQL Datenbank PK ist ein numerischer Wert
+F: Wofür steht die Abkürzung TTL?
+* time to live
+F: Kann der gleiche Redis Key für unterschiedliche Datentypen verwendet werden?
+* nein
+F: Kann der Datentyp nach der Erzeugung geändert werden?
+* nein der key muss gelöscht und neu erstellt werden
+F: Welche Datenstruktur eignet sich besonders gut zum Speichern von „ Likes“ zu User Content?
+* SortedSet, da hier ein score zu jedem wer mitgegeben werden kann
+F: Wann ist eine Transaktion bei einem Distributed Cache nötig?
+* wenn man sicherstellen will, dass mehrere Befehle zusammen ausgeführt werden
+* Konsistente Aktualisierung
+* Vermeidung von Dateninkonsistenz
+
+
+Messaging und Event-Driven Architecture - Kafka:
+F: Welche zwei wesentlichen Communication Pattern gibt es? 
+* synchrone und asynchrone
+F: Wie unterscheidet sich eine Pull Architecture von einer Push Architecture?
+* Pull - es wird vom Subscriber immer nachgefragt, ob ein neues Event vorhanden ist
+* Push - der Publisher benachrichtigt den Subscriber automatisch bei einem neuen Event
+F: Welche Vorteile bietet die asynchrone Verarbeitung?
+* Entkopplung von Sender und Empfänger → man muss nicht warten
+* Skalierbarkeit - Sender kann viel mehr Nachrichten senden
+* Nachrichten können zwischengespeichert werden in Message Brokern
+F: Wann benötigt man eine Message Queue?
+* wenn Events nicht direkt verarbeitet werden sollen müssen
+* Zwischenspeichern von Events
+* Entkoppeln von Sender und Empfänger
+* Fehlertoleranz - Sender oder Empfänger kann ausfallen und der andere kann selbstständig weiter mit der Message Queue arbeiten
+F: Aus welchen Bestandteilen besteht ein Topic in Kafka?
+* Partitions
+   * Offset
+   * Event
+F: Mit welchem Verfahren wird ein Event einer Partition zugeteilt?
+* Hashing
+
+
+Transactions:
+F: Wann benötigen wir eine Transaktion?  
+* Wenn wir auf die Datenbank schreiben (POST, PATCH, PUT, DELETE)
+F: Was sind die vier Schlüsseleigenschaften einer Transaktion? Atomicity, Consistency, Isolation, and Durability
+* Atomicity
+   * Transaktion geht entweder ganz oder gar nicht durch
+* Consistency
+   * Datenbank Zustand ist vor und auch nach einer Transaktion konsistent
+* Isolation
+   * die Datenbank hat den gleichen Zustand nach einer Transaktion mit mehreren schritten, wie nach mehreren Transaktionen mit den gleichen Änderungen aufgeteilt
+* Durability
+   * wenn eine transaction committed ist, bleibt sie committed
+F: Wie wird ein Transaction Rollback getriggert?
+* automatisch bei ‘@Transactional’
+* in einem catch block, bei einer Exception abfangen, bei einer injecteten UserTransaction

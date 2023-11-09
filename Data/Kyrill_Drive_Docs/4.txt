@@ -1,0 +1,141 @@
+﻿NOCH ANGUCKEN:
+* Backward Propagation
+
+
+Achtet er darauf beim Projekt:
+* eigene Layer für Deep Learning
+* Prompt Sequenzen für Generative AI
+
+
+WICHTIG:
+* welche Aktivierungsfunktion am Ende
+
+
+
+
+PARAMETER
+* alle Parameter werden angepasst 
+→ in PyTorch vom Typ Tensor = Multidimensionale Arrays
+
+
+
+
+Recurrent Neural Network
+* W = Gewichtsmatrix
+* U = Gewichtsmatrix
+* für jeden Step ein update notwendig
+
+
+* man kann auch mehrere Layer aneinander reihen
+   * Neuronenwerte fließen in den nächsten Layer mit ein
+
+
+___________________________________________________________
+
+
+
+
+* shuffle von Data am Anfang, um Bias zu vermeiden
+* attention layer → gibt features mit, die besonders wichtig sind zu beachten für predictions
+
+
+
+
+
+
+________________
+Transformers
+* Übersetzung
+   * vanishing gradiants = abschwächen von älteren Zeitpunkten
+   * ganze Sequenz weitergeben auch nicht sinnvoll, da Wörtpositionen unterschiedlich sind
+
+
+* Ein State (Output) für jedes Wort beim Encoder
+   * Attention Modul entscheidet welcher Zustand relevant ist
+
+
+Self-Attention
+* Bsp.: wie sind die einzelnen Begriffe in diesem Satz miteinander verknüpft
+
+
+
+
+
+
+D  = 512 -> Embeddings, jede Zahl im Vektor ist ein Gewicht
+* Embeddings sind auf alle Texte der Welt forward und backwards trainiert worden und sind somit sehr ähnlich zum eigentlichen Wort
+
+
+
+
+512x64 Matrizen mit Gewichten
+* 64 weil das 8x gemacht wird 8x64 = 512
+
+
+calc2 
+* Bezug von Tokens aufeinander
+   * durch Sequenz miteinander multipliziert: (4x64) x (64x4) = (4,4)
+   * dadurch wird ChatGPT z.B. “intelligent”
+* durch Wurzel aus 64 → zur Normalisierung, da vorher die Gewichte “aufgebläht” worden
+   * → es kommt wieder 4x64 shape raus
+* → kommt danach in den nächsten Self-Attention-Layer
+   * am ende kommt raus Token für Wort “Fuchs” mit attention zu Wort “schnell”
+
+
+
+Feed Forward Layer zum Information anreichern
+* bei allen Feed Forward layern die gleichen gewichte
+
+
+Positional Encoding
+* Worte nebeneinander sind nur wenig unterschiedlich
+   * sind sich in der Position nah
+
+
+
+
+Add & Norm
+* von einem Encoder zum nächsten
+* Input X wird mit dem neuen Encoder Layers Self-Attention-Values nur summiert und dann normalisiert
+
+
+Decoder
+* Output aus Encoder geht in JEDEN Decoder rein
+* Auch die Übersetzung kommt beim Training in den Decoder hinein
+
+
+Decoder Self Attention
+* Input Encoder output und Übersetztes Wort
+* Stellt Verbindungen zwischen Ausgangssatz und Zielsatz her
+
+
+        Masking
+* nur beim Training
+* verhindert, dass Beziehungen hergestellt werden, die noch gar nicht hergestellt werden können
+
+
+
+
+Transformer
+* input = Embeddings of the word + Starter token (<s>)
+* output = next predicted word
+   * es kann auch ein Stop token kommen (</s>)
+* → Input is now all the embeddings + the starter AND the previous predicted tokens
+   * repeating all the time
+
+
+Forward pass beim training → gesamte Sequenzlänge wird ausgespuckt
+Forward pass beim predicten → nur nächster Token
+
+
+
+
+NACH DEM DECODER
+Bsp. Output: 
+* 6x512 aus letztem Decoder
+In einen linearen Layer 512xSourceVocabSize, (SourceVocabSize = Anzahl aller Token im Vokabular, z.B. deutsche Sprache)
+* → Softmax darauf, dann erhält man die höchste Wahrscheinlichkeit für das nächste Wort
+
+
+Prediction
+* Berechnet parallel die k wahrscheinlichsten Pfade → entscheidet am Ende den wahrscheinlichsten

@@ -1,0 +1,16 @@
+﻿* ChatGPT ist ein großes Sprachmodell
+* Die neueste Version ist GPT-4 von OpenAI
+* Es ist ein fortschrittliches künstliches Intelligenz-Modell
+* Das Modell wurde trainiert, um natürliche Sprache zu verstehen und menschenähnliche Antworten zu generieren
+* Es wurde durch das Analysieren großer Textdatenmengen aus dem Internet und anderen Quellen trainiert
+* ChatGPT ist in der Lage, komplexe Zusammenhänge und Bedeutungen zu verstehen und angemessen darauf zu reagieren
+* Es wird oft als Teil von Chatbots oder virtuellen Assistenten verwendet, um Kundenanfragen zu beantworten oder in der Kundenbetreuung zu unterstützen
+* ChatGPT hat viele andere Anwendungsmöglichkeiten, wie beispielsweise automatische Textgenerierung oder Sprachübersetzung.
+
+
+
+
+
+
+https://ieeexplore.ieee.org/
+wiso-net.de

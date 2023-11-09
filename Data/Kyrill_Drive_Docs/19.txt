@@ -1,0 +1,285 @@
+﻿Begriff Logistik
+* um 900 - es geht darum das Heer auszustatten
+* Ableitung des Begriffs von logista (lat.)
+   * = Verwaltungsbeamter
+
+
+Wiederaufnahme des Begriffs in Neuzeit (1837)
+* Standortbestimmung und Einrichtung von Depots
+* Marschplanung und -durchführung
+* Bereitstellung der Transportmittel
+* Einrichtung von Verbindungswegen
+* Entsorgung der Truppe
+
+
+* Ableitung des Begriffs von loger, logis (frz.) - Unterbringung, Quartier
+
+
+        Von Militär in die Wirtschaft
+* Baron de Jomini (1837)
+* Militär USA ab 1885
+* Oskar Morgenstern - Naval Research Logistics Quarterly USA, 1955
+   * “Die Logistik gewährleistet die Zusammenführung physischer Güter.”
+
+
+                Übergang nach Deutschland
+* Eingang des Begriffs Logistik in die deutsche BW Anfang der 70er Jahre
+* 1973 - erstes Lehrbuch über Logistik in deutscher Sprache
+Definitionen Logistik
+        “Klassische” Definitionen
+        Professor R. Jünnemann (TU Dortmund)
+* Der logistische Auftrag besteht darin, die richtige Menge der richtigen Objekte als Gegenstände der Logistik (Güter,Personen, Energien, Informationen) am richtigen Ort (Quelle, Senke),zum richtigen Zeitpunkt, in der richtigen Qualität, zu den richtigen Kosten zur Verfügung zu stellen.
+Professor H.-Ch. Pfohl (TU Darmstadt) 
+* Die Logistik hat dafür zu sorgen, dass ein Empfangspunkt gemäß seines Bedarfs von einem Lieferpunkt mit dem richtigen Produkt (in Menge und Sorte), im richtigen Zustand, zur richtigen Zeit, am richtigen Ort zu den dafür minimalen Kosten versorgt wird. 
+Timm Gudehus 
+* Grundaufgabe der Logistik ist die Breitstellung benötigter (der richtigen) Objekte in den geforderten (richtigen) Menge in der richtigen Zusammensetzung zur richtigen Zeit am rechten Ort.
+        Moderne Definitionen – wissenschaftlich 
+        Professor H. Baumgarten (TU Berlin) 
+* Die Unternehmenslogistik umfasst die Planung, Steuerung, Durchführung und Kontrolle aller Material- und Informationsflüsse innerhalb und zwischen Unternehmen vom Kunden bis zum Lieferanten. 
+        Ch. Schulte 
+* Logistik wird verstanden als marktorientierte, integrierte Planung, Gestaltung, Abwicklung und Kontrolle des gesamten Material- und dazugehörigen Informationsflusses zwischen einem Unternehmen und seinen Lieferanten, innerhalb eines Unternehmen sowie zwischen einem Unternehmen und seinen Kunden.
+Professor H.-Ch. Pfohl (TU Darmstadt) 
+* Logistik ist der Prozess der Planung, Realisierung und Kontrolle des effizienten, kosteneffektiven Fließens und Lagerns von Rohstoffen, Halbfabrikaten und Fertigfabrikaten und der damit zusammenhängenden Informationen vom Lieferzum Empfangspunkt entsprechend den Anforderungen des Kunden.
+
+
+        Moderne Definitionen – von Logistikgesellschaften
+        Council of Logistics Management (CLM) 
+* Logistics is the part of the supply chain process that plans, implements and controls the efficient, effective flow of goods, services and related information from the point of origin to the point of consumption in order to meet customer’s requirements
+European Logistics Association (ELA) 
+* Logistik ist Organisation, Planung, Kontrolle und Durchführung eines Güterflusses von der Entwicklung und vom Kauf durch die Produktion und die Distribution bis zum endgültigen Kunden mit dem Ziel der Befriedigung der Anforderungen des Marktes bei minimalen Kosten und minimalen Kapitalaufwand
+        Society of Logistics Engineers (SOLE) 
+* Logistik ist das unterstützende Management, das während des Lebens eines Produkts eine effiziente Nutzung von Ressourcen und die adäquate Leistung logistischer Elemente während aller Phasen des Lebenszyklusses sicherstellt, so dass durch rechtzeitiges Eingreifen in das System eine effektive Steuerung des Ressourcenverbrauchs gewährleistet wird. 
+
+
+        HTW Definition
+        Stephan Seecke (HTW Berlin)
+* Die Logistik sorgt dafür, dass immer alles da ist, wo es gebraucht wird.
+
+
+
+
+Aufgaben der Logistik
+1. Beschaffungslogistik
+2. Produktionslogistik
+3. Distributionslogistik → Entsorgungslogistik
+
+
+        Abgrenzung von “Materialwirtschaft” und “Logistik”
+  
+
+
+
+        Verantwortungsbereiche der Logistik im Unternehmen
+  
+
+
+
+        
+        Zuordnung der Gesamtlogistik in einem Unternehmen
+  
+
+
+
+        Abgrenzung der Begriffe “Logistik” und “Supply Chain Management”
+          
+
+
+* Logistik ist meist innerbetrieblich
+* Supply Chain Management ist das Zusammenarbeiten überbetrieblich auch mit anderen Unternehmen, zur Optimierung der gesamten Versorgungskette
+
+
+
+
+Entwicklung der Kriterien für Kaufentscheidungen
+  
+
+
+
+Entwicklung des Stellenwerts von Logistik
+  
+
+
+
+
+
+Ziel der Logistik
+* zwei Grundsätzliche Ziele
+1. Erfüllung der geforderten Logistikleistung
+2. Minimierung der erforderlichen Logistikkosten
+  
+
+
+
+        Geforderte Logistikleistung
+* Zeit
+   * Lieferzeit
+* Lieferqualität
+   * Lieferfähigkeit / Lieferbereitschaft
+   * Lieferzuverlässigkeit / Termintreue
+   * Sendungsqualität
+* Flexibilität
+   * Lieferflexibilität
+* Informationstransparenz
+   * Informationsbereitschaft zum Auftragsstatus
+        
+                Messbarkeit
+* Lieferzeit → vorgegeben vom Wettbewerb
+* Lieferqualität → wird gemessen
+* Flexibilität und Informationstransparenz
+   * nicht quantifizierbar, aber hohe Kundenbindung
+        
+                gefordert:
+
+
+          
+
+
+* alle angebotenen Leistungen müssen immer verfügbar sein
+* Schwierigkeiten müssen “geräuschlos” beseitigt werden
+* Logistik muss immer über alle Informationen verfügen
+        Kosten der Logistik
+* Planung
+   * Managementkosten für Projekte, Controlling
+* Steuerung
+   * Kosten des Informationsflusses: Disposition, Auftragsabwicklung, operative Prozesssteuerung
+* Durchführung
+   * Kosten des physischen Materialflusses: Verpacken, Transport, Lagern, Kommissionieren, Entsorgen
+* Kapitalbindung
+   * Bestandskosten
+* Unmittelbar beeinflusste Kosten
+   * Kosten in vernetzen Funktionen: Loskosten, Servicekosten etc.
+  
+
+* Logistikkosten sind Branchenabhängig
+  
+
+
+
+        Zielkonflikte der Logistik
+          
+
+
+
+
+
+
+Prozessmodelle in der Logistik
+        Kriterien zur Definition von Prozessketten
+* der Auftrag = Auftragsprozess oder Kunde-Kunde-Prozess
+* das Teil / Produkt / Ware = physische Prozesskette
+* der Produktlebenszyklus = Prozessmodell Logisitk
+                        Darstellung des Auftragsprozesses
+  
+
+
+
+                Darstellung des physischen Prozesskette
+  
+
+
+
+                Darstellung des Prozessmodells Logistik
+* die anderen beiden sind hier beinhaltet
+
+
+  
+
+
+
+
+
+Aufgaben der Beschaffungslogistik
+* Lagerkapazität zur Verfügung stellen:
+   * Beschaffungsmarktforschung
+   * Lieferantenmanagement
+   * Make or Buy
+   * Bedarfsermittlung
+   * operative Beschaffung
+
+
+        Definition der Disposition
+* die Disposition ist die mengenmäßige Aufteilung von Aufträgen mit aktuellen Leistungsanforderungen und die terminierte Zuweisung zu den verfügbaren Ressourcen
+  
+
+
+
+        
+
+
+                Bestandteile der Disposition
+* Bedarf, Bestände, Bestellung
+
+
+                        Mögliche Bedarfsermittlung
+* deterministisch - programmgebunden Verfahren
+   * Rechnen
+      * Sekundärbedarf mit Hilfe von Stücklisten oder Rezepturen aus dem Primärbedarf (z.B. Aufträge, Vertriebsforecasts oder Produktionsprogramme) exakt ermittelt
+                                Stückliste als Hilfsmittel
+* Mengenstückliste
+   * unstrukturiert - enthält alle Bau und Einzelteile mit den Mengen, die für das Produkt gebraucht werden
+* Strukturstückliste nach Fertigungsstufen
+   * bildet Struktur der Zusammensetzung des Endprodukts dar nach Fertigungsstufen
+* Strukturstückliste für Dispositionsstufen
+   * “ziehen” gleiche Teile in der jeweils untersten Stufe zusammen, um Disposition zu erleichtern
+* Baukastenstücklisten
+   * sind nur auf erste Fertigungsstufe der Endprodukte oder Bauteile fokussiert
+* Gozinto-Graphen
+   * alle Teile nur einmal dargestellt
+                                
+* stochastisch - verbrauchsgebunden Verfahren
+   * Schätzen
+      * Prognose sind (fast) immer falsch
+* heuristisch - subjektive Verfahren
+   * Raten
+      * Bauchgefühl
+      * Erfahrung von Experten
+
+
+                
+________________
+Bestand
+* nur weil ein Bestand im Lager verfügbar ist, ist er nicht gleich für den Kunden verfügbar
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        Größen des Bestandsverlaufs
+* Meldebestand
+* Sicherheitsbestand
+* Wiederbeschaffungszeit
+* Bodensatz
+* Reichweite
+* Bestellmenge
+* durchschnittlicher Bestand

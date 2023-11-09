@@ -1,0 +1,1013 @@
+﻿redis caching, rest mit http, allgemein fragen, kafka messaging
+
+
+
+
+Distributed System
+* mehrere hardware möglich
+* mehrere Services und Applikationen kombiniert
+  
+
+
+
+
+
+Client-Server Model
+  
+
+
+
+Three-Tier Architecture  
+* Client Application (Browser)
+* Server Application
+   * UI
+   * Access Control
+   * Business Logic
+   * Data Layer
+* Database
+Peer-to-Peer (P2P) Architecture
+  
+
+
+
+
+
+________________
+Distributed Application Architecture
+  
+
+
+
+        Vorteile von Distributed Applications
+* Funktionale Separierung
+   * Separierung des Systems nach Funktionalitäten / Services und Nutzen der einzelnen Komponenten
+* Inherent distribution
+   * Informationen, Funktionalitäten, Menschen und Systeme sind verteilt
+* Resilience (Elastizität)
+   * System kann selber heilen nach Schaden, Ausfall oder Angriff
+      * automatische reloads, deadlines etc.
+* Scalability
+   * System kann erweitert werden
+* Ausfalltoleranz
+   * System kann weiterlaufen mit einigen Komponenten nach Ausfall von Komponenten
+   * Redundanz
+      * mehrere Server Instanzen  
+________________
+   *    * Replication
+   * Abfrage parallel auf alle Server → Mehrheit entscheidet korrektes Resultat  
+      * Skalierbarkeit
+      * horizontal: mehr Einheiten
+      * vertikal: Größe der Einheiten erweitern (RAM, CPU, GPU etc.)
+
+
+        
+Cloud Computing
+      * Zugriff auf geteilten und konfigurierten Pool von Rechenleistung (Server, Speicher, Netzwerke etc.)
+
+
+        Charakteristika von Cloud Computing
+      * On-demand self-service
+      * keine menschliche Interaktion notwendig zur Ressourcenbereitstellung
+      * Broad network access
+      * accessible over standard network
+      * Resource pooling
+      * Pooled Recourses dynamisch verteilt auf mehrere Konsumenten
+      * Rapid elasticity
+      * Funktionen können bei bedarf bereitgestellt / abgestellt werden
+      * Measured service
+      * Ressourcennutzung ist monitored, controlled und reported
+        
+
+
+        Service Modelle von Cloud Computing
+      * Software as a Service (SaaS)
+      * laufen im Browser des Kunden
+      * Platform as a Service (PaaS)
+      * wie SaaS nur bietet Plattform zu Entwicklung
+      * Infrastructure as a Service (IaaS)
+      * bietet direkt Rechenleistung / Infrastruktur
+
+
+        Deployment Modelle für Cloud Computing
+      * Private Cloud
+      * Cloud Infrastruktur läuft nur für eine Organisation, entweder intern oder von einem Drittanbieter gemanaged
+      * Public Cloud
+      * Cloud Services über das Internet ausgeliefert
+      * Community Cloud
+      * Cloud Infrastruktur geteilt von mehreren Organisation in einer speziellen Community, oder aus ähnlichen Unternehmen
+      * Hybrid Cloud
+      * Komposition aus public und private Cloud
+
+
+________________
+Virtualization
+      * Virtualisierung ist die Simulierung von Software und/oder Hardware, auf der andere Software läuft, dieses simulierte Umfeld nennt man VM
+      * Virtualisierung kann ein reales System:
+      * wie ein anderes virtuelles System aussehen lassen
+      * mehrere virtuelle Systeme laufen
+  
+
+
+
+        Arten von Hypervisor
+        VMM Type 1:
+      * direkt auf der Hardware
+      * Pro: effizienter
+      * Con: braucht spezielle Driver
+          
+VMM Type 2:
+      * VMM als Host OS Prozess
+      * Pro: keine speziellen Driver notwendig
+      * Con: more overhead
+          
+Full Virtualization
+      * Hypervisor imitiert Geräte
+      * Physisches Gerät kann verteilt werden auf VMs
+      * Binary Translation:
+      1. Run unprivileged instructions directly on CPU
+      1. unprivileged instructions = user level instructions
+      2. Trap and emulate privileged and sensitive instructions
+      1. privileged instructions = operating systems instructions
+      3. Find critical instructions and replace with exception
+
+
+Paravirtualization
+      * OS-Assisted Virtualization 
+      * Guest OS weiß, dass es in einer VM läuft
+      * Modifizierung des guest OS source codes ist notwendig, um Unterstützung durch den VMM so weit wie möglich zu vermeiden
+      * die meisten virtualizations Plattformen benutzen OS-Assisted Virtualisation für deren device drivers
+  
+
+
+
+
+
+        Accelerated Virtualization
+      * Hardware-unterstützte Virtualisierung
+      * Ziel des Hardware supports:
+      * high-performance Datenübertragung zwischen Gerät und Guest
+      * Direkte Zuteilung: Guest VM besitzt ein physisches Gerät
+      * keine Teilung vom physischen Gerät zu mehreren VMs
+      * Guest VMs haben unmodifizierte device drivers
+      * Ziel: Efficient I/O ohne VMM intervention
+      * Challenge: VMM muss trotzdem Isolierung und Korrektheit garantieren
+Vergleich der Virtualisierungs Techniken
+        
+
+
+	Full Virtualization
+	Paravirtualization
+	Accelerated Virtualization
+	Braucht Guest OS Modifikation?
+	Nein
+	Ja
+	Nein
+	Braucht Hardware support?
+	Nein
+	Nein
+	Ja
+	Performance
+	-
+	+
+	++
+	Notiz
+	gut für rechenintensive Anwendungen → unprivileged instructions laufen direkt auf CPU
+	bessere Performance wegen Zusammenarbeit von Hypervisor und Guest OS
+	Intel VT-x oder AMD-V müssen im Bios aktiviert sein, um hardware assisted virtualization zu erlauben
+	
+
+        Taxonomy of Virtualization      
+
+________________
+                OS Virtualization
+      * kernel erlaubt Existenz von mehreren isolierten user space instances
+      * laufendes Programm in einem Container kann nur den Content innerhalb des Containers sehen und die Gerätzuteilung zum Container
+      * weniger overhead (benötigte Daten)  als Full Virtualization, weil Anwendungen nutzen Host OS system call interface
+                  
+
+
+        Vergleich zwischen Container und Virtual Machines
+          
+
+
+________________
+Deployment        
+        Deployment in einem Application Server
+      * Applikationen sind isoliert
+      * teilen das selbe OS und JVM
+      * teilen die selben Libraries und Funktionalitäten
+      * Pro: fast deployment, less overhead
+      * Con: Keine Limitierung und Isolierung von der Hardwarenutzung
+  
+
+        JAR Packaging File Format
+      * Manifest Datei beschreibt, wie der JAR-File genutzt werden soll
+      * z.B. kann ein Eintrag andere JAR-Files ausführen
+          
+
+
+        WAR Packaging Filter Format
+      * deployment descriptor beschreibt die Struktur der Web Application
+        
+  
+
+
+
+EAR Packaging File Format
+      * deployment descriptor (Konfigurationsdatei) beschreibt die Einstellungen der gesamten Applikation, der Module und Komponenten
+          
+        Application Server vs. Web Server Deployment
+          
+        
+      * Web Server kann nur statische Dateien verarbeiten (.json)
+      * Application Server verarbeitet Application logic
+      * Server sind von unterschiedlichen Administratoren gewartet
+      * Anwendungen benötigen spezielle Server Konfigurationen
+
+
+        Docker Architecture
+          
+
+
+                Image, Container and Layers
+                  
+      * jeder Layer ist ein Image selbst
+      * jeder Layer speichert die Änderung im Vergleich zu auf dem basierenden Image
+      * Anweisungen, die zu einem layer führen: RUN, COPY, ADD
+
+
+
+
+________________
+Docker
+        Dockerfile
+        FROM - immer benötigt → initiales Image
+        WORKDIR - wo alle Befehle ausgeführt werden (RUN, COPY, CMD..), cd- Befehle nie benötigt
+        COPY - erster Pfad sind files, die kopiert werden sollen, zweiter ist, wohin
+        Bsp.: COPY site-content /usr/share/nginx/html
+        ADD - wie COPY, nur kann mehr
+        RUN - Befehle im Container → jeder RUN-Befehl erstellt neuen layer (gering halten)
+        Bsp.:        RUN apt-getupdate && apt-getupgrade -y\ 
+&& apt-getinstall-y\ 
+curl\ 
+htop\ 
+vim\ 
+&& rm-rf/var/lib/apt/lists/*
+EXPOSE - Port (im Container) kann mitgegeben werden
+        CMD - Command - nur der letzte wird ausgeführt, startet normalerweise Application
+        ENV - Variablen werden in build-und runtime zur Verfügung gestellt
+        Bsp.: ENV VA_DOZENT=Stanik
+        ENTRYPOINT - läuft noch VOR dem Start der Application mit CMD, z.B. Script
+
+
+
+
+        Container starten:
+        $ docker run -d -p 8080:80 verteilte-anwendungen-nginx
+
+
+Debugging einer App in einem Container
+        $ docker top container-name-1
+        $ docker logs  - - follow container-name-1
+        $ docker exec -it container-name-1 /bin/bash
+          
+        
+        Docker Compose
+      * file name: docker-compose.yml    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________
+
+
+Hypertext Transfer Protocol (HTTP)
+als Client-Server Protokoll
+  
+
+
+
+        HTTP im TCP/IP-Referenzmodell
+          
+        
+        HTTP Request/Response Sequenz
+          
+        HTTP Message
+          
+         * Header: enthält Metadaten
+          
+        
+        HTTP Request/Response Message
+          
+
+
+        
+        Methods 
+         * GET
+         * POST
+         * PUT - ändert komplette target resource
+         * PATCH - ändert Teile der target resource
+         * DELETE
+         * HEAD - wie GET nur bekommt keinen Response Body
+         * CONNECT - stellt einen Tunnel zum Server her
+         * OPTIONS - beschreibt die Communications Options zum target
+         * TRACE - macht ein message loop-back test zur target resource
+
+
+Uniform Resource Identifier (URI)
+                Uniform Resource Name (URN)
+         * urn:<NID>:<NID-specific-part>
+         * Bsp.: urn:ISBN:3-8273-7019-1
+                Uniform Resource Locator (URL)
+         * <scheme>:<scheme-specific-part>
+         * Bsp.: mailto:kyrill.pysarenko@gmail.com
+         * Bsp.: file:///verzeichnis/unterverzeichnis/datei
+         * Bsp.: http://server.example.org:8080/index.html
+
+
+HTTP Request Path und Parameter  
+          
+         * Schema = Netzwerkprotokoll
+        HTTP Response Codes und Messages
+         * 100-199: Informational responses
+         * 101 - Switching Protocols
+         * 200-299: Successful responses
+         * 200 OK
+         * 201 Created - nach POST
+         * 202 Accepted - erhalten aber noch nicht abgearbeitet
+         * 204 No Content
+         * 300-399: Redirection messages
+         * 301 Moved Permanently
+         * 400:499: Client error responses
+         * 400 Bad Request
+         * 401 Unauthorized
+         * 403 Forbidden
+         * 404 Not found
+         * 405 Method Not Allowed
+         * 406 Not Acceptable - wenn Dateiformat nicht vorhanden ist
+         * 500-599: Server error responses
+         * 500 Internal Server Error
+         * 501 Not Implemented - request methode ist nicht beim Server
+         * 502 Bad Gateway - Server got an invalid response while being a Gateway
+HTTP Content Negotiation
+          
+         * in request header werden akzeptierten Dateiformate mitgegeben
+
+
+                Server-driven Content Negotiation
+         * im Server bereits hinterlegte content settings werden vom Server im request header zugeordnet und dementsprechend responses erstellt
+          
+
+
+                
+________________
+Agent-driven Content Negotiation
+         * Server schickt akzeptierte Formate, wenn eins nicht passt
+          
+
+
+Media Type (MIME Type)        
+         * Struktur eines MIME types:
+         * type/subtype;parameter=value
+         * text/plain;charset=UTF-8
+         * die wichtigsten sind
+         * font/ttf
+         * audio/wave
+         * audio/mpeg
+         * video/mp4
+         * application/json
+         * image/png
+        Method Properties
+          
+
+
+
+
+        HTTP Basics
+         * Textbasiert und simpel
+         * Stateless - keine Abhängigkeit zwischen requests derselben connection
+         * Sessionful - cookies erlauben stateful sessions
+         * Extensible - HTTP header erlaubt das Protokoll simpel zu erweitern
+         * Connection-based - Connections sind kontrolliert im transport layer (TCP)
+
+
+Representational State Transfer (REST) & APIs
+         * wichtige API Protokolle:
+         * HTTP/1.1
+         * HTTP/2
+         * GraphQL - query Sprache für APIs
+         * gRPC - Google Remote Procedure Calls
+
+
+        REST
+         * Architekturstil basierend auf HTTP
+         * beschreibt ein einheitliches Interface zur Kommunikation zwischen physisch unabhängigen Komponenten (Client - Server)
+         * simple Alternative zu SOAP und WSDL
+         * identifiziert Ressourcen anhand von globalen URLs
+        
+                REST API URLs
+                  
+         * Resource: nur plural Nomen
+         * jede Subresource ist durch eigene URL erreichbar
+
+
+                REST Constraints (Einschränkungen)
+         1. Client-Server - Client und Server agieren unabhängig voneinander
+         2. Stateless - Server erfasst State des Clients NICHT
+         3. Cacheable - der Server markiert, ob die Daten cacheable sind
+         4. Uniform Interface - alles ist einheitlich und vorhersehbar, da Server alles als Ressource darstellt
+         5. Layered System - Client kann nicht unterscheiden, ob er direkt zum Server oder zu einer Zwischeninstanz verbunden ist, kann z.B. ein Server die Daten halten und ein anderer die API
+                
+CRUD Operations in REST
+         * CREATE, READ, UPDATE , DELETE
+         * beschreibt die vier wichtigsten Datenbankfunktionen
+  
+        
+
+
+        JAKARTA RESTful Web Service (JAX-RS)
+         * JAX-RS ist eine Spezifikation
+         * bekannte Implementations sins RESTEasy und Jersey
+         * Annotation-based server-side API
+         * HTTP zentriert
+         * Format und container unabhängig
+         * Package javax.ws.rs oder jakarta.ws.rs
+          
+
+
+                JAX-RS Parameter
+                  
+                ProtectedResource Beispiel
+  
+
+                
+                Context Injection mit ‘@Context’
+                  
+
+
+                Filter in der Ausführungsreihenfolge
+                  
+
+
+        
+                
+        
+
+
+                        RequestFilter Beispiel
+                          
+
+
+
+
+                        ResponseFilter Beispiel
+                          
+
+
+
+
+Persistence and Database Versioning
+Jakarta Persistence (JPA)
+         * JPA ist eine Spezifikation
+         * Hibernate und EclipseLink sind bekannte implementations
+         * beschreibt das management von relationalen Datenbanken
+         * Jakarta Persistence Query Language (JPQL)
+         * Package: javax.persistence oder jakarta.persistence
+
+
+        JPA Entity
+          
+
+
+                Domain Object Model (DOM)
+                  
+         * DOM Objekte haben die Fremdschlüssel nicht enthalten
+         * DOM ist für Modellierung innerhalb einer Anwendung und Entity Relationship Diagram (ERD) für Datenbanken
+
+
+        One-to-One Relationship
+          
+        Element Collection Relationship
+          
+         * mapping von primitiven Datentypen anstatt Entitäten
+
+
+        One-to-Many Relationship
+          
+
+
+
+
+        Many-to-Many Relationship
+          
+        
+________________
+        Database Schema Generation
+         * none - keine Aktionen zum managen
+         * create - erstelle Datenbankschema aus Entity Model
+         * drop-and-create
+         * drop
+         * update
+         * validate
+        
+        Database versioning
+         * mit Changesets ist Versionierung möglich
+         * im liquibase xml file
+  
+
+
+
+        Liquibase
+         * Open-source Datenbankunabhängig Bibliothek
+         * unterstützte Datenbanken: MySQL, Percona, PostgreSQL, MariaDB..
+         * tracken, verwalten und anwenden von Datenbankschemaänderungen
+         * unterstützt XML,JSON, YwAML für ChangeSets
+          
+        Container-Managed Entity Manager
+          
+
+
+        Jakarta Persistence Query Language (JPQL)
+          
+         * verbindet SQL Abfragen mit JPA Entities
+        
+        Named Query
+          
+
+
+        Lazy and Eager Loading
+         * Lazy - lädt Daten wenn möglich
+         * Eager - lädt Daten direkt
+         * langsamer und aufwendiger
+
+
+
+
+Transaction and Validation
+         * transactions sind benötigt, um auf die Datenbank zu schreiben
+        CAP Theorem
+         * ein System kann nicht alles gleichzeitig haben: Consistency, Availability, Partition-tolerance
+         * ein System kann entweder starke availability ODER starke consistency haben
+         * Partition-tolerance
+         * das System funktioniert weiter, obwohl Nachrichten verloren gehen oder auf unterschiedliche Nodes verteilt werden
+         * Consistency
+         * garantiert, dass jede Node eines Systems die aktuellsten geschriebenen Werte zurückliefert
+         * alle Nodes haben immer die gleiche Datensicht
+         * Availability
+         * jede funktionierende Node gibt keinen Error für requests
+  
+
+
+
+        Transaction Beispiele
+          
+  
+
+
+
+ACID Properties
+         * Erwartungen an eine Transaktion
+         * Atomicity
+         * alle oder keine Änderungen werden vorgenommen
+         * Consistency
+         * Datenbank befindet sich immer in einem consistent State
+         * Isolation
+         * Datenbank hat gleichen Zustand, egal ob mehrere Anweisungen in einer oder in einzelnen Transaktionen ausgeführt werden
+         * Durability
+         * wenn eine Transaction commited ist, bleibt sie committed
+
+
+        Container-Managed Transaction
+          
+         * mit ‘@Transactional’ wird eine container-managed Transaction ausgeführt
+        User Transaction
+          
+         * manuelle commits / rollback mit einem injecteten UserTransaction Objekt
+
+
+        Control the Transaction Boundary
+         * REQUIRED (default) - startet wenn nicht vorhanden eine neue Transaktion, sonst läufts in der vorhandenen
+         * REQUIRES_NEW - es wird immer eine neue Transaktion gestartet
+         * MANDATORY - kann nur in einer vorhanden Transaktion laufen
+         * SUPPORTS - kann auch ohne Transaktion ausgeführt werden
+         * NOT_SUPPORTED - kann nur außerhalb einer Transaktion laufen, beendet vorher eine laufende Transaktion
+         * NEVER - kann nur außerhalb einer Transaktion laufen und schmeißt Exception
+        
+        Jakarta Bean Validation
+         * eine weiter Jakarta Spezifikation
+         * bekannt ist Hibernate Validator
+         * stellt sicher, dass Eigenschaften einer Entity bestimmten Kriterien entsprechen
+
+
+        Validation für die Sicherheit
+  
+
+
+
+         * so früh wie möglich abwehren
+         * Access Control Boundary = ist die REST-Schnittstelle
+         * Business Logic = Controller
+         * Data Layer = geladene Entitäten
+
+
+        Entity Validation
+          
+         * Schema Validation in der ‘@Column’ Annotation, schreibt die Struktur der Daten vor
+         * Validation Annotations für Validierung der Werte
+          
+        
+
+
+        Boundary Validation
+         * keine automatische Validierung
+  
+
+
+
+         * kann direkt bei einer HTTP Request überprüft werden können
+
+
+        
+________________
+Controller Validation
+         * Validierung findet im Controller statt
+          
+        
+
+
+        Angriffe durch SQL Injection
+          
+         * Werte über HTTP Request mitgeben, die in einer SQL als String abgefragt werden →Angreifer kann reinschreiben was er will
+  
+
+
+
+         * nur parameterized UND named Queries nutzen dagegen!
+  
+
+
+
+
+
+Caching
+         * Wiederverwenden von schon berechneten ode geladenen Daten
+         * temporärer Speicher
+         * geringere Ladezeiten
+         * schnellerer Zugang
+         * höherer “Throughput” → mehr Daten können verarbeitet werden
+         * geringere Latenz= geringere Verzögerungszeiten
+  
+
+  
+
+         * guckt erstmal im Cache, lädt erst dann Daten, wenn nicht vorhanden und speichert danach im cache
+        Caching von Web Content
+        
+  
+
+
+
+
+
+         * HTTP Response header beeinflusst, wie etwas gecached wird
+         * TTL des caches wird auch vom Server über den Header zum Client mitgegeben
+         * Client schickt bei Anfragen die bereits gecachete Dauer und die TTL mit
+
+
+
+
+  
+
+
+
+        Arten von HTTP Caches
+         * public: im Proxy
+         * private: im Browser
+         * no-cache: wird im Cache gespeichert, aber muss immer validiert werden
+         * no-store: wird nicht gecached
+
+
+        HTTP Caching mit JAX-RS
+          
+         * wird im Response header mitgegeben
+         * hier private und TTL 60
+        
+
+
+        HTTP Cache Busting
+         * version oder Hash in der Query UND dem Filename mitgeben, sodass nur der cache geladen wird, wenn es keine neue Version gibt
+
+
+        Local Caching von Application Data
+         * speichert Ergebnis eines Methodenaufrufs nur lokal, wo die Applikation läuft
+        
+
+
+        Caching in Quarkus und dem darunterliegenden “Caffeine Cache”
+          
+
+
+        Distributed Cache
+  
+
+         * speichern von oft geladenen Daten einer Applikation bei allen / vielen Usern
+         * Anwendungsfälle
+         * Netzwerknutzung- und kosten reduzieren
+         * Beschleunigung der Anwendung
+         * speichern von Web session data
+         * den Effekt von Unterbrechungen reduzieren
+
+
+        
+        REDIS (Remote Dictionary Service)
+         * Open-source key-value database
+         * Ideal für:
+         * Daten die oft gebraucht werden und sich nicht oft ändern
+         * Datentypen:
+  
+
+        
+         * Docker run
+         * $ docker run --name redis-container-name-1 -d redis:7
+         * Redis Command line
+         * $ docker exec -it redis-container-name-1/usr/local/bin/redis-cli
+
+
+
+
+         * wichtige Bestandteile:
+         * key
+         * value
+         * TTL - key expiration
+
+
+                
+________________
+Redis Transactions
+  
+
+  
+                  
+
+
+        Redis Architecture - Single Instance
+         * Redis cache wird auf einen durable storage geladen mittels Snapshots
+
+
+Microservices
+         * eine Applikation besteht aus mehreren Services
+         * Vorteile
+         * sehr wartbar und testbar
+         * lose gekoppelte Services
+         * jeder Service ist einzeln deploybar
+         * organisiert anhand der business Funktionalitäten
+         * Services von kleinen Teams gecoded
+        
+        Nachteile von Monolithen
+         * schwer Skalierbar
+         * vertical scaling - mehr Hardware löst nicht immer das Problem
+         * horizontal scaling - ganze app muss replicated werden
+         * Team scalability
+         * Änderungen sind schwer
+         * Coupling - der Code basiert aufeinander
+         * Komplexität wächst mit dem Programm
+         * Deployments können downtime erzeugen
+
+
+        Architektur Muster
+  
+
+
+
+        Design Kriterium: Business Capability
+         * Größe ist nicht der eigentliche Punkt
+         * finde Datenabhängigkeiten
+         * Service darf nur so groß sein wie eine unabhängige Einheit, die einzeln entwickelt und deployed werden kann
+         * sollte eine wartbare Einheit einer Business Funktionalität sein
+
+
+        Design Kriterium: Locker gekoppelt
+         * Microservices kommunizieren über Interfaces
+         * Interfaces können synchron oder asynchron sein
+         * Versioning für interfaces verwenden
+         * interface Änderungen vermeiden
+
+
+        Design Kriterium: Sehr wartbar und testbar
+         * jeder Microservice ist selbst verantwortlich für eine ganze Applikation
+         * UI, Access Control, Business Logic, Data Access
+         * jeder Microservice hat definierte boundaries und interfaces, welche getestet und gewartet werden müssen
+         * externe Komponenten müssen simuliert oder mitgegeben werden für automatisierte Tests
+
+
+Design Kriterium: Unabhängigkeit
+         * Microservices müssen Fehlertolerant sein
+         * Microservices müssen Fehler handeln können:
+         * Timeouts, retries, circuit breaker, deadlines, rate limiters
+         * Microservices haben eigenen release life cycle
+         * → unabhängig voneinander entwickelt
+         * Microservices können individuell release und deployed werden, ohne das ganze System lahm zu legen
+
+
+        Communication Pattern
+        Synchron:                                        Asynchron:
+          
+
+
+        
+        User Interface Design Pattern
+          
+
+
+
+
+        Infrastruktur von einer Microservice-Architecture
+  
+
+
+
+        API Gateway in einer Microservice-Architektur
+          
+
+
+        Microservice Transactions mit Message Broker
+  
+
+
+
+        Eventual Consistency
+         * ein System wird in Zukunft irgendwann consistent, wenn kein input mehr kommt
+         * die Datenänderungen werden eventuell auf allen Nodes ankommen und alle Nodes werden die gleichen Datensicht haben
+
+
+
+
+        Zusammenfassung Microservices
+         * löst Probleme bei großen Projekten
+         * ist ein Verbund von services, die gut definierte Grenzen zum business context haben
+         * braucht Infrastruktur und Middleware Komponenten
+         * versteckt Implementierung gegenüber anderen Services, durch Nutzung von Interfaces
+         * lose gekoppelte Services, die belastbar gegenüber Fehlern sind
+         * reduziert Komplexität von einzelnen Service aber steigert Komplexität des gesamten Projekts
+
+
+        Pull vs. Push Architektur
+          
+
+
+
+
+        Vorteile von asynchroner Kommunikation
+         * Producer und Consumer sind entkoppelt
+         * langsame Consumer beeinträchtigen den Producer nicht
+         * Consumer Hinzufügen beeinträchtigt den Producer nicht
+         * Ausfall von Consumern beinträchtgt andere Systeme nicht
+
+
+        
+Publish-Subscribe Pattern
+         * Publisher senden an Message Broker in ein bestimmtes Topic
+         * Subscriber sind subscribed zu einem Topic in einem Message Broker
+
+
+        Redis Pub/Sub Commands
+         * subscribe myChannel
+         * publish myChannel ‘hello world’
+
+
+        CDI Eventing
+          
+
+
+        Asynchrones CDI Eventing
+  
+
+        Redis Message Queue Commands
+          
+        
+        
+        Java Concurrent Blocking Queue
+          
+
+
+        
+________________
+Batch Processing vs Stream Processing
+         * Batch Processing
+         * speichert Events und führt sie dann gebündelt aus
+         * Stream Processing
+         * speichert Events in einer Queue und führt sie Live nacheinander aus
+          
+        
+                Event Stream Processing Use Cases
+         * business process engine
+         * monitoring
+         * logging
+         * job queue
+         * microservices
+         * database
+         * data warehouse
+         * web apps
+         * analytics
+         * chat
+________________
+Apache Kafka
+         * verteilter Event Speicher und Stream Processing Engine
+         * einheitlich, high-throughput, low-latency plattform zur Bearbeitung von real-time data feeds
+
+
+        Kafka Architecture
+          
+
+
+
+
+        Kafka Cluster Architecture
+  
+
+
+
+                Aufbau eines Topics
+          
+         * besteht aus Partitionen
+         * diese bestehen aus Messages, die mit einem Offset sortiert werden
+         * Consumer werden zu Partitionen assigned
+         * Messages mit dem selben Key, werden den gleichen Partitionen zugeordnet (ausgehend von Producer)
+         * Events innerhalb einer Partition sind geordnet
+         * Events innerhalb eines Topics sind nicht garantiert geordnet
+                Data Element ( Message, Record, Event)
+         * besteht aus:
+                  
+
+
+
+
+                Partition Zuteilung
+                       
+  
+
+
+
+  
+
+
+
+
+
+        Consumer Gruppen
+          
+
+
+  
+
+Falsche Partitionierung
+          
+         * es wird ein falscher Partition key (immer der gleiche mitgegeben), sodass nur ein Consumer diese abarbeitet
+
+
+        Consumer Events
+         * Consumer können an ein bestimmtes Offset gesetzt werden
+          
+
+
+        Retention und Lag
+          
+         * Retention = wie lange das Event in der Partition gespeichert werden kann
+         * Lag = unterschied zwischen Offset des Consumers und des Producers
+
+
+        Replication
+          
+         * hier ist Topic A (grün) einmal kopiert, es gibt eine Kopie von allen 3 Partitionen
+         * Topic B (rot) hat 2 Kopien, jeweils auf unterschiedlichen Brokern
+         * fällt der Leader Broker eines Topics aus, wird einer der Replications zum neuen Leader
+
+
+
+
+        Rechnung der richtigen Retention
+         * Retention ist pro Partition
+         * maximale Message size = 1MB
+         * es gibt Retention: Zeit und Speicherkapazität
+
+
+        
+        Beispiel: Wetterdaten
+          
+
+
+         * 1 message broker = 1TB
+         * 6h * 60min * 60s * 150 MB/s = 3.254 GB
+         * das heißt wir brauchen, bis zum nächsten Update 3,254 TB Speicher
+         * wenn nur 1TB vorhanden → können wir nicht alles speichern und dürfen nicht so viel in Verzug kommen
+         * bei 5 Partitionen ergibt das eine Retention von ca. 600GB

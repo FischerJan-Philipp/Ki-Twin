@@ -1,0 +1,38 @@
+﻿Distributionslogistik
+* umfasst alle Güter und Informationsflüsse von der Fertigstellung der Güter bis zu Annahme der Güter durch den Kunden
+
+
+Bestandsvorhaltungen
+* Lagern
+   * Bestände zum Verkauf, Handeln, Produktion
+   * Ziele: Sicherstellung der sofortigen Verfügbarkeit
+   * gleichzeitige Optimierung der Prozesskosten im Lager
+                Aufgaben:
+      * Wareneingang, Identifikation, Qualitäts- und Mengenkontrolle
+      * Einlagerung inklusive Verteilung auf Lagerbereiche
+      * Lagerverwaltung
+      * Kommissionierung
+      * Auslagerung inklusive Kontrollpunkt
+      * Warenausgang
+*  Puffer
+   * Bestände zum sofortigen Verbrauch
+   * sind Auslastungssicherheit
+   * Liegezeiten sind kurz
+* Speichern
+   * Bestände als Kapazitätsausgleich zur späteren Verwendung gesammelt
+   * Ziele: Ausnutzung von freien Kapazitäten
+      * ermöglicht Bestellen in hohen Mengen
+      * Nutzung optimaler Einkaufskosten und Transportpreise
+   * Liegezeiten sind vorbestimmt
+
+
+Verpacken
+* vielfältige Anforderungen von Produktion, Logistik, Marketing und Vertrieb
+* mit geringstem wirtschaftlichen Aufwand
+* bei möglichst geringer Umweltbelastung
+* unter größtmöglicher Schonung der Ressourcen
+
+
+        Ladungsträger
+* tragendes Mittel zur Zusammenfassung von Waren zu einer Einheit
+   * z.B. Palette

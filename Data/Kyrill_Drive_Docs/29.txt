@@ -1,0 +1,12 @@
+﻿The horizontal axis shows the months from January to December and the vertical axis shows the prices in $m from 0 to $45m.
+The graph is a solid line.
+The sales were at $15m in January and went up gradually to around $40m until June. After that the sales fell rapidly until August, they shrank by around $27m and stayed at that level until the beginning of September. Then there was a drastic rise in September to around $35m but the sales volume fell quickly by almost $30m again in October. Then it went up in November a bit again to around $12m and went down slightly in December by around $4m.
+
+
+EXAM Vorbereitung:
+1. Prices rose slowly and gradually.
+2. There was a swift decrease.
+3. Prices fluctuated slightly within that period.
+4. Prices increased rapidly.
+5. Prices reached the peak.
+6. Prices fell dramatically.

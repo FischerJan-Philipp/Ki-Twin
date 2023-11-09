@@ -1,0 +1,49 @@
+﻿Finanzplanung
+1. Information
+* Ausgaben für variabel
+* Erträge
+* Risiken
+   * Rücklagen
+   * Versicherung
+   * Backups
+   * ausreichende / übergroße Personalkapazität
+* Zeitpunkt
+
+
+2. Prognose
+   1. Cashflow
+3. Auswahl
+4. Controlling
+
+
+
+
+Bankenarten
+* Privatbanken
+   * AG / KGaA
+* Genossenschaftsbanken
+   * eG - Genossenschaft
+* Sparkassen
+   * AöR - Anstalt öffentlichen Rechts
+
+
+
+
+Eigenkapitalfinanzierung
+* Gesellschafter
+
+
+Fremdfinanzierung
+* Banken
+* Private Equity / Hedgefonds
+* Staat
+   * Subventionen / Beihilfe
+   * Darlehen → KfW
+   * Steuerfreiheit
+* Börse
+   * Rohstoffbörse
+      * Bsp. Strombörse
+   * Wertpapierbörse
+      * Aktien
+      * Derivate
+      * Anleihen

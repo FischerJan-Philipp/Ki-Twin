@@ -1,0 +1,41 @@
+﻿Arten von Apps
+* Native Apps
+   * IOS
+   * Android
+* Plattformunabhängige Apps
+   * Web-Apps
+   * Progressive-Web-Apps
+   * Hybrid-Apps
+   * Cross-Plattform-Apps
+
+
+
+
+________________
+Native Apps
+        IOS
+* mit Mac OS entwickeln
+* Xcode (Entwicklungsumgebung)
+* Swift oder Objective-C
+        Android
+* beliebiger PC
+* Android Studio (Entwicklungsumgebung)
+* Kotlin oder Java
+Plattformunabhängige Apps
+        Web App
+* läuft im Browser
+* kann je nach Browser native Fähigkeiten, wie z.B. Location nutzen
+* mehr als eine einfache Website, aber weniger als eine “richtige” App
+* keine Offline-Verfügbarkeit
+        Hybrid App
+* man entwickelt eine Web App
+                → wird übersetzt in eine Web View und weitere Plugins
+* Bsp.: Cordova Plugins → dafür da um native Funktionen zu nutzen
+        Progressive Web App
+* kann im Browser laufen, aber auch installiert werden
+* kann native Funktionen haben
+* kann offline verfügbar sein
+
+
+        Cross Plattform App
+* Bsp.: Flutter, React Native, Xamarin

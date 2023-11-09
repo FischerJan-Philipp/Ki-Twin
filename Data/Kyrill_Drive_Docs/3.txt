@@ -1,0 +1,89 @@
+﻿Liquiditätsprobleme
+* Anlagevermögen verkaufen
+* EK von Gesellschaftern holen (alten oder neuen)
+* FK (Kredite)
+
+
+
+
+Gesellschaftsformen
+
+
+Personengesellschaften
+* KG
+* Komplementär = Vollhafter
+* Kommanditisten = Teilhafter
+* GmbH und CoKG
+* ist eine KG
+   * mit einer GmbH als Vollhafter
+* oHG = offene Handelsgesellschaft
+* eK = eingetragener Kaufmann
+
+
+Kapitalgesellschaften
+* AG
+* SE
+* KGaA = Kommanditgesellschaft auf Aktien
+   * persönlich haftender Gesellschafter
+* GmbH
+* e.V.  = eingetragener Verein
+* Stiftung
+
+
+Justiz öffentlichen Rechts
+* AöR = Anstalt öffentlichen Rechts
+   * Land ist alleiniger Gesellschafter z.B. Berlin
+* KöR = Körperschaft öffentlichen Rechts
+   * Kirchen z.B.
+   * Bundesrepublik Deutschland
+* Stiftung (selten)
+   * Berliner Philharmoniker
+   * Stiftung preußischer ..
+
+
+
+
+________________
+
+
+Fremdkapital
+* Sicherheit
+   * z.B. Grundstück
+* Laufzeit
+* Annuitäten
+   * Zinsaufwand (gewinnmindernd)
+
+
+
+
+
+
+Eigenkapital
+* gezeichnetes Kapital = gesellschafter Einlagen
+* Rücklagen
+   * wenn der hoch ist, heißt das, dass der JÜ in den letzten Jahren vorhanden war und nicht ausgeschüttet worden ist
+
+
+        Eigenkapitalerhöhung
+   * Personengesellschaft Kapitalerhöhung
+      * nur mit neuem Gesellschafter
+   * GmbH Kapitalerhöhung
+      * Altgesellschafter erhöhen Kapital
+      * Neugesellschafter bringen Kapital ein
+   * AG Kapitalerhöhung
+      * Neugesellschafter → auf der Börse
+
+
+
+
+Stimmrecht
+* Kopfstimmrecht bei Personengesellschaften
+* Kapitalstimmrecht bei Kapitalgesellschaften
+
+
+
+
+e.G. = eingetragene Genossenschaft
+* z.B. Edeka e.G.
+   * Zuständig für Logistik, Einkauf im Großhandel, Marketing etc.
+   * jeder Kaufmann hat nur eine Stimme

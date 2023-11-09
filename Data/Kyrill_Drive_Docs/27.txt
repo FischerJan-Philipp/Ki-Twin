@@ -1,0 +1,311 @@
+﻿Jan-Philipp Fischer, Kyrill Pysarenko, Eshmam Dulal, Parvez Malik
+Starten des Programms
+Alle benötigten Dateien befinden sich im Working_files Ordner. TrainOnlyOrices.py ist unsere Hauptdatei. In dem File werden Funktionen aus dem 
+
+
+In dem Project_Process Ordner liegen unsere anderen Datein, die nicht fertig sind. Da haben wir Sachen versucht, wie z.B. Reinforcement Learning.
+
+
+
+
+Daten:
+Crypto-Daten 1 min timeframe:
+* hier haben wir unsere ETH-Preis .csv her
+https://drive.google.com/file/d/1YfZxX4HkRFzSWKGdFpLirpDG6XpMU-K7/view?usp=share_link
+
+
+Bitcoin Preis Daten 1-min-timeframe:
+https://www.kaggle.com/datasets/mczielinski/bitcoin-historical-data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+Price Prediction using LSTM
+mergeOnlyETHandBTCPrices.py
+* merged nur Ethereum und Bitcoin Preise aus den beiden .csv-Dateien über die Timestamps
+* Die Dateien enthalten minütliche Daten über mehrere Jahre hinweg
+* gemered wird in der Funktion mergeDataFramesPrices
+
+
+TrainingOnlyPrices.py
+* Aufrufen der Funktion mergeDataframesPrices, um einen Datenrahmen df zu erhalten, der Preisdaten enthält
+* Entfernen von NaN-Werten aus dem Datenrahmen df
+* Hinzufügen technischer Indikatoren (RSI, EMAF, EMAM, EMAS) zum Datenrahmen df
+* Verschieben der Spalte "Close" um eine Zeile nach oben und Zuweisen an die Spalte "target"
+* Entfernen von unerwünschten Spalten aus dem Datenrahmen df
+* Anwenden der MinMaxScaler-Methode auf die verbleibenden Daten im Datenrahmen df zur Skalierung der Werte zwischen 0 und 1
+* Erstellen der Eingabevariablen X und der Ausgabevariablen y für das Modelltraining basierend auf den skalierten Daten
+* Aufteilen der Daten in Trainings- und Testsets (80/20 Prinzip)
+* Definieren des LSTM-Modells mit Eingabe-, LSTM- und Ausgabeschichten
+* Dropout und BatchNormalization verwendet um Overfitting zu reduzieren
+* Kompilieren des Modells mit dem Adam-Optimizer und dem Mean Squared Error (MSE) als Verlustfunktion.
+* Ausführen des Modelltrainings mit den Trainingsdaten für eine bestimmte Anzahl von Epochen.
+* Verwenden des trainierten Modells zur Vorhersage der Ausgabevariablen y für die Testdaten.
+* Plotten der Vorhersageergebnisse (y_pred) im Vergleich zu den tatsächlichen Testwerten (y_test) mithilfe von Matplotlib.
+
+
+
+
+
+
+Auswertung des Models mit verschiedenen Parameterwerten:
+* bei größerer Preisveränderung schwankt Modell sehr
+Test1:
+  
+
+  
+
+Test 2:
+  
+
+  
+
+  
+
+Test 3:
+  
+
+  
+
+Test 4:
+  
+
+  
+
+  
+
+LSTM_first_test.py
+* Preisvorhersage mit Wochendaten
+* Definieren der Variablen crypto_currency und against_currency für die Kryptowährung und die Vergleichswährung.
+* Festlegen des Start- und Enddatums für den Datenabruf.
+* Abrufen der historischen Preisdaten mithilfe der yf.download-Funktion von Yahoo Finance.
+* Vorbereiten der Daten durch Skalierung der Schlusskurswerte mit dem MinMaxScaler.
+* Festlegen der Anzahl der Vorhersage-Minuten und Erstellen von Trainingsdaten x_train und Zielen y_train.
+* Erstellen eines LSTM-Modells mit mehreren LSTM-Schichten und einem Dichteschicht.
+* Kompilieren und Trainieren des LSTM-Modells mit den Trainingsdaten.
+* Erstellen eines Random Forest Regression-Modells.
+* Anpassen der Form der Trainingsdaten für das Random Forest-Modell.
+* Trainieren des Random Forest-Modells mit den Trainingsdaten.
+* Abrufen der Testdaten basierend auf dem aktuellen Datum.
+* Vorbereiten der Testdaten für die Vorhersage durch Skalierung und Anpassung der Form.
+* Generieren von Preisvorhersagen mit dem LSTM-Modell und Umkehrung der Skalierung.
+* Generieren von Preisvorhersagen mit dem Random Forest-Modell und Umkehrung der Skalierung.
+* Plotten der tatsächlichen Preise, der Vorhersagen des LSTM-Modells und der Vorhersagen des Random Forest-Modells.
+* Simulation von Trades basierend auf den Vorhersagen und Berechnung des Gewinns/Verlusts.
+* Berechnung der Rendite in Prozent und des R²-Koeffizienten für die Vorhersagen beider Modelle.
+* Ausgabe des Gesamtgewinns/-verlusts und der Rendite.
+Auswertung dieses Models:
+* Random Forest kurve kommt sehr nah an den actual price
+* LSTM ungenauer und hat Glättung 
+  
+
+  
+  
+
+
+
+  
+
+
+
+
+
+Andere Dateien
+
+
+
+
+tweetyTesting.py 
+* tweets ziehen anhand von usernames
+* Nutzung der tweety library
+* Speichern der tweets in einer db (für unseren Server)
+* Sentiment zu den tweets hinzufügen
+mergeTweetsAndPrices.py
+* stellt methode zur verfügung, die unsere Tweets (aus der DB) mit ETH Preisen (aus einer .csv) und Bitcoin Preisen (aus einer .csv) miteinander, über den Timestamp, merged
+mergeTest.py
+* versucht Tweets, News und Ethereum Preise (alles aus der DB) miteinander zu mergen, über den Timestamp und count vectorized die tweets
+
+
+HistoricalData.py
+* speichert Tweets aus einer .csv und zieht sich tweets mit der tweety-library, für eine Liste an user, die als Influencer im Crypto-Space gelten
+* Ziel war es mit dieser Datei unsere Datenbank mit notwendigen historischen Daten zu befüllen, anhand welcher wir dann Modelle trainieren können
+TradeTester.py
+* stellt 3 Methoden zur Verfügung, zum test traden unserer predicteden Preise
+1. trade_test - tradet 10000 USD für alle predicteden Daten
+   1. kauft / verkauft anhand des thresholds
+   2. hält, wenn der nächste Preis höher predicted wird und bereits Coins gehalten werden
+   3. kauft immer mit dem maximalen Betrag ein
+2. trade_fifty_fifty - kauft / verkauft entlang der Testdaten mit einer 50/50% wahrscheinlichkeit ein
+3. calculate_hodling_return - berechnet den return beim kauf des ersten und verkauf des letzten Timestamps
+FearAndGreedIndex_Scraper.py
+* Versuch den Fear and Greed Index für Bitcoin zu scrapen und den ebenfalls für unsere Prediction zu nutzen
+
+
+
+
+
+
+ETHlive.py
+
+
+   * Grundgedanke
+   * Pullt den Preis ETH
+   * Die API wird von coingecko.com zurverfügung gestellt
+   * Funktion
+   * Die Klasse pullt jede Minute den aktuellen ETH-Preis
+   * Die Gesamten Daten werden in einer CSV-Datei gesammlt
+   * Alle Daten werden außerdem in einer DB gespeichert
+* Funktion der Klasse in der Zukunft
+   * Durch die EHTlive Klasse soll die AI mit den Aktuellen Daten versorgt werden, um den Preis der Nächste Minute zu predicten
+TweetByJan
+
+
+* Gundgedanke 
+   * Tweets zum Thema Kryprowährungen pullen
+* Funktion
+   * Über das snscrape package werden die tweets gepullt
+   * Die Tweets werden sowohl als CSV, als auch in der DB gespeichert
+* Vorteile von snscape
+   * In der Twitter Search-Box kann über die Funktion “Advance Search” eine query erstellt werden die man für Snscrape nutzen kann
+   * Snscrape hat nahzu kein limit
+* Problem an Snscrape
+   * Elon Musk hat eine Änderung an der Nutzung von Twitter vorgenommen, bei der jetzt ein Account erforderlich ist, um auf Twitter zugreifen zu können
+   * Snscrape hat keine Funktion mit der man sich in Twitter einloggen kann. 
+   * Snscrape Entwickler arbeiten aber bereits an einer Lösung 
+* Data Frame
+   * Mit embending werden die Tweets von Emojis und Satzzeichen bereinigt
+   * Das zu werden Key-Wörter gefiltert
+
+
+
+
+merge_eth_bitcoin_tweets.py
+
+
+* Grundgedanke
+   * Die Klasse merged die Preise von Bitcoin und EHT, sowie die Tweets in einem “Data Frame”
+   * Der Merge wird über einen “inner” und einen “left” Join an Hand der Date-Spalte durchgeführt 
+* Woher kommen die Daten
+   * Die Tweets werden in der TweetByJan Datei gesammelt
+   * Die Preise kommen von gedownloadeten CSV-Datein
+      * Grund ist das durch API’s nur Daten von einer Woche gepullt werden können
+      * Mit einer Schleife kommt man auf Daten von einem Monat
+      * Für den Bot brauchten wir weit aus mehr Daten
+
+
+
+
+
+
+ETHlive.py:
+
+
+Der Grundgedanke hinter ETHlive.py ist das Abrufen des ETH-Preises. Hierfür wird die API von coingecko.com verwendet. Die Klasse ruft jede Minute den aktuellen ETH-Preis ab und speichert die gesamten Daten sowohl in einer CSV-Datei als auch in einer Datenbank. In Zukunft soll diese Klasse die KI mit aktuellen Daten versorgen, um den Preis für die nächste Minute vorherzusagen.
+
+
+TweetByJan:
+
+
+TweetByJan hat zum Ziel, Tweets zum Thema Kryptowährungen abzurufen. Hierfür wird das snscrape-Paket verwendet. Die Tweets werden sowohl als CSV-Datei als auch in einer Datenbank gespeichert. Ein Vorteil von snscrape ist, dass über die "Advance Search"-Funktion in der Twitter-Suchbox eine entsprechende Abfrage erstellt werden kann. Snscrape hat nahezu keine Limitierungen. Jedoch gibt es ein Problem, da Elon Musk eine Änderung an der Nutzung von Twitter vorgenommen hat, sodass nun ein Account erforderlich ist, um auf Twitter zugreifen zu können. Snscrape bietet keine Funktion zum Einloggen in Twitter. Die Entwickler von Snscrape arbeiten jedoch bereits an einer Lösung. Durch die Verwendung von Embedding werden die Tweets von Emojis und Satzzeichen bereinigt, und es werden bestimmte Schlüsselwörter gefiltert.
+
+
+merge_eth_bitcoin_tweets.py:
+
+
+Der Grundgedanke von merge_eth_bitcoin_tweets.py besteht darin, die Preise von Bitcoin und ETH sowie die Tweets in einem Data Frame zu vereinen. Der Merge wird durch einen "inner" und einen "left" Join anhand der Datenspalte durchgeführt. Die Tweets werden in der Datei TweetByJan gesammelt, während die Preise aus heruntergeladenen CSV-Dateien stammen. Der Grund dafür ist, dass über APIs nur Daten einer Woche abgerufen werden können. Durch eine Schleife wird jedoch ein Datenzeitraum von einem Monat ermöglicht. Für den Bot werden weitaus mehr Daten benötigt.
+
+
+
+
+________________
+Reinforcement Learning
+rl.py
+* nimmt unsere ETH Daten aus der .csv und splittet in train und test Daten
+* erstellt ein Environment für das Trading und definiert die Methode “step”, mit den möglichen Aktionen, den daraus folgenden Zuständen und Belohnungen
+* train_dqn - trainiert das Environment mit den Daten mit einem Deep Q Learning Network
+gymtest        
+* funktioniert nicht
+        env.py
+* custom Crypto Trading Environment in OpenAIs gym Bibliothek
+* reset - setzt den Zustand der Umgebung auf den Anfangszustand zurück
+* _next_observation - liefert die nächste Beobachtung der Umgebung, basierend auf dem aktuellen Zustand, dabei werden die Daten der letzten fünf Zeitschritte (Open, High, Low, Close, Volume, Trades) verwendet
+* _take_action -  führt eine Aktion in der Umgebung aus, indem sie den aktuellen Preis festlegt, basierend auf der Aktion entweder Kryptowährung kauft oder verkauft, die entsprechenden Gebühren berechnet und den Networth der Umgebung aktualisiert
+* step - führt einen Zeitschritt in der Umgebung aus, indem sie die übergebene Aktion ausführt, den aktuellen Schritt inkrementiert und den Belohnungswert (reward) basierend auf dem Networth der Umgebung und dem Vergleich mit dem profit
+        main.py
+* nutzt ein Objekt des CryptoEnvs und gibt als Daten unsere Eth-Preis .csv-Datei mit
+* Verwendung von mehreren Deep Reinforcement Learning Algorithmen: A2C, DDPG, PPO, TD3, SAC
+   * nur A2C probiert zu nutzen in dem Fall
+        static.py
+* definiert Daten - unsere Ethereum-Preis .csv
+* definiert finale variablen für das Environment

@@ -1,0 +1,31 @@
+﻿PWA Vorraussetzungen
+Web App Manifest
+* JSON-Datei → Konfiguration für PWA
+   * browser: im Browser sichtbar
+   * minimal-ui: Browser sichtbar, keine Suchleiste mehr
+   * standalone: fast wie eigene app, nur Gesten
+   * fullscreen: browser nicht mehr sichtbar, fühlt sich wie eigene App an
+
+
+   * scope: gibt url an wo die PWA eigentlich liegt
+   * icons: Icon Einstellungen , mit z.B. Größeneinstellungen für unterschiedliche Geräte
+   * orientation: bevorzugte Ausrichtung der App, z.B. nur Querformat
+* Browser erkennt Websites, die diese Datei enthalten → dann als PWA behandelt
+
+
+Responsive Design
+* flexibles Layout
+* fließende Proportionen
+* dynamische Inhalte
+* Media Queries
+* Anpassung an verschiedene Bildschirmgrößen
+→ optimale Benutzererfahrung auf jedem Gerät
+HTTPS
+* verschlüsselt Kommunikation zwischen Server und Client
+
+
+Service Worker
+* JS-Datei
+* Art Proxy zwischen Browser und Netzwerk
+* wird bei erstem Besuch der Website geladen
+   * wird im Cache des Browsers gespeichert

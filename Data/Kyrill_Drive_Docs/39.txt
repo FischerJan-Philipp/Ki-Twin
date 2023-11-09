@@ -1,0 +1,9 @@
+﻿https://scikit-learn.org/stable/
+* use algorithms for analyzing data
+* Feature: CountVectorizer
+   * collection of text documents to a matrix if token counts
+* Cross Validation: for automated testing with data
+* train test split
+
+
+https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
