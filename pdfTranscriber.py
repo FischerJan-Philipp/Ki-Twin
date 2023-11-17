@@ -2,65 +2,30 @@ import PyPDF2
 import base64
 import requests
 from pdf2image import convert_from_path
-
-pdffileobj=open('AA_Deep_Learning_final (3).pdf','rb')
-
-pdfreader=PyPDF2.PdfReader(pdffileobj)
-
-x = len(pdfreader.pages)
-
-text_array = []
-for i in range(x):
-    pageobj=pdfreader.pages[i]
-
-    text=pageobj.extract_text()
-    print(text)
-    text_array.append(text)
+import os
+import fitz
 import io
+import base64
+from PIL import Image
 
-def encode_pdf_page(pdf_path, page_number):
-  with open(pdf_path, 'rb') as pdf_file:
-    pdf_reader = PyPDF2.PdfReader(pdf_file)
 
-    if page_number < 0 or page_number >= len(pdf_reader.pages):
-      print("Invalid page number")
-      return
+def pdf_page_to_base64(pdf_path, page_number):
+    doc = fitz.open(pdf_path)
+    page = doc.load_page(page_number - 1)  # zero-based indexing
+    pix = page.get_pixmap()
+    img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+    img_byte_arr = io.BytesIO()
+    img.save(img_byte_arr, format='PNG')
+    base64_image = base64.b64encode(img_byte_arr.getvalue()).decode('utf-8')
 
-    # Get the specified page
-    page = pdf_reader.pages[page_number]
+    return base64_image
 
-    # Create a BytesIO object to store the content of the page
-    page_content = io.BytesIO()
-    page_writer = PyPDF2.PdfWriter()
-    page_writer.add_page(page)
-    page_writer.write(page_content)
-
-    # Encode the content using base64
-    bs64 = base64.b64encode(page_content.getvalue())
-    print(bs64.decode('utf-8'))
-    return bs64
-
-def encode_pdf_page_to_image(pdf_path, page_number):
-  # Convert the PDF page to an image
-  images = convert_from_path(pdf_path, first_page=page_number + 1, last_page=page_number + 2)
-
-  # If the page was converted successfully, there should be one image in the list
-  if images:
-    # Save the image to a BytesIO object
-    image_content = io.BytesIO()
-    images[0].save(image_content, format='JPEG')
-
-    # Encode the content using base64
-    bs64 = base64.b64encode(image_content.getvalue())
-    return bs64
-
-page_to_test = encode_pdf_page_to_image(pdf_path, page_number)
 
 # Specify the path to your PDF file and the page number (0-based index)
-pdf_path = 'AA_Deep_Learning_final (3).pdf'
+pdf_path = 'Data/Prof/AA_Deep_Learning_final (3).pdf'
 page_number = 2  # Change this to the desired page number
 
-page_to_test = encode_pdf_page(pdf_path, page_number)
+page_to_test = pdf_page_to_base64(pdf_path, page_number)
 
 import openai
 client = OpenAI()
@@ -82,7 +47,7 @@ payload = {
       "content": [
         {
           "type": "text",
-          "text": "What’s in this image?"
+          "text": "Generate a detailed description of the visual content in this slide, focusing on elements that are relevant to the topic of the lecture. Additionally, provide insights or questions that my professor might discuss based on this slide."
         },
         {
           "type": "image_url",
@@ -93,9 +58,9 @@ payload = {
       ]
     }
   ],
-  "max_tokens": 300
+    "max_tokens": 2000,
 }
 
 import requests
 response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
-print(response.json())
+print(response.json()['choices'][0]['message']['content'])

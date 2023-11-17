@@ -58,8 +58,8 @@ if st.button('Start Recording'):
     # Transcribe the audio to text
     result = transcribe_audio(audio_data)
     st.text(result)
-    retrieve(result)
-    st.success(result)
+    finalResult = retrieve(result)
+    st.success(finalResult)
 
 if input_text is not None:
     if st.button("Chat with CSV"):
