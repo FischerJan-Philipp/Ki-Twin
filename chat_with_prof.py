@@ -16,11 +16,17 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 
 class ProfChat:
     def __init__(self):
-
+        self.slides_db = FAISS.load_local("./Vector_DBs/prof_slides_1000_50", OpenAIEmbeddings())
         self.db = FAISS.load_local("./Vector_DBs/prof_transcript_300_30", OpenAIEmbeddings())
 
     def retrieve_info(self, query):
         similar_documents = self.db.similarity_search(query, k=3)
+        page_contents_array = [doc.page_content for doc in similar_documents]
+        print(page_contents_array)
+        return page_contents_array
+
+    def retrieve_info_slides(self, query):
+        similar_documents = self.slides_db.similarity_search(query, k=3)
         page_contents_array = [doc.page_content for doc in similar_documents]
         print(page_contents_array)
         return page_contents_array
@@ -30,7 +36,7 @@ class ProfChat:
         prompt = f.read()
         prompt = prompt.replace("<query>", query)
         prompt = prompt.replace("<style>", " ".join(self.retrieve_info(query)))
-        prompt = prompt.replace("<slides>", str(datetime.now()))
+        prompt = prompt.replace("<slides>", " ".join(self.retrieve_info_slides(query)))
         prompt = prompt.replace("<date>", str(datetime.now()))
 
         print("PROMPT LENGTH: " + str(len(prompt)))
@@ -48,7 +54,7 @@ class ProfChat:
         prompt = prompt_template.read()
         prompt = prompt.replace("<query>", query)
         prompt = prompt.replace("<style>", " ".join(self.retrieve_info(query)))
-        prompt = prompt.replace("<slides>", str(datetime.now()))
+        prompt = prompt.replace("<slides>", " ".join(self.retrieve_info_slides(query)))
         prompt = prompt.replace("<date>", str(datetime.now()))
 
         print("PROMPT LENGTH: " + str(len(prompt)))

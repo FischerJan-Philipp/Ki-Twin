@@ -76,6 +76,6 @@ if input_text is not None:
             model="eleven_multilingual_v2"
         )
         print(audio_stream)
-        st.audio(audio_stream)
+        #st.audio(audio_stream)
         stream(audio_stream)
 
