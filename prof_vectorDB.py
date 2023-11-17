@@ -13,44 +13,33 @@ from langchain.document_loaders import TextLoader
 from langchain.document_loaders import PyPDFLoader
 import os
 import getpass
+from dotenv import load_dotenv
 
-# os.environ["OPENAI_API_KEY"] = "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"
+load_dotenv()
 
-os.environ.get("OPENAI_API_KEY")
-
-loader = PyPDFLoader('Logistik ZUSAMMENFASSUNG.pdf')
-pages = loader.load_and_split()
-
-text = []
-for page in pages:
-    text.append(page.page_content)
-
-combinedPDF = " ".join(text)
-
-text_splitter = CharacterTextSplitter(
-    # 100 characters per chunk
-    chunk_size=100, chunk_overlap=10
-)
+with open('Data/Prof/transcript.txt') as f:
+    transcript = f.read()
 
 text_splitter = RecursiveCharacterTextSplitter(
     # Set a really small chunk size, just to show.
-    chunk_size=100,
-    chunk_overlap=20,
+    chunk_size=300,
+    chunk_overlap=30,
     length_function=len,
     add_start_index=True,
 )
 
-docs = text_splitter.create_documents([combinedPDF])
+docs = text_splitter.create_documents([transcript])
 print(docs[2].page_content)
 
 # create embeddings
 faiss_index = FAISS.from_documents(docs, OpenAIEmbeddings())
 
 # save the index database
-faiss_index.save_local("faiss_logistikPDF_chunk_100_overlap_10")
+faiss_index.save_local("./Vector_DBs/prof_transcript_300_30")
 
 # load the index database
-db = FAISS.load_local("faiss_index", OpenAIEmbeddings())
+db = FAISS.load_local("./Vector_DBs/prof_transcript_300_30", OpenAIEmbeddings())
+faiss_index = db
 
 
 # similarity search function
@@ -62,25 +51,24 @@ def retrieve_info(query):
 
 
 # similarity search
-query = "Was sind die Aufgaben der Logsitik?"
-similar_documents = retrieve_info(query)
-similar_documents[1].page_content
+query = "Was ist ein neuronales netzwerk genau?"
 
 # 2. Setup GPT and template
 llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo-16k")
 
 template = """
-    You are a student working with the following notes:
-    {notes}
-    1/ Your answers should be in the style of the notes you have read, only use the given information there.
-    2/ If there is no relevant information in the notes, say "I don't know".
+    You are Axel Hochstein, a Business Computing professor at the HTW Berlin. You answer to any kinds of questions and tasks about your lectures in the module "Application of Artificial Intelligence".
+    You got the message: {message}
+
+    1. Your answers should be in the style of your previouse lectures, parts of those are provided here: {info}
+    2. Always answer in a way that is matches your lecture style.
 
     Please write the best response that you can.
 """
 
 prompt = PromptTemplate(
     template=template,
-    input_variables=["notes"]
+    input_variables=["message", "chats"]
 )
 
 chain = LLMChain(llm=llm, prompt=prompt)
@@ -88,8 +76,8 @@ chain = LLMChain(llm=llm, prompt=prompt)
 
 # 3.Retrieval augmented generation
 def generate_response(query):
-    notes = retrieve_info(query)
-    response = chain.run(notes=notes)
+    info = retrieve_info(query)
+    response = chain.run(chats=info, message=query)
     return response
 
 
