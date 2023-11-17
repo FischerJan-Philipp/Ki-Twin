@@ -1,7 +1,6 @@
 import io
 
 import streamlit as st
-from pandasai.llm.openai import OpenAI
 from dotenv import load_dotenv
 import os
 import pandas as pd
@@ -14,6 +13,7 @@ import whisper
 import numpy as np
 import openai
 import speech_recognition as sr
+import chat_with_prof as cp
 
 model = whisper.load_model("base")
 #dotenv_path = Path('D:\Kyron\Documents\Python Scripts\Ki-Twin\.env')
@@ -25,7 +25,7 @@ elevenlabs_api_key = os.getenv('ELEVENLABS_API_KEY')
 set_api_key(elevenlabs_api_key)
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
-chat = cc.ChatCalendar()
+chat = cp.ProfChat()
 
 r = sr.Recognizer()
 
@@ -75,6 +75,7 @@ if input_text is not None:
             stream=True,
             model="eleven_multilingual_v2"
         )
+        print(audio_stream)
         st.audio(audio_stream)
         stream(audio_stream)
 
