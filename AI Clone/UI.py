@@ -62,7 +62,6 @@ if input_text is not None:
         st.info("Your Query: " + input_text)
         result = retrieve(input_text)
         st.success(result)
-        """
         audio_stream = generate(
             text=result,
             voice=Voice(
@@ -72,7 +71,8 @@ if input_text is not None:
             stream=True,
             model="eleven_multilingual_v2"
         )
-        """
-        #st.audio(audio_stream)
-        #stream(audio_stream)
+        if audio_stream:
+            audio_bytes = b"".join(audio_stream)
+            st.audio(audio_bytes)
+            stream(audio_stream)
 

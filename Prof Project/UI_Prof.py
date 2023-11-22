@@ -42,11 +42,11 @@ st.title("Chat with Professor AI clone")
 st.image("prof_image.jpeg", width=200)
 
 
-st.info("Chat Below")
+st.info("Chatte hier")
 
-input_text = st.text_area("Enter your query")
+input_text = st.text_area("Senden")
 
-if st.button('Start Recording'):
+if st.button(':studio_microphone:'):
     # Use the microphone as the audio source
     with sr.Microphone() as source:
         st.text("Recording for 10 seconds...")
@@ -65,7 +65,7 @@ if input_text is not None:
         st.info("Dein Input: " + input_text)
         result = retrieve(input_text)
         st.success(result)
-        """
+
         audio_stream = generate(
             text=result,
             voice=Voice(
@@ -75,8 +75,9 @@ if input_text is not None:
             stream=True,
             model="eleven_multilingual_v2"
         )
-        """
-        #print(audio_stream)
-        #st.audio(audio_stream)
-        #stream(audio_stream)
+
+        if audio_stream:
+            audio_bytes = b"".join(audio_stream)
+            st.audio(audio_bytes)
+            stream(audio_stream)
 

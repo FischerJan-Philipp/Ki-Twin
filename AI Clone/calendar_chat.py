@@ -16,7 +16,7 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 
 class ChatCalendar:
     def __init__(self):
-        self.calendar_data = pd.read_csv('../Sources/Data/Calendar/kyrill_calendar.csv')
+        self.calendar_data = pd.read_csv('../Sources/Data/Calendar/768873652410-fjtsnuivvv6c6gukbqq0gga1jvaiklp3.apps.googleusercontent.com.csv')
 
         chat_messages = []
 
