@@ -1,0 +1,7 @@
+The slide presents information about two distinct methods for pretraining large language models (LLMs) using very large text corpora.
+
+1. GPT - causal mask: This method is related to autoregressive language models like GPT (Generative Pretrained Transformer). In this setup, the model learns to predict the next word in a sentence based on the preceding words. The slide shows a sequence of words where the model would predict the word following "how."
+
+2. BERT - random mask: Unlike GPT, BERT (Bidirectional Encoder Representations from Transformers) uses a different pretraining method called masked language modeling. Here, some of the words in the input text are randomly masked, and the model learns to predict these masked words based on the context provided by all other words in the sequence, both before and after the masked token. The diagram indicates that the word "small" might be predicted based on the context of the surrounding words, including those that come after the masked word.
+
+These two pretraining strategies represent fundamentally different approaches to language modeling, with GPT focusing on unidirectional, causal prediction, while BERT leverages bidirectional context, allowing it to better understand the full context of a sentence. Both methods are pivotal for creating language models that can understand and generate human-like text.

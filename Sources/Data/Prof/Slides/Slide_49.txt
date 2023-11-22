@@ -1,0 +1,11 @@
+The slide presents three different types of edge detection filters used in image processing: Sobel, Kirsch, and Robinson. Edge detection is a fundamental tool in computer vision and image processing that identifies points within an image where there is a sharp change in image brightness, which typically indicates the end of one region and the beginning of another.
+
+For each type of filter, two matrices are provided, representing filter masks or kernels for different orientations: 0 degrees and 45 degrees. These kernels are used to convolve with an image to calculate the gradient magnitude at each point, highlighting edges in images.
+
+- Sobel: The Sobel operator is a popular edge detection algorithm. It uses two sets of 3x3 convolution kernels; one estimates the gradient in the x-direction (horizontal) and the other in the y-direction (vertical). The two kernels provided here likely correspond to the x and y gradients at 0 degrees and 45 degrees orientations respectively.
+
+- Kirsch: The Kirsch operator calculates gradients like the Sobel operator but uses a different set of convolution masks and emphasizes edge detection in multiple directions. The provided kernels show how the mask weights change when taken at straight (0 degrees) and diagonal (45 degrees) orientations.
+
+- Robinson: The Robinson operator is another gradient-based edge detection filter. Similar to the others, this operator uses convolution masks to identify edges, and the slide shows how the mask values are set up for different orientations.
+
+These masks are slid across the image, and at each point, the corresponding pixel values are multiplied with the overlaying kernel values and summed up to calculate the response of the filter at that point. The response indicates the presence and strength of an edge. By applying these filters at various orientations as shown, one can detect edges running in different directions.

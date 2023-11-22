@@ -1,0 +1,14 @@
+This slide is titled "Start Simple: Seller-Buyer Negotiation" and appears to be part of a lecture about an approach in teaching artificial intelligence (AI). Specifically, it seems to focus on the use of AI to simulate seller-buyer negotiations and how it can improve through iterations of gameplay and critique.
+
+The slide is divided into three main sections:
+
+A. The Concept
+The first section shows a dialogue between a 'Buyer', a 'Seller', and a 'Critic' in a simulated negotiation situation. In this simulation, two agents – a buyer and a seller – engage in a negotiation game. During the game, one of the agents is advised by a critic who provides suggestions on how to improve the negotiation strategy. The 'Buyer' inquires about the price of a balloon, and the 'Seller' responds with a high price. The 'Critic' advises the 'Seller' to understand they want to sell at a higher price and potentially raises the quality of the product as a justification for the price. This is followed by another round where the 'Seller' uses the advice and shows improvement in their negotiation strategy.
+
+B. Example Feedback from AI Critic
+The second section provides examples of different strategies that a critic might suggest to the seller. This advice ranges from employing a "flinch" technique, where the seller shows surprise or disappointment to influence the buyer, to the "power of silence" or "anchoring techniques." Each tactic represents a different psychological or strategic approach to affect the negotiation outcome.
+
+C. AI Models Improvement
+The third section lists several AI models, suggesting a progression in capabilities and the ability to continuously improve after receiving feedback. This list includes various versions of AI such as "GPT3.5-Turbo," "Claude-instant-v1.0," and "Jurassic-1-instruct." These models likely represent different iterations of AI programs designed to simulate and improve upon negotiation strategies in the context given above. Each version seems to include enhancements over the previous ones, although the specific improvements are not detailed on the slide.
+
+Overall, the slide outlines an AI-driven method for simulating and enhancing negotiation skills through repeated play and advice from a critical AI component. The AI improves by learning from feedback in each round, suggesting a form of machine learning or iterative improvement is at play.

@@ -1,0 +1,24 @@
+This slide explains a concept related to a "Sandbox Environment," which is likely an educational tool or a testing framework where users can execute actions and observe the effects on various objects within a simulated environment. Here's a detailed explanation of the information provided on the slide:
+
+**Main Point:**
+- The slide outlines how an agent's actions within a simulated environment can affect the state of an object. Specifically, it discusses what happens when an agent carries out an action, such as making espresso for a customer, and how this action should trigger a change in the object's state within the language model. It uses the state change of a coffee machine as an example where the state shifts from "off" to "brewing coffee".
+
+**Prompt Template:**
+- The slide shows a prompt template called `generate_obj_event_v1.txt` with variables that need to be filled in to generate a prompt.
+- The template includes four input fields:
+  - `<INPUT 0>`: Object name
+  - `<INPUT 1>`: Persona name
+  - `<INPUT 2>`: Persona action event description
+  - `<INPUT 3>`: Object name (repeated from the first input)
+  - `<INPUT 4>`: Object name (likely an error since it repeats the first input without additional context)
+
+- A comment block marker is used, likely for developers to make notes within the template or to mark sections of the template that can be customized.
+
+**Task Description:**
+- The slide explains the task associated with the prompt. The goal is to understand the state of an object that is being used by someone. The language provided in this task-oriented prompt intends to structure the query to the language model or simulation to extract this state information.
+
+**Prompt Examples:**
+- On the right side of the slide, a prompt instance based on the provided template is displayed. This instance aims to understand the state of a coffee machine being used by the persona named "Isabella" making espresso for a customer.
+- It favors a step-by-step approach and requests a description of the coffee machine's state as it is being used to make espresso.
+
+The slide is illustrative of how templates are used for querying a system (in this case, a language model) to retrieve or infer the state of objects following certain interactions. This kind of simulation can be particularly useful for AI research, software development, and educational purposes, offering a controlled environment to analyze and understand how actions affect objects and their attributes.

@@ -1,0 +1,29 @@
+The slide you've shared is describing a "Decoder" component, which is part of the architecture commonly used in Transformer models for handling tasks such as natural language processing.
+
+Here are the details explained in the slide:
+
+1. On the top left, there's a mention of the "Output Probabilities Prediction," suggesting that the Decoder generates probabilities for different outputs, which is typical in tasks like language translation or text generation where each output position might correspond to a probability distribution over possible tokens (e.g., words or characters).
+
+2. Below that, the slide shows an "Encoder Stack" that feeds into an "Nx" block representing the decoder stack, indicating multiple layers of decoders. Each layer in the decoder stack consists of the following elements in sequence:
+   - "Multi-Head Attention"
+   - "Add & Norm" - A residual connection followed by layer normalization.
+   - "Feed Forward"
+   - Another "Add & Norm"
+
+   This sequence is the repeating unit within the decoder. Multi-head attention allows the model to focus on different positions of the input sequence, and the feed-forward network applies a transformation to the processed sequence.
+
+3. The diagram also shows that there is "Positional Encoding" added to the input and the output, indicating that the model is leveraging positional information to maintain the sequence order since the Transformer model doesn't inherently understand sequence order.
+
+4. The central large diagram of the slide outlines the "Decoder" portion of the Transformer architecture. This shows a single decoder block within potentially many ("More Decoders"). Each block includes:
+   - "Masked Multi-Head Attention" - This layer is "masked" to prevent positions from attending to subsequent positions, ensuring predictions for a position cannot depend on the future positions during training which is necessary in sequence-to-sequence tasks.
+   - Several "Add and Norm" layers indicating the layer normalization and residual connections.
+   - "Multi-Head Attention Layer" - To connect encoder and decoder, enabling the decoder to focus on relevant parts of the input sequence (known as "attention").
+   - "Feed Forward Network" - A position-wise fully connected feed-forward network.
+
+5. To the right side, you see matrices that show the "Mask Shape" which is a triangular matrix, used in "Masked Multi-Head Attention" to prevent future information leakage.
+
+6. "Positional Encoding" is mentioned again with the Greek letter sigma (Σ), indicating summation, as it is added to the inputs and outputs.
+
+7. The Decoder output shape is shown to be the same as the input (D=512, T=6); this is typical as Transformers maintain the input shape through the model, here with depth D=512 and sequence length T=6.
+
+In summary, the slide is providing a schematic overview of the decoder part of a Transformer model, focusing on the input and output shapes, the main components of a single decoder layer, and how they are repeatedly stacked to form the decoder part of the Transformer. The Transformer is widely used due to its attention mechanisms that allow for parallel processing and capturing context in sequences more effectively than earlier RNNs and LSTMs.

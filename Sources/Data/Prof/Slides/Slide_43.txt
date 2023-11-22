@@ -1,0 +1,18 @@
+The slide presents an overview of the Transformer model architecture, which is a type of neural network particularly well-suited for handling sequence-to-sequence tasks, like machine translation and text summarization. The slide's title "Attention Is All You Need" refers to the seminal paper by Vaswani et al. that introduced the Transformer model.
+
+The content depicted on the slide is broken down as follows:
+
+1. At the top, the slide points to the Transformer model, highlighting that "Transformers are great!" This is a nod to the model's strong performance in natural language processing tasks.
+
+2. Below the title are illustrations of the two main components of the Transformer: the Encoder block and the Decoder block.
+
+   - The Encoder block contains a stack of layers, each with two sub-layers: a multi-head self-attention mechanism, and a position-wise fully connected feed-forward network (denoted as "FF NN"). This structure allows the encoder to process each item in the input sequence in parallel while attending to other items in the sequence, which is a significant efficiency over traditional sequence models that process items one after the other.
+   - The Decoder block also has a stack of layers, each with three sub-layers: a masked multi-head self-attention mechanism, a multi-head attention mechanism that attends to the encoder's output, and a feed-forward network (also "FF NN"). The masking ensures that the predictions for a given position can only depend on the known outputs at positions before it, not the future positions.
+
+3. The center bottom of the slide details the full model with the encoder on the left and the decoder on the right. Both the encoder and decoder are composed of multiple identical layers (denoted as "Nx"). The input data first goes through positional encoding and then through the stack of encoder layers. The decoder stack similarly processes the output, and the final processed information is then used to generate the output probabilities using a linear layer followed by the softmax function.
+
+4. On the top right, there's a brief mention indicating that the Transformer leads to "sind großartig," which is German for "are great."
+
+5. At the very bottom of the slide, there is a reference to a book by Tunstall, Lewis, Leandro Von Werra, and Thomas Wolf, titled "Natural language processing with transformers," published by O'Reilly Media, Inc., in 2022. This text is likely cited as a source of further reading on Transformers and their application in natural language processing.
+
+In summary, the slide provides a high-level view of the Transformer architecture's components and suggests its strong performance in the context of natural language processing.

@@ -1,0 +1,11 @@
+The slide depicts the architecture of a feed-forward layer (position-wise) within a Transformer model, which is a type of architecture commonly used in natural language processing tasks, such as language translation, text summarization, and more.
+
+At the bottom left of the slide is a diagram labeled "Transformer - Encoder." This part of the diagram shows the components of an encoder layer within a Transformer model. The encoder consists of two main sub-layers: the first is a multi-head self-attention mechanism, and the second is a position-wise fully connected feed-forward network. Each sub-layer has a residual connection around it (identified by the "Add & Norm" blocks), followed by layer normalization. The output of the encoder layer is fed into the next layer, if there are N layers ("Nx" implies multiple identical layers).
+
+The slide emphasizes the feed-forward networks, which are part of the encoder structure. These networks operate on each position separately and identically. This means that the same feed-forward network is applied to every position, indicated by the statement "Weights are shared."
+
+The diagram shows the input matrix "Z" being passed into multiple feed-forward networks in parallel, with one network per position. The said feed-forward networks each transform the input at a specific position independently of other positions.
+
+The feed-forward networks themselves consist of two linear transformations with a ReLU (rectified linear unit) activation in between, as indicated in the detailed breakdown on the right. The first transformation projects the input from 512 dimensions to 2048 dimensions, followed by an activation function, and the second transformation projects the result back to 512 dimensions. The output of these parallel feed-forward networks is then combined to form the next layer's input with a dimension of SxD = 4512, where S is the sequence length and D is the dimensionality of each token's representation.
+
+The slide aims to describe how the feed-forward layer processes the input data in a Transformer encoder, emphasizing the position-wise and shared-weight attributes of these layers in the Transformer architecture.

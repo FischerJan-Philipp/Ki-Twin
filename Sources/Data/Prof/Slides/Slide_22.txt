@@ -1,0 +1,11 @@
+The image depicts a schematic representation of the BERT (Bidirectional Encoder Representations from Transformers) pre-training process. BERT is a state-of-the-art language processing model used to understand the context of words in search queries and other text.
+
+In the illustration, we see two tasks that BERT uses for pre-training: Masked Language Model (Mask LM) and Next Sentence Prediction (NSP).
+
+1. **Masked Language Model (Mask LM)**: This task randomly masks some of the tokens (words or subwords) from the input, and the model then predicts the original identity of the masked words based solely on their context. This forces the model to learn a deep understanding of language context and word relationships. Here, tokens 'T_i' and 'T'_j' appear to be masked for this purpose.
+
+2. **Next Sentence Prediction (NSP)**: This task involves determining whether the second sentence in a pair of sentences is the subsequent sentence in the original document. During training, the model is given pairs of sentences as input and learns to predict if the second sentence is the actual next sentence that follows the first. The diagram shows an unlabeled sentence A and sentence B pair, where sentence A ends with '[SEP]' which stands for 'separator token' used to differentiate sentences in BERT, and sentence B begins after that.
+
+The '[CLS]' token at the beginning of the input sequence is used for classification tasks and stands for 'classification token'. It is followed by embeddings 'E_i' to 'E_n', which represent the encoded representation of each input token after sentence A, and the '[SEP]' token separates the two sentences. Sentence B has its embeddings represented from 'E'_1' to 'E'_m'.
+
+Together, these tasks help BERT learn language representations that are useful for a wide range of natural language processing tasks like question answering, text classification, and language translation. The image likely comes from a lecture on natural language processing or machine learning, explaining how BERT is pre-trained before it is fine-tuned for specific tasks.

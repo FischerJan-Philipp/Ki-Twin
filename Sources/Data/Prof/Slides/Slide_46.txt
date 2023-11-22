@@ -1,0 +1,16 @@
+The slide is about the "Self-Attention Layer" which is a key component of transformer models, commonly used in the field of natural language processing (NLP). The self-attention mechanism allows the model to weigh the importance of different parts of the input data differently and is particularly important in understanding the context within sequences, like sentences in text.
+
+Here's a detailed explanation of the information on the slide:
+
+Initialization (init):
+Three weight matrices are created: \(W_q, W_k,\) and \(W_v\), representing the query, key, and value matrices, respectively. These matrices are initialized with dimensions (d_model, d_k), where d_model represents the dimension of the input embeddings and d_k is the dimension of the queries and keys. These weight matrices are trainable parameters that get updated during model training. The shape of these matrices is mentioned as (512x64), which implies that the model size (d_model) is 512 and the query/key size (d_k) is 64.
+
+Calculation 1 (Calc1):
+The input matrix \(X\) is multiplied by \(W_q, W_k,\) and \(W_v\) to produce three new matrices \(Q, K,\) and \(V\). The shapes of \(Q, K,\) and \(V\) are indicated to be (8xDx64), presuming that we are considering eight such matrices in parallel for multi-head attention, with D representing the number of tokens in the sequences.
+
+Calculation 2 (Calc2):
+The next step in calculating self-attention is to take the dot product of \(Q\) and \(K^T\) (the transpose of \(K\)), which is then scaled down by dividing by the square root of \(d_k\) and followed by a softmax operation which turns the values into a probability distribution. The result is then multiplied by \(V\) to produce the matrix \(Z\), which contains the weighted sum of values. The shape of this matrix is also indicated to be (8xDx64).
+
+The slide also shows an example matrix referred to as "Output of multiple Attention Heads" with the sentence 'The quick brown fox'. Each row of the matrix corresponds to a word in the input sentence, and each column (excluding the last column labeled 'S') corresponds to attention scores. These scores indicate how much attention each word should pay to every other word in the sentence (including itself). The 'S' column appears to sum the scores of each row, indicating how much overall attention is assigned to each word.
+
+For example, the attention matrix shows that the word "quick" has the highest attention score (.75) when the model is focusing on the word "The", suggesting that within the context, "quick" is the most relevant word to "The". The sum \(S\) for the word "quick" across all words is 4, indicating the total attention that "quick" gets across the whole sentence.

@@ -1,0 +1,27 @@
+The slide presents information on a system called RAG, which stands for Retrieval Augmented Generation, in the context of question answering (QA).
+
+**Main Points on the Slide:**
+- RAG is an architecture designed for question answering.
+- It includes a process of end-to-end backpropagation through components `q` and `θ_Pe`.
+- The model has two main components:
+  1. Retriever `Pn` (non-parametric): It retrieves documents from a document index using Maximum Inner Product Search (MIPS).
+  2. Generator `Pe` (parametric): It's responsible for generating the answer using the documents retrieved by `Pn`.
+
+**Subsections Explained:**
+
+**2.2 Retriever: DPR**
+- The retrieval component `p(θ|x)` is based on Dense Passage Retrieval (DPR):
+  - DPR uses a bi-encoder architecture, which splits the representation of the query and documents, each encoded by a separate BERT model.
+  - The retrieval process involves calculating the Maximum Inner Product Search (MIPS) of document vectors with a query representation, selecting the documents with the highest probability.
+
+**2.3 Generator: BART**
+- This part of the system uses a BART (Bidirectional and Auto-Regressive Transformers) language model, which suits any encoder-decoder.
+- BART is combined with RAG to fine-tune responses. The generator uses the retrieved content from the DPR to augment generation and create the final QA output.
+
+Key Terminology:
+- `q(x)`: Query representation that is encoded.
+- `d(z)`: Document representation that has been retrieved.
+- `MIPS`: Maximum Inner Product Search, an efficient way to find documents most relevant to the query from a large collection.
+- `θ_Pe`: Parameters for the generator model.
+
+The slide suggests that the system is structured to improve question answering by using high-quality document retrieval to inform the answer generation, resulting in more accurate and contextually relevant responses.

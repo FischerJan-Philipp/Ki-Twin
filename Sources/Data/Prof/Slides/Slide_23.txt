@@ -1,0 +1,15 @@
+The slide presents an overview of the BERT (Bidirectional Encoder Representations from Transformers) Pre-Training process focusing on Sentence Matching. BERT is a state-of-the-art Natural Language Processing (NLP) model that has been widely used for various tasks such as question answering, language understanding, and more.
+
+In the process depicted, two sequences of tokens, "Sentence A" and "Sentence B," are used as input for the BERT model to determine if they are consecutive sentences in a text. The inputs are represented by tokens labeled T_A1, T_A2 for Sentence A, and T_B1, T_B2 for Sentence B. 
+
+Special tokens [CLS] and [SEP] are used in the process. [CLS] stands for "classification" and is used as the first token of every sequence input to BERT; it is used to represent the entire sequence for classification tasks. [SEP] is a separator token, indicating the end of one sentence and the start of another.
+
+BERT's training comprises a task where it learns to predict whether Sentence B is indeed the actual next sentence that follows Sentence A in the original text or not. To accomplish this, during pre-training, Sentence B is randomly replaced with a different sentence 50% of the time. This process enables BERT to understand relationships and context in and between sentences.
+
+The task of predicting whether Sentence A and Sentence B match is shown at the top with "Predict A/B Match."
+
+BERT's architecture involves multiple layers of Transformer encoders (denoted by Enc_1, Enc_2, ..., Enc_J). Each layer processes the input sequence of tokens, captures complex relationships, and passes its output to the next layer.
+
+Finally, the lower part of the illustration seems to show how the input tokens are processed through BERT to produce final embeddings or representations E_A1, E_A2, E_B1, E_B2, which encode the contextual information from both sentences. 
+
+This pre-training task is critical to BERT's effectiveness, as it helps the model understand the nuances of language and improves its performance on downstream tasks.

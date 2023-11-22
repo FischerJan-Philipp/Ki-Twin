@@ -1,0 +1,15 @@
+The slide presents an overview of the RAG (Retrieval Augment Generation) Architecture for QA (Question Answering). This architecture is involved in enhancing question answering systems by combining retrieval of relevant documents with a generative model for answer generation.
+
+Here's a breakdown of the key components and points as per the slides:
+
+1. **RAG Architecture**: It involves joining two components - a retriever and a generator - in a single architecture that allows for an end-to-end backpropagation through both the question and document representations (denoted as q and Pe on the slide).
+
+2. **Retriever (Pn)**: The retrieval component p_n(x|z) is based on DPR (Dense Passage Retrieval). DPR uses a bi-encoder architecture. The slide includes the formula for the probability density function, which uses an exponentiated dot product of a dense representation of a question (q(z)) and document (d(z)). These representations are obtained via separate BERT encoders.
+
+    - **MIPS**: Maximum Inner Product Search, it looks for documents with the highest inner product with the question representation. The top-k retrieved documents are used for initializing the retriever and to build the document index used for generating answers.
+
+The slide mentions that the document index is referred to as the non-parametric memory, which means it is not directly adjusted during the learning process, unlike the parametric model components.
+
+3. **Generator (Pθ)**: This is considered the parametric part and is based on a model, such as a sequence-to-sequence transformer, that can be modeled with various encoder-decoder setups. The slide mentions that generative models can be fine-tuned using content from the document retriever (DPR) and give specific examples where this approach has been effectively used.
+
+Overall, the slide focuses on explaining the two integral parts of the RAG architecture—retrieval and generation—that work together to improve the performance of question answering systems by using relevant document retrieval combined with answer generation strategies. The architecture is designed to optimize for questions where answers must be retrieved and generated from a vast repository of textual information.

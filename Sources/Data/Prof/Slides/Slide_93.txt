@@ -1,0 +1,16 @@
+The slide is on the topic of "Memory and Retrieval". It discusses how memory and retrieval functions occur and are evaluated in the context of a system (perhaps an artificial intelligence or agent-based system).
+
+Here are the key points listed on the slide:
+
+- Memory:
+  - The most basic element of a "memory stream" is an observation, defined as an event directly perceived by an agent or entity within a visible region.
+  - Common observations may include behaviors carried out by the agent itself or those that the agent perceives being performed by other agents or interactions with inanimate objects.
+
+- Retrieval:
+  - Recency: This refers to giving a higher score to memory objects that were accessed more recently, implying that more recent events are likely to stay within the agent's attentional focus. Here, recency is operationalized with an exponential decay function over the number of "sandbox game hours" since the memory was last retrieved. The decay factor given is 0.995.
+  - Importance: This is determined by an LLM process, which suggests there is a prompt used to evaluate significance (demonstrated in the "Prompt to determine importance" box).
+  - Relevance: Measured by calculating the cosine similarity with a query, which is a common technique in information retrieval systems to measure the similarity between two vectors or sets of data.
+
+The "Prompt to determine importance" section seems to be an illustrative example wherein an individual rates the importance of various memories on a scale from 1 to 10, with 1 being mundane and 10 exceptionally poignant.
+
+Lastly, part of the slide is not fully visible, and there is a panel on the right side that references an example or case study, but the full content of that section isn't visible in the image.

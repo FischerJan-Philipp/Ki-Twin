@@ -1,0 +1,15 @@
+The slide titled "Fine-Tuning For Downstream Tasks" appears to be discussing how the BERT (Bidirectional Encoder Representations from Transformers) model can be fine-tuned to perform different types of natural language processing (NLP) tasks. It outlines four key task categories with respective examples of those tasks:
+
+(a) Sentence Pair Classification Tasks:
+This task involves classifying relationships between pairs of sentences. The model takes two sentences as input and outputs a class label indicating the relationship. Examples of tasks within this category include MNLI, QQP, QNLI, STS-B, MRPC, RTE, and SWAG. The diagram demonstrates how BERT processes a pair of sentences and uses the [CLS] token embedding for classification.
+
+(b) Single Sentence Classification Tasks:
+These tasks revolve around classifying a single sentence into a category. Examples given include SST-2 and CoLA. Similarly, the BERT model processes a single sentence and uses the [CLS] token embedding to determine the class label.
+
+(c) Question Answering Tasks:
+For question answering, the model evaluates a paragraph of text alongside a posed question to find the answer within that paragraph. A notable example provided is the SQuAD v1.1 dataset. The diagram illustrates how BERT produces an answer by selecting the start and end span within the paragraph that best answers the question.
+
+(d) Single Sentence Tagging Tasks:
+Tagging tasks involve labeling each token (word or subword) within a sentence. An example presented is the CoNLL-2003 NER (Named Entity Recognition) task. The respective diagram shows that each token in the input sentence is associated with a prediction, commonly used to identify named entities such as locations, people, organizations, etc.
+
+The common theme across these diagrams is the use of the BERT model's token embeddings to perform a variety of fine-grained predictions depending on the specific task: from classifying entire sentences (or pairs of sentences) to predicting the label of individual tokens within a sentence.

@@ -1,0 +1,18 @@
+The slide appears to be discussing the architecture of the Transformer model, specifically focusing on the "Add & Norm" or residual connections. Transformers are designed for handling sequential data, such as language for tasks like translation, and have become a fundamental component in modern natural language processing (NLP).
+
+In the context of Transformers, the "Add & Norm" step refers to the residual connection followed by layer normalization, which is applied in both the encoder and decoder parts of the architecture. Here's the relevant information from the slide:
+
+- The top part of the slide shows the Encoder part of the Transformer model. The input denoted by "X" from the previous encoder layer is sent into a "multi-headed Self-attention" block, which enables the model to focus on different parts of the input sequence.
+- After the self-attention block, the output "Z" is added to the original input "X" in the "Add and normalize" step, which is the residual connection. This means the output of the self-attention block is added to its input, to help in gradients flow during backpropagation, preventing the vanishing gradient problem, and allowing deeper networks.
+- Subsequently, "Layer normalization" is performed to normalize the values in the network, to stabilize learning and allow for faster training.
+- Following the addition and normalization step, the output is sent to a "Feed Forward" layer, which is typically a position-wise, fully connected feed-forward network applied to each position separately and identically. 
+- The output of the feed-forward layer is again added to its input (the output of the previous add and normalize step) and then normalized, forming another residual connection followed by layer normalization.
+
+The bottom part of the slide looks like a schematic representation of multiple repeated Encoder blocks, which comprise the full Encoder part of the Transformer. Each block consists of:
+
+- A "multi-headed Self-attention" block, followed by "Add & Norm".
+- A "Feed Forward" block, again followed by "Add & Norm".
+
+Additionally, it can be noted that "Positional Encoding" is added to the input embeddings at the base of this stack to incorporate the order of the sequence, as the self-attention mechanism does not inherently capture sequence order.
+
+The presence of multiple Encoder blocks stacked on top of each other (N x) allows the model to learn complex patterns in sequential data. Typically, the decoder would have a similar structure with some additional components to handle the output generation process, but this slide seems to focus only on the Encoder.

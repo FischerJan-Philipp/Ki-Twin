@@ -1,0 +1,14 @@
+This slide appears to be part of a lecture discussing the concept of "Agents Powered By LLMs" (Large Language Models), with a specific focus on the REACT framework, which is indicated by the URL provided in the slide. The framework is designed to enhance agents' abilities to take actions based on a combination of reasoning and observations using LLMs.
+
+The slide illustrates the concept of REACT (Reason + Act) through an example involving the Apple Remote control scheme. The example is a question-answering task that explores how an agent might reason about a given question and then execute actions to arrive at the answer.
+
+The question presented is: "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?" The standard reasoning-only approach provides a chain of thought leading to the answer "iPhone, iPad, iPod Touch."
+
+However, the slide contrasts this standard reasoning process with the REACT method. The REACT approach combines reasoning with actions that an agent would take. There are four thoughts and corresponding actions listed under REACT, demonstrating how an agent could execute searches and draw conclusions from the results:
+
+1. The first thought/action involves searching the Apple Remote and recognizing it is a remote control introduced to interact with Apple TV.
+2. The second thought/action is to determine what program the Apple Remote was designed to control. Despite searching for "Front Row" (an Apple media center software), the agent cannot find a program with that specific name.
+3. The third thought/action similarly involves a search for "Front Row software" and leads to the observation that Front Row is a discontinued media center software.
+4. Finally, the fourth thought/action concludes that an Apple keyboard (function keys) or the iPhone can control the software, as Front Row is controlled by an application on the computer. 
+
+In summary, the slide is presenting the concept of REACT, where an agent uses both reasoning and actions to solve problems, as opposed to relying solely on reasoning. The example showcases how an agent could iteratively gather information and refine its understanding to reach the correct answer.

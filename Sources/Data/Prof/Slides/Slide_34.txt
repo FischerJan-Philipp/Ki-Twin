@@ -1,0 +1,17 @@
+The slide is discussing "Public vs. Private Data," specifically through the example of Dr. Anthony Fauci's communication strategies during the COVID crisis. Two different prompts are provided that illustrate the contrast between how Dr. Fauci communicated publicly and privately.
+
+Public communication prompt:
+- How did Anthony Fauci communicate with the public about the COVID crisis?
+- The answer provided on the slide notes that Dr. Fauci's public communication strategy was multi-faceted and aimed at providing reliable, timely information to help guide the public through the uncertainties of the pandemic.
+
+Private communication query:
+- How did Anthony Fauci communicate privately about the COVID crisis?
+- The conversation excerpts on the slide appear to show Dr. Fauci's private discussions which include an email to or from Mark Zuckerberg discussing the verification of information and consultation with Bill Gates upon significant developments regarding the health crisis.
+
+The slide also introduces some data science concepts, without further context in the visible part of the slide:
+
+- "Embeddings" are generally a way of transforming textual data into numerical vectors that can be processed by machine learning algorithms.
+- A "Vector Database" would be a database designed to store and query these vectors efficiently.
+- "Similarity" would refer to a measure of how alike two vector representations are, which can be used to find matches or related items in a vector database.
+
+The slide possibly prepares to discuss how public-private communications can be analyzed through data science techniques like embeddings and vector comparisons to detect consistencies or differences in messaging.

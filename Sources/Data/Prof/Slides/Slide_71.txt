@@ -1,0 +1,23 @@
+This image presents a concept from the field of Natural Language Processing (NLP) called BERT Pre-Training specifically focusing on the Sentence Matching aspect. BERT, which stands for Bidirectional Encoder Representations from Transformers, is a method developed by Google for pre-training language representations.
+
+The diagram essentially illustrates how sentence matching is utilized during the pre-training phase of BERT. The process works as follows:
+
+1. Two sequences of tokens are taken as inputs, which are usually a pair of sentences (A and B). Tokens are typically words or subwords that are used as the atomic units for processing in NLP.
+
+2. Each sequence starts with a special token "[CLS]" which stands for "classification" and is used as an aggregate representation for classification tasks.
+
+3. The sentence A tokens (T_A1, T_A2, and so on) are followed by another special token "[SEP]" which stands for "separator" and is used to distinguish between the two sequences.
+
+4. The sentence B tokens (T_B1, T_B2, and so on) follow the "[SEP]" token, and if it's the final sequence in the input, it is immediately followed by another "[SEP]" token indicating the end.
+
+5. Below the sequence of tokens, there's a representation of the BERT model, which takes the sequence of tokens as input. Within the BERT model, each token is first converted to a corresponding embedding (E_A1, E_B1, etc.). These embeddings are learned vector representations that capture the semantics of the tokens.
+
+6. The BERT model processes these embeddings bidirectionally, understanding the context of each token based on all the other tokens in the sentence(s).
+
+7. The contextually enriched outputs from BERT are then used for various downstream tasks. In this case, one specific output based on the "[CLS]" token is used for the next step.
+
+8. Above the BERT model, there's a box labeled "Predict A/B Match" with a small neural network diagram inside it. This component takes the output corresponding to the "[CLS]" token and predicts whether sentence A and sentence B are consecutive sentences in the original text.
+
+9. The text at the bottom right indicates "Randomly Replace Sentence B with 50% Probability". This suggests that during pre-training, sentence B is randomly replaced with another sentence 50% of the time, and the model has to predict whether the second sentence is the correct consecutive sentence or a random one.
+
+By training on this task, BERT develops a nuanced understanding of sentence relationships, which can significantly improve its performance on a wide range of language understanding tasks.

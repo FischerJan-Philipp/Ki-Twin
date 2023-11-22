@@ -1,4 +1,0 @@
-﻿A: 
-B: ii
-C: iiiii
-D: iii

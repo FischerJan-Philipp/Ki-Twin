@@ -1,0 +1,35 @@
+The slide presents an overview of the training process for a Transformer model, which is a type of architecture used in machine learning for tasks such as natural language processing and machine translation.
+
+At the bottom left of the slide, there's an example of a translation task from English to German, with the English sentence "The Quick Brown Fox" being translated to German as "Der schnelle braune Fuchs."
+
+The main part of the slide depicts the internal structure of a Transformer. There are two primary components to the Transformer model: an Encoder and a Decoder, each composed of multiple layers—indicated by the terms "Encoder Stack" and "More Decoders."
+
+Here is a breakdown of the components and processes involved in the Transformer as depicted in the slide:
+
+1. **Encoder Stack**: 
+   - Takes the input sentence and encodes it into a sequence of vectors.
+   - The dimensions are labeled as "D=512," indicating that the vectors are 512-dimensional.
+
+2. **Positional Encoding**: 
+   - Since Transformers do not process sequences like RNNs (Recurrent Neural Networks) do, positional encoding is added to give the model information about the order of words.
+   - This is represented by a green grid on the slide.
+
+3. **Decoder Stack**:
+   - Takes the output of the encoder and the previous outputs to generate the next word in the translation.
+   - It has several sub-components:
+     - "Masked Multi-head attention" which ensures the prediction for a word doesn’t depend on the future words.
+     - "Multi-head attention" layer that looks at the encoder output.
+     - "Residual connections," indicated by "Add and Norm," which are used after each sub-layer to help with the flow of gradients during training.
+     - "Feed Forward network," a component of each layer of the decoder.
+
+4. **Memory from encoder to Decoder**: 
+   - This represents the flow of the encodings from the encoder to the decoder to retain the context of the input sentence during the translation process.
+
+5. **Decoder Output**: 
+   - The output sequence is produced here, and it is typically the same shape as the input sequence.
+   - Appears to be shown as "T=6," perhaps indicating a sequence length of 6 tokens.
+
+6. **Final probability vector (P)**:
+   - At the bottom of the slide is an indication of a probability vector for the translated sentence, which specifies the probability of each word being the correct next word in the sequence.
+
+The slide illustrates a high-level abstraction of the components and data flow within a Transformer model during training, particularly for a sequence-to-sequence task such as machine translation. The information implies that the model is being trained end-to-end, using an input sentence to produce a translated output sentence through the processes of encoding, decoding, and applying attention mechanisms.

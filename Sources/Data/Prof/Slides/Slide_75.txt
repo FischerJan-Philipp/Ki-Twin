@@ -1,0 +1,16 @@
+The image displays a diagram representing the process of Extractive Question Answering using a machine learning model—specifically, it appears to describe a model based on Transformer architecture.
+
+At the bottom of the diagram, there's an input sequence consisting of tokens. These tokens are color-coded to represent different types of information:
+- Special tokens ([CLS], [SEP]) are labeled in orange and used by the model to understand the beginning of input and the separation between different segments, such as separating the question from the context.
+- Question tokens (Why, is, ...) are highlighted in blue, indicating the words that make up the question the model needs to answer.
+- Context tokens (Item, ..., no, flash) are in red and represent the passage of text from which the model is supposed to extract the answer.
+
+Above the input tokens is the Transformer encoder (colored in purple), a crucial part of the model that processes the input tokens. The Transformer architecture allows the model to consider the context of each word within the sentence, which improves the model's understanding and ability to answer questions.
+
+The output from the Transformer encoder is a series of hidden states (indicated by "H" and gray color), which are the internal representations of each token after considering the entire input sequence.
+
+On top of the hidden states is a linear layer (colored in green), which processes these hidden states to compute the final output of the model.
+
+The final layer maps hidden states to start and end logits (vertical bars in green, blue, and red), which represent the probability of each token being the start or end of the answer span within the context. Typically, the model will predict the start and end of the answer by selecting the tokens with the highest start and end logits, respectively.
+
+The Extractive Question Answering task is a common problem in Natural Language Processing (NLP) where the goal is to automatically find an answer to a question within a given text context. The answer is "extracted" directly from the text, meaning that it is a substring of the context provided. The Transformer model, such as BERT or similar, is often used for this purpose due to its effectiveness in understanding the context and nuances of language.

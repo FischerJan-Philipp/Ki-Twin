@@ -1,0 +1,21 @@
+This slide presents information about a "Decoder Self-Attention Layer" which seems to be a component within a neural network, likely used in the realm of machine learning and artificial intelligence.
+
+The slide explains that the decoder self-attention layer utilizes three weight matrices: W_q (query), W_k (key), and W_v (value). It's stated that the dimensions of these matrices are (64, d_model) where d_model is presumably the dimension of the model's input or hidden layers. During the training process of the model, these weights are updated.
+
+The flow of operations is described as follows:
+
+1. The layer receives two inputs: 'Z' which represents the memory from the encoder part of a model (such as in a transformer architecture), and 'X' which is the data flowing through the decoder. Their respective shapes are S×D and T×D, where S and T likely stand for sequence lengths and D is for the dimensionality.
+
+2. Three calculations are described:
+    Calc1: This step involves the creation of query (Q), key (K), and value (V) matrices using the inputs X and Z:
+        - Q = XW_q, resulting in a shape T×D * D×64 = T×64.
+        - K = ZW_k, resulting in a shape S×D * D×64 = S×64.
+        - V = ZW_v, resulting in a shape S×D * D×64 = S×64.
+
+    Calc2: The next step involves the application of the softmax function (a typical function in machine learning for normalizing input to be a distribution of probabilities that sum to 1) on the scaled dot-product of Q and the transpose of K. This is divided by the square root of d (presumably the dimensionality D), then multiplied by V. The operation sequence is indicated as follows:
+        - Softmax(QK^T / sqrt(d)) * V
+        This calculation results in a matrix with shape T×64.
+
+3. The output of Calc2, denoted as Z, is shown to be passed on, presumably to the next layer or operation in the network.
+
+This self-attention mechanism is a key component in the transformer architecture, which has become state-of-the-art for various natural language processing tasks. The purpose of the self-attention mechanism is to enable the model to weigh the importance of different parts of the input data differently and is particularly effective in handling sequential data where relationships within the sequence are crucial for understanding the overall context.

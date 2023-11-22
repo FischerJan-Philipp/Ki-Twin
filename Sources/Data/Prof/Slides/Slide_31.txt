@@ -1,0 +1,24 @@
+The slide presents information on "In-Context Learning," discussing three different settings for this learning approach, specifically as it applies to machine learning or artificial intelligence models. It also contrasts these settings with traditional fine-tuning methods, which are noted as not being used for GPT-3.
+
+Here's a breakdown of the content on the slide:
+
+1. Zero-shot
+In this setting, the model predicts the answer given only a natural language description of the task. No gradient updates are performed. An example provided shows a task of translating English to French with the input "cheese" and the task description serving as the prompt.
+
+2. One-shot
+The one-shot learning setting goes a step further, where the model sees a single example of the task to learn from, in addition to the task description. No gradient updates are performed here either. The example given is similar to Zero-shot, with the additional single example aiding the translation task.
+
+3. Few-shot
+Few-shot learning provides the model with several examples of the task, along with the task description. No gradient updates are involved in this learning setting as well. The examples help the model understand the task better and improve its prediction accuracy. The slide displays three translations from English to French to illustrate this method.
+
+The slide contrasts these methods with traditional fine-tuning (not used for GPT-3):
+
+Traditional Fine-tuning
+In this method, the model is trained via repeated gradient updates using a large corpus of example tasks. An example under fine-tuning shows sequential training examples like translating "sea otter" to "loutre de mer," "peppermint" to "menthe poivrée," and so on, with each example followed by a gradient update.
+
+Lastly, the bottom right corner contains instructions related to constructing an abstractive question and answer scenario with example data such as:
+- Context: Matt wrecked his car.
+- Question: How was Matt's day?
+- Answer: Bad
+
+It's illustrating how an AI model can be prompted to answer questions based on a provided context, which is part of in-context learning methods like the zero-shot, one-shot, and few-shot learning settings described.

@@ -1,0 +1,13 @@
+The slide presents information on positional encoding, which is a concept used in transformer models in machine learning, specifically in the field of natural language processing (NLP).
+
+Positional encoding is a technique used to give the model information about the order or position of tokens in a sequence. Transformers do not inherently process sequential data in order, so positional encodings are added to the input embeddings to provide order information.
+
+On the slide, there is a matrix marked "X" on the left, equated to another matrix "X" on the right, with an addition of a positional encoding matrix. This suggests that the positional encoding is added to the input embeddings to produce an encoded sequence that reflects the positions of tokens.
+
+Below the matrices, there are two formulas which define the actual encoding. The formula for PE_(pos, 2i) = sin(pos/10000^(2i/d_model)) represents the encoding for even indices, and the formula for PE_(pos, 2i+1) = cos(pos/10000^(2i/d_model)) represents the encoding for odd indices. "pos" represents the position of the token in the sequence, "i" is the dimension, and "d_model" refers to the total number of dimensions in the model.
+
+The sinusoidal patterns on the right show the values of the positional encodings for different positions and dimensions over a sequence. These patterns can capture the relative or absolute position of tokens in a sequence.
+
+Below the formulas and the heat map image, there is a diagram illustrating how the positional encodings are integrated into a transformer architecture. Input embeddings are added to positional encodings at the base of the transformer, and this combined information is then fed into the multi-head self-attention mechanism. The process repeats for every layer, and the final output produces output probabilities, indicating the transformer's final predictions or encodings.
+
+The slide also references a URL for further reading about the understanding of transformers in data science.

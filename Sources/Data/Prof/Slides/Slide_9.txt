@@ -1,0 +1,26 @@
+The slide presents an overview of the self-attention layer, which is a component found in certain types of neural network architectures, notably the Transformer model, which is widely used in natural language processing (NLP). The self-attention layer is responsible for enabling the model to weigh the importance of different parts of the input data (e.g., different words in a sentence) differently.
+
+Here's a step-by-step breakdown of the self-attention mechanism as described on the slide:
+
+1. **Initialization**: Three weight matrices, W_q, W_k, and W_v, are initialized. These are learnable parameters and will be updated during training. The slide notes the dimensionality of these matrices as (512x64), indicating the model is transforming an input with 512 units to an output with 64 units.
+
+2. **Input Representation (X)**: The shape of the input is represented as 5 sequences with a dimensionality of 512 (Shape = 5xD = 4512). This input could be a representation of a batch of sentences where each sentence is composed of 5 words or tokens, and each word is represented by a 512-dimensional vector.
+
+3. **Calculations (Calc1)**:
+    - Q (Query) = XW_q
+    - K (Key) = XW_k
+    - V (Value) = XW_v
+   Here, the input X is multiplied with the learnable weight matrices (W_q, W_k, W_v) to produce the query, key, and value matrices for the self-attention mechanism.
+
+4. **Calculation of Attention (Calc2)**:
+    - The dot product of the query matrix Q and key matrix K transpose is computed. This operation is denoted as QxK^T.
+    - The result is then scaled by dividing by the square root of d (the dimension of the key vectors), which in this case is √d.
+    - A softmax function is applied to this scaled result, which turns the scores into probabilities. The softmax function ensures that all values are non-negative and sum to one.
+    - The softmax output is then multiplied by the value matrix V.
+    - Finally, the result is summed across sequences to create the matrix Z, where each element represents the attention-weighted representation of the input.
+
+On the right side of the slide, there is an illustration of how self-attention would be applied to the sentence "The quick brown fox." Each word in the sentence attends to other words, and the matrix below the sentence shows attention scores, indicating how much attention each word pays to every other word in the sequence (e.g., "quick" attends mostly to "brown" with a score of .75). 
+
+In the context of the sentence, S is set to 4, possibly indicating the scaling factor (though usually, √d refers to the dimension of the key/query vectors as previously mentioned).
+
+Overall, the self-attention mechanism illustrated in the slide is a way of computing an output that represents each part of the input data in the context of the other parts. This is particularly powerful in NLP applications, where the model can learn to pay more attention to relevant words when processing a sentence or a sequence of words.

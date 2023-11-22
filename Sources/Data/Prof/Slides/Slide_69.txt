@@ -1,0 +1,9 @@
+The slide presents information about two different ways to pretrain large language models (LLMs): using a causal mask and a random mask. These methods are applied to very large corpora of text for training the models to understand and generate human-like language.
+
+1. GPT - Causal Mask:
+   - The representation here indicates that the GPT (Generative Pre-trained Transformer) approach to language modeling uses what is referred to as a "causal mask." This means that the model learns to predict the next word in a sentence based on all of the previous words. This is a unidirectional approach where each word is predicted only from the words that come before it. To illustrate, if the sentence is "A person's a person no matter how small," the model will attempt to predict "small" after reading "A person's a person no matter how."
+
+2. BERT - Random Mask:
+   - BERT (Bidirectional Encoder Representations from Transformers) uses a "random mask." Unlike GPT, BERT is designed to understand the context of a word from both the left and the right sides—i.e., bidirectionally. In the slide, some words are highlighted as "masked," which implies that during pretraining, some percentage of the input tokens are replaced with a special token ([MASK]) and the task for the model is to predict the original word based on the context provided by the unmasked words. For example, if "matter" and "small" were masked in the sentence, BERT would try to predict these words based on "A person's a person no...how."
+
+Both of these methods are integral techniques in the field of NLP (Natural Language Processing) and have unique benefits and use-cases for different applications. GPT-style models are particularly good at generating text, while BERT-style models excel in tasks that require understanding context, such as question answering or language inference.

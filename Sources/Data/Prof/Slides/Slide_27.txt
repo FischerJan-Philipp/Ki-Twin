@@ -1,0 +1,17 @@
+The slide is presenting a concept or process called "Extractive Question Answering" which is part of the field of natural language processing (NLP). This area focuses on the development of systems that can answer questions by identifying and extracting the relevant part of the input text that contains the answer.
+
+From the graphical representation, the process appears to be utilizing a transformer-based model architecture. Let me break down what's depicted in the slide, step by step:
+
+1. At the bottom of the diagram, there is a sequence of tokens, which include "[CLS]" (a special token typically representing the start of a sequence and used for classification in transformers like BERT), "Why is", "...", "?", "[SEP]", "Item", "no", "flash", "...". These tokens represent the input to the system, where "[CLS]" is the classification token, the "Why is ... ?" part is indicative of a question (the ellipsis implies that part of the question is truncated in the visual), "[SEP]" is a separator token that typically indicates the end of one segment and the beginning of another one, and "Item ... no flash ..." seems to indicate a context or a passage of text in which the answer may be found.
+
+2. The purple box represents the "Transformer encoder," which is a reference to transformer architecture commonly used in NLP. The transformer processes the input sequence and computes complex attention-based representations of the input tokens.
+
+3. On top of the transformer layer, there are grey squares representing "Hidden states," which are the internal states of the model after processing the input tokens. These hidden states capture the relationships and dependencies between the tokens in the sequence.
+
+4. The green box labeled "Linear" indicates a linear layer on top of the hidden states. This is likely a feedforward neural network that projects the high-dimensional hidden state vectors to a lower dimension suitable for the final output.
+
+5. Finally, we can see upward arrows indicating "Start and end logits." Each pair of logits corresponds to a token in the sequence. The model assigns these logits to indicate the probability of each token being the start or end of the answer span within the context.
+
+The bars at the top right might indicate the probabilities (logits) that the linear layer has assigned to each token for being the start or end of the answer. The higher the bar, the higher the likelihood that the associated token is part of the answer. The goal is to identify the span within the context (the segment after "[SEP]") that most likely answers the given question.
+
+This slide summarizes a critical part of the process in extractive question-answering models, where AI identifies the position within the text that provides the answer to a given question.

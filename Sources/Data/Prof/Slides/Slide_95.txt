@@ -1,0 +1,20 @@
+The slide presents a process for deciding what to reflect on in order to generalize and infer information. This could be in the context of artificial intelligence, information processing, or similar fields. Here's the information presented step by step:
+
+1. Step: Initiate reflection whenever the sum of importance scores for latest events perceived by the agent exceeds a threshold (e.g. 150). This suggests that reflection should start when enough significant information has been gathered.
+
+2. Step: Get 100 most recent records in an agent's memory stream. This implies that the agent reviews the latest pieces of information it has stored.
+
+3. Step: Prompt to determine what to reflect on. An example given shows Klaus Mueller engaging in different activities that could prompt reflection: reading a book on gentrification, conversing with a librarian about his research project, and noting an unoccupied desk at the library.
+
+The slide suggests asking three high-level questions based on this information:
+    - What topic is Klaus Mueller passionate about?
+    - What is the relationship between Klaus Mueller and Maria Lopez?
+    - ...
+
+4. Step: Use query to retrieve relevant memories (including reflections). This step involves querying the agent's stored memories to retrieve relevant information that has been flagged through reflection.
+
+5. Step: Prompt to generate reflections. Here, different statements about Klaus Mueller are made that require reflection, like him writing a research paper, enjoying reading about gentrification, conversing with Ayesha Khan about exercising, etc. The slide asks for high-level insights that can be inferred from these statements.
+
+6. Step: Update memory stream. This step involves updating the agent's memory with new information resulting from the reflection process.
+
+Finally, the slide poses a query on the topic Klaus Mueller is passionate about, suggesting that this exercise aims to deduce Mueller's interests or focus areas from the information given and reflections made.

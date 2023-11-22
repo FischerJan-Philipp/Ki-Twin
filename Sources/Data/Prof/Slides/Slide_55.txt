@@ -1,0 +1,20 @@
+This slide illustrates the architecture of an Encoder-Decoder model which is commonly used in natural language processing (NLP) tasks, such as machine translation. The Encoder-Decoder model is often structured within a neural network framework.
+
+The model consists of two main parts:
+
+1. Encoder: This part of the model processes the input data. It is often made up of a stack of layers (in this case shown as Encoder 1 to Encoder 6) that transform the input into an intermediate fixed-size representation. The input example provided at the bottom is "The quick brown fox."
+
+2. Decoder: The decoder then takes this intermediate representation and generates the output data from it, step by step. Similar to the encoder, it has a multi-layer structure (Decoder 1 to Decoder 6) that ultimately outputs a sequence. The example output on the top right side of the illustration is "Der schnelle braune Fuchs," which is a translation of the input sentence into German.
+
+The detailed block on the left side of the slide provides an insight into the layers of a transformer architecture, which is a popular choice for encoder-decoder models:
+
+- Embedding: The inputs (and outputs) are first embedded into a continuous vector space.
+- Positional Encoding: This step adds information about the position of each element in the sequence, which is crucial since the transformer model does not inherently process data in order.
+- Multi-Head Attention: This component helps the model to focus on different parts of the input when predicting each part of the output.
+- Add & Norm: Short for "Add and Normalize", it is a part of the residual connection around each sub-layer (in this case, both after the multi-head attention and the feed-forward layers), followed by layer normalization.
+- Feed Forward: A feed-forward neural network applied to each position separately and identically.
+- Outputs: Finally, the outputs of the decoder are the predictions of the next element in the sequence.
+
+The architecture diagram shows arrows suggesting the sequence of operations and the flow of data through the model. Each block typically represents a neural network layer or a group of layers in the actual implementation. The red "Nx" symbols suggest that the encoder and decoder are composed of "N" identical layers stacked on top of each other.
+
+Overall, the slide depicts an Encoder-Decoder model, likely a version of the transformer model, emphasizing the sequence-to-sequence processing that it enables, such as translating a sentence from one language to another.

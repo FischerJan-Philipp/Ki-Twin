@@ -1,0 +1,16 @@
+The slide titled "Sliding Window For Long Documents" seems to be discussing a concept related to processing long documents, possibly with a natural language processing (NLP) or text analysis application.
+
+It illustrates the Sliding Window technique, which is commonly used to handle long pieces of text. In this context, a sliding window may refer to moving a fixed-size window over the text to examine it in smaller, more manageable portions, which can be helpful when analyzing or processing texts that are too long to be handled in one piece due to computational or context limitation constraints.
+
+The example text snippet included in the slide repeats twice, demonstrating how the window slides over the document:
+
+1. "Why is the camera of poor quality? Item like the picture, fast deliver 3 days well packed, good quality for the price. The camera is decent (as phone cameras go). There is no flash though."
+
+2. A repeat of the same snippet with an offset, demonstrating how the window has moved - which is indicated by the term "Stride." Stride denotes the step size or amount by which the window moves over the text after each operation.
+
+Specific tokens are highlighted in the text to indicate start and end positions or other special tokens:
+
+- [CLS] which typically stands for "Classification" and is used at the beginning of sequences in certain models like BERT for classification tasks.
+- [SEP] which typically stands for "Separator" and is used to separate different segments within a sequence, often used in tasks involving multiple sentences or sequence pairs.
+
+The illustration shows that when the sliding window moves over the text by the stride length, it includes the next part of the text for analysis, while still keeping some of the previously included text for context. This approach allows overlapping windows to capture continuity and context in large documents. The squares with "[CLS]" and "[SEP]" are likely representative of special tokens used in language models that guide how the data should be processed.

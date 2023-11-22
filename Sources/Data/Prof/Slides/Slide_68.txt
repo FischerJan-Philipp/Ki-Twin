@@ -1,0 +1,11 @@
+The slide is titled "Evolution Of Transformer Architectures" and discusses the development of different types of transformer-based models in the field of natural language processing (NLP). Transformers are a type of neural network architecture that has been highly influential since its introduction.
+
+The slide lists three main families of transformer architectures that have evolved over time:
+
+1. Encoder branch: This family includes models such as BERT (Bidirectional Encoder Representations from Transformers), DistilBERT (a distilled version of BERT that is smaller and faster), RoBERTa (a robustly optimized BERT approach), XLM (Cross-lingual Language Model), XLM-R, ALBERT (A Lite BERT), ELECTRA (Efficiently Learning an Encoder that Classifies Token Replacements Accurately), and DeBERTa (Decoding-enhanced BERT with Disentangled Attention).
+
+2. Decoder branch: This family includes generative models like GPT (Generative Pretrained Transformer), GPT-2, GPT-3, and GPT-Neo, which are designed primarily for tasks where generating text is key, such as language modeling, text completion, and creative writing.
+
+3. Encoder-decoder branch: These models combine the advantages of both encoder and decoder models, and include T5 (Text-to-Text Transfer Transformer), BART (Bidirectional and Auto-Regressive Transformers), M2M-100 (a multilingual machine translation model), and BigBird, which is likely an advanced transformer model capable of handling long sequences.
+
+A graph in the slide illustrates the exponential growth of the number of parameters in transformer models over the years. The x-axis represents the year, from 2018 to 2022, and the y-axis has a logarithmic scale indicating the number of parameters in each model, ranging from less than 0.1 million to 1000 million (1 billion). Models like GPT-3, Turing-NLG, Megatron-LM, and T5 are shown as data points on the graph, with each model having a significantly larger number of parameters than its predecessors, highlighting the trend towards larger and more complex transformer models over time.

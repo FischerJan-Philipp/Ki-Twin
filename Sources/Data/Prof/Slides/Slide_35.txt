@@ -1,0 +1,29 @@
+The slide is discussing a concept termed "Agents Powered by LLMs" which stands for Language Models. On the slide, there's a visual representation of a process involving language models (LMs) interacting with an environment (Env) to perform actions and generate reasoning traces, which are then used to make observations.
+
+The slide has depicted this concept through a question-and-answer example, where the goal is to identify another device that can control the program originally designed for the Apple Remote. The "Reason Only" and "Act Only" approaches are contrasted with a combined "ReAct (Reason + Act)" approach.
+
+For "Reason Only", the thought process is broken down step by step:
+- The Apple Remote is originally designed to interact with Apple TV.
+- The Apple TV can be controlled by the Apple Remote and iPod Touch.
+- Thus, the answer includes the iPhone, iPad, and iPod Touch.
+
+This leads to an inferred answer of "iPhone, iPad, iPod Touch".
+
+Under "Act Only", there are a series of actions taken without reasoning:
+- Search for Apple Remote.
+- Search for what the Apple Remote is a remote control for.
+- Unable to find information about "Front Row".
+
+The result does not lead to a correct answer.
+
+The "ReAct" approach combines reasoning with action:
+- Thought 1 identifies a need to search for the Apple Remote and determine what it was originally designed to interact with. The act associated with this thought searches for the Apple Remote.
+- Thought 2 suggests the remote was designed to interact with Front Row media center.
+- Act 2 searches for Front Row, but it is discovered that Front Row is discontinued.
+- Thought 3 indicates that Front Row is not found, prompting a need to search for Front Row software.
+- Act 3 searches for Front Row as software but doesn't yield a result.
+- Thought 4 surmises that the Front Row function is controlled by an Apple Remote or keyboard and concludes the search with the information about Front Row.
+
+This combined approach seems to guide the logical process through both reasoning and interacting by searching for information, resulting in a thorough exploration that could potentially lead to a correct answer.
+
+It's important to note this slide seems to illustrate how language models can be used not just for generating text based on prompts (reasoning), but also to drive actions in a possibly interactive environment, thereby showcasing how AI agents can perform complex tasks by integrating both reasoning and interaction.

@@ -1,0 +1,21 @@
+The slide presents Project 7, which is about developing a Streamlit application to showcase AI-driven solutions. Streamlit is an open-source app framework for Machine Learning and Data Science projects.
+
+The project entails the following tasks and considerations:
+
+1. Use an Example Learning Platform like Moodle for the project. Moodle is a popular open-source learning management system used by educational institutions to create online learning sites.
+
+2. Think about compelling use cases for the project. This means students should brainstorm practical scenarios where the application of AI would significantly benefit the learning platform's users.
+
+3. Utilize the Moodle API to get and post data. In particular, the slide references Moodle's web service API functions, available at `https://docs.moodle.org/dev/Web_service_API_functions`. The API (Application Programming Interface) allows for interaction with Moodle programmatically, enabling developers to retrieve data from Moodle or send data to Moodle.
+
+4. Use a chat interface to communicate with Moodle and use LLM (possibly meaning Language Learning Models) to implement use cases. This suggests integrating a chat functionality that leverages AI-based language models to handle certain tasks or respond to queries within Moodle.
+
+5. Example interactions are given:
+   - For a student: "Please submit document XY for today's assignment and provide some initial feedback".
+   - For a teacher: "Please extract all submissions from Student XY, summarize and give first impression on strengths and weaknesses."
+
+   These examples indicate that the AI-driven solution could be involved with helping manage assignments and feedback processes within Moodle.
+
+6. Lastly, the slide points to Streamlit resources available at `https://streamlit.io/gallery?category=llms`. This URL is likely a reference to examples or templates related to learning management systems that are available in the Streamlit gallery. Users can visit this link for inspiration or to see how Streamlit interacts with other learning management systems.
+
+In summary, the slide outlines a project that combines AI, specifically language processing models, with a learning platform, with the goal of enhancing the educational interface and possibly automating certain aspects of learning management and interactions between students and teachers.

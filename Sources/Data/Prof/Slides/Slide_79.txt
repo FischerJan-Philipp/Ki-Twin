@@ -1,0 +1,27 @@
+The slide is discussing "In-Context Learning," focusing on how machine learning models can adapt based on the amount of example data provided. The slide compares three different settings—the zero-shot, one-shot, and few-shot learning scenarios—and explains traditional fine-tuning (which it states is not used for GPT-3).
+
+**Zero-shot Learning:**
+The model predicts the answer solely based on a natural language description of the task; no prior examples are provided, and no gradient updates are performed. An example given is to translate "cheese" from English to French.
+
+**One-shot Learning:**
+The model is given a single example of the task along with the task description. There are still no gradient updates performed. The provided example illustrates translating "sea otter" to "loutre de mer" in French, and then the model is prompted to translate "cheese."
+
+**Few-shot Learning:**
+The model observes a few examples of the task in conjunction with the task description. Again, no gradient updates are applied. The examples include translations of "sea otter" to "loutre de mer" and "peppermint" to "menthe poivrée," and an additional prompt to translate "plush giraffe."
+
+**Traditional Fine-tuning:**
+Displayed on the right side of the slide, traditional fine-tuning usually involves the model being trained via repeated gradient updates using a large corpus of example tasks. Three examples are provided to illustrate how a model might learn from this method:
+
+- The translation of "sea otter" to "loutre de mer"
+- The translation of "peppermint" to "menthe poivrée"
+- More examples are implied by ellipses, with the final example being the translation of "plush giraffe" to "girafe peluche"
+
+Each of these examples includes a gradient update, which is a step in the training process where the model's parameters are adjusted to reduce the error in its predictions.
+
+There is also a highlighted note at the bottom of the slide related to "abstractive Q&A," where the slide provides a structure for context, question, and answer, such as:
+
+- Context: "Matt wrecked his car"
+- Question: "How was Matt's day?"
+- Answer: "Bad"
+
+This part is indicating how contextual information can be vital for models to appropriately answer questions that require more than just fact-based responses but rather infer conclusions or summaries from the given context.

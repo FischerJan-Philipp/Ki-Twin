@@ -1,0 +1,15 @@
+The image appears to be a slide from a lecture on neural network architecture, focusing on adding an attention layer to enhance the model. Here's a breakdown of the information provided:
+
+1. The main title of the slide says "Add Attention Layer," which suggests that the topic is about how the attention mechanism can be integrated into a neural network model.
+
+2. There are two main blocks in the workflow diagram:
+    - The left block is labeled "Encoder block" and consists of a series of Recurrent Neural Network (RNN) cells processing an input sequence. Each cell in the sequence processes one element of the input ("Transformers", "are", "great", etc.). Each RNN cell outputs a "state" (State 1 to State 4), which is typically a vector that encodes the information up to that point from the input sequence.
+    - The right block is labeled "Decoder block" and is structured similarly with RNN cells. It is also receiving the input from the attention mechanism.
+
+3. The attention mechanism is represented as a layer connecting the encoder states to the decoder cells. The lines connecting the encoder states to the "Attention" indicate that information from each of the states can contribute to the attention mechanism and consequently to the decoder's output. The attention mechanism allows the model to focus on different parts of the input sequence while generating each element of the output sequence.
+
+4. The output sequence of the decoder block consists of words, which suggest that the model is likely used for a sequence-to-sequence task like machine translation or text summarization. In this case, the model seems to translate English to German (the output being "Transformer sind grossartig!").
+
+5. The bottom text states: "Computations are inherently sequential and cannot be parallelized across input sequence". This points to a limitation of the RNN cells in the encoder and decoder: because each cell's output depends on the previous one's, it's difficult to compute all states in parallel, which can be a bottleneck in terms of computation speed and efficiency.
+
+In summary, the slide is explaining how an attention layer can be added to an RNN-based sequence-to-sequence model, allowing it to efficiently manage dependencies and focus on relevant parts of the input sequence when producing the output sequence.

@@ -1,0 +1,19 @@
+The lecture slide explains a three-step process for using reinforcement learning in combination with supervised learning to train an AI model, specifically in the context of fine-tuning GPT-3.5.
+
+Step 1: Collect demonstration data and train a supervised policy.
+- A dataset prompt is selected.
+- An individual (labeler) demonstrates the desired output behavior.
+- This demonstrated dataset is then used to fine-tune GPT-3.5 through supervised learning.
+
+Step 2: Collect comparison data and train a reward model.
+- A prompt and several model outputs are sampled.
+- These outputs are then evaluated by an individual (labeler), ranking them from best to worst.
+- The data from these rankings is used to train a reward model.
+
+Step 3: Optimize a policy against the reward model using the PPO reinforcement learning algorithm (Proximal Policy Optimization).
+- A new prompt is taken from the dataset.
+- The PPO model, initialized with the supervised policy, generates an output.
+- The reward model computes a reward for the output.
+- This reward is then applied to update the policy using PPO.
+
+The three steps illustrate a loop where the policy is continuously improved using a combination of human labeler feedback and reinforcement learning methods. This process aims to refine the AI's performance in generating outputs that align with the desired behavior demonstrated by the labelers.

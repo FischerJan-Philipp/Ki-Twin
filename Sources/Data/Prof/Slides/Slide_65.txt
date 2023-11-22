@@ -1,0 +1,15 @@
+The slide appears to be about the training process of a machine translation model, specifically a Transformer model.
+
+The main part of the slide shows a diagram of the Transformer architecture, which is divided into two main components: the Encoder stack and the Decoder stack.
+
+1. Encoder Stack: This part of the Transformer takes in the input sentence, which is represented here as "The Quick Brown Fox." This sentence is tokenized and then input to the encoder, where it undergoes several transformations. The dimensionality of the sentence encoding vector is also mentioned, with a size of 512 (D=512).
+
+2. Decoder Stack: The output of the encoder stack is passed to the decoder stack. The decoder takes the encoded sentence and, starting from an initial token (often representing the beginning of a sequence), generates the translated sentence one token at a time. The decoded sentence displayed as output is "Der schnelle braune fuchs </s>," which is the German translation of the original English sentence, along with the end-of-sequence token "</s>."
+
+The decoder stack also has multiple layers which include operations such as "Masked Multi-head attention," "Add and Norm" (which likely refer to a residual connection followed by layer normalization), "Multi-head attention layer," and a "Feed Forward network." Each layer also has an "Add and Norm" component.
+
+Additionally, there's a positional encoding applied to the input tokens to give the model information about the order of words in the sentence, which is crucial for understanding language correctly. The visual representation of the positional encoding is viewed as a graph with sine and cosine functions at the bottom of the diagram.
+
+Finally, on the right side of the slide, the output of the decoder stack is illustrated, resulting in a final probability vector labeled "P." This vector represents the probability distribution over the possible output tokens for each position in the translated sentence, and the model is trained to maximize the probability of the correct next token at each step ("T=6" is likely referring to the step in the sequence of translations).
+
+The process described in this slide demonstrates how a Transformer model is trained for machine translation, learning to convert a sentence from one language (e.g., English) into another language (e.g., German). The key concepts presented are tokenization, encoding, decoding, attention mechanisms, positional encoding, and probability distribution for token prediction.

@@ -1,0 +1,11 @@
+The slide displays matrices representing different types of edge detection filters, which are used in image processing to enhance the edges within images. Edge detection is a fundamental tool in computer vision and image analysis, helping in object detection, feature extraction, and scene analysis.
+
+On the slide, there are three sets of edge detection filters: Sobel, Kirsch, and Robinson. Each set contains two filters, one for detecting edges at a 0-degree orientation and another for detecting edges at a 45-degree orientation.
+
+The Sobel filters are designed to respond maximally to edges running horizontally and diagonally relative to the pixel grid. The 0-degree Sobel filter has more weight in the vertical center column, which makes it more sensitive to horizontal edges. Meanwhile, the 45-degree filter, shifted and rotated with respect to the first, is more sensitive to edges that run at a 45-degree angle.
+
+The Kirsch filters have a similar structure but with different weights. The 0-degree Kirsch filter places a strong negative weight on one side and a strong positive weight on the opposite side, which enhances its sensitivity to edges. The 45-degree Kirsch filter is rotated, maintaining that strong contrast between opposing sides for edges at the specified orientation.
+
+Lastly, the Robinson filters take on a slightly different configuration. The 0-degree filter promotes horizontal edge detection, and its 45-degree counterpart emphasizes edges at a diagonal orientation. In comparison to Sobel and Kirsch filters, Robinson filters have a different distribution of weights, potentially making them useful for different edge characteristics.
+
+Such filters are typically applied to an image using convolution, where the filter matrix is slid over the image and computes a new value for each pixel by multiplying and summing the overlapping values.

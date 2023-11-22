@@ -1,0 +1,15 @@
+The slide details Project 5: Recursively Breaking Down and Executing Complex Tasks Using Tools. It outlines a process for writing a book using large language models (LLMs) and other tools.
+
+Here are the process steps as mentioned in the slide:
+
+1. Use an LLM to generate a list of high-level book characteristics, such as topic, genre, length, main characters, and attributes like humor, plot twists, sadness, etc.
+2. Provide a detailed description for some of these characteristics or allow the LLM to choose them.
+3. Use the LLM to generate a synopsis of the book.
+4. The LLM will then break down the synopsis into chapters.
+5. The LLM further breaks down the chapters into paragraphs.
+6. Allow the LLM to assume the role of a book critic to generate feedback for each paragraph, chapter, and the synopsis itself.
+7. Let the LLM rework pieces of the book based on the feedback it generated.
+8. Use search APIs to research and enrich paragraphs, chapter summaries, and the book's synopsis to add more depth and accuracy.
+9. Question how to ensure that all parts of the book fit together cohesively, with suggestions to use tools for summarization and retrieval to help with this.
+
+The slide also mentions that the techniques discussed can be applied in other areas such as games and the writing of theses.

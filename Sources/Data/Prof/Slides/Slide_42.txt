@@ -1,0 +1,13 @@
+The slide is titled "Add Attention Layer," which implies that the focus of the lecture is on enhancing a neural network architecture with an attention mechanism. The content illustrates the concept within the framework of sequence-to-sequence models, often used in tasks like machine translation, speech recognition, and text summarization.
+
+On the left side of the image, there's an "Encoder block", which consists of a vertical stack of Recurrent Neural Network (RNN) cells. Each cell is processing an input word ("Transformers," "are," "great," "!") sequentially, with each cell producing a "State" (State 1, State 2, State 3, State 4) as its output. These states are the result of the RNN processing the input words one at a time and accumulating the context.
+
+On the right side of the image, there's a "Decoder block", which also comprises RNN cells. The decoder is designed to generate the translated or output sequence. In this example, the target sequence seems to be in a different language, as suggested by the words "sind" and "grossartig," which mean "are" and "great" in German, respectively.
+
+What's notable in this slide is the "Attention" mechanism labeled between the Encoder and Decoder blocks. The attention mechanism allows the decoder to focus on different parts of the input sequence as it generates each word of the output sequence. This means that for each output state, the model can weigh the importance of each input state, potentially leading to better performance on tasks like translation where the relevance of input words can vary depending on the context.
+
+At the bottom of the slide, there's a statement that computations are inherently sequential and cannot be parallelized across the input sequence. This refers to the sequential nature of RNNs, where each state is dependent on the previous computation. Unlike networks that process inputs in parallel (such as CNNs for image processing), RNNs must operate on sequences step-by-step, which can be a limitation especially with long sequences.
+
+The attention mechanism can help alleviate some of the issues related to the sequential processing of RNNs by providing a means for the decoder to access the entire input sequence at each step directly, rather than relying on a single context vector as is common in earlier sequence-to-sequence models without attention.
+
+The purpose of adding an attention layer is to enhance the performance of the model by allowing it to more effectively capture dependencies and relationships in the data, especially for long sequences. This increases the model's ability to remember and utilize context from the input when generating the output, leading to improvements in tasks that involve complex, variable-length input and output sequences.

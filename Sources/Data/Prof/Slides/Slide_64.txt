@@ -1,0 +1,9 @@
+The slide titled "Predict Token By Token" appears to depict the iterative process of sequence generation used within a transformer model during translation or text generation tasks. A transformer model often follows an encoder-decoder structure for such tasks.
+
+In the top half of the slide, marked as "Iteration 1," we have an input sentence with the tokens "The quick brown fox" fed into an encoder. The encoder's output is sent to the transformer model, then the transformer generates an output or prediction for the next token. In this case, the output token is "der," which might be the beginning of a translated sentence in German (since "der" is a German definite article). The output vector indicates the final probability distribution over the vocabulary used to pick the most probable next token, which is "der" here.
+
+In the bottom half of the slide, which includes "Iteration 1 -> 2," the process is repeated for the subsequent token. The previously generated token "der" is likely to be included with the input to provide context for the next prediction—the context (or state) is generated from the previously predicted tokens. The transformer model takes this updated input and predicts the next token in the sequence, generating the token "schule" (a German noun meaning "school") as the next word in the translated sentence.
+
+This process iteratively continues, with each step depending on the outputs of the previous steps until a full translation or generated sentence is complete. The diagram illustrates the autoregressive nature of this prediction process, where each subsequent token is conditioned on the previous tokens.
+
+The presence of shifted outputs indicates that the input to each next step is the output of the current step, shifted by one position to account for the next token in the sequence, which follows the typical masked language modeling training used in transformer models for tasks like translation.

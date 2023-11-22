@@ -1,0 +1,15 @@
+The slide is discussing "Positional Encoding," a concept used in machine learning, particularly in the context of transformers, which are a type of neural network architecture. 
+
+At the top of the slide, there are two matrices labeled with an 'X'. The slide seems to suggest that one of the matrices (the one on the left side) can be broken down into the other (the one on the right side) plus some additional information indicated by the matrix below the word "Positional Encoding." 
+
+Below the text "Positional Encoding," there's a matrix with rows labeled with "pos" representing positions (0, 1, 2, etc.) and columns that may represent dimensions within the positional encoding (though the specific dimensions aren't labeled apart from '0', '1', '2'). 
+
+Next to this matrix, there are two mathematical functions that define the positional encoding for a given position "pos" and dimension "i":
+- PE(pos,2i) = sin(pos / 10000^(2i/d))
+- PE(pos,2i+1) = cos(pos / 10000^(2i/d))
+
+These functions provide a way to convert the integer position "pos" into a high-dimensional representation that can be added to the input embeddings to retain the sequence order information which is crucial for models like transformers that do not inherently process sequential information. This particular encoding uses sine and cosine functions of different wavelengths to allow the model to easily learn to attend by relative positions since for any fixed offset k, PE(pos+k) can be represented as a linear function of PE(pos).
+
+In the bottom-left corner, there's a diagram of the Transformer architecture for neural networks. This diagram outlines the flow of information through layers, including input embedding, positional encoding, attention mechanisms, and feed-forward neural networks, leading to output probabilities. It indicates that positional encoding is one of the initial steps in processing input data for transformers. 
+
+Lastly, you can see a colorful heatmap-like image which likely represents positional encoding values across a sequence and dimensions. It illustrates how positional encoding varies with positions and likely also how different frequencies interact to provide a unique encoding for each position in a sequence.

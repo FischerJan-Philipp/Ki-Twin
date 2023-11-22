@@ -1,0 +1,15 @@
+The slide is titled "LLMs," which likely stands for Large Language Models. These models are a type of artificial intelligence that process and generate human language. The bullet points on the slide provide an overview of various aspects related to large language models.
+
+The first bullet asks "How do they work," and points to "AKI," which could be an acronym or a specific concept or tool related to the functioning of these models.
+
+The second major bullet point asks "How can I use them," suggesting the slide will provide information on practical applications of large language models.
+
+- "GPT" is mentioned with a URL provided (omitted here), which likely links to documentation or a guide on how to use the Generative Pre-trained Transformer (GPT) models provided by OpenAI. These models are designed for a variety of tasks including translation, question-answering, and content generation.
+
+- The next item is the "Huggingface Framework," which is a reference to the Hugging Face company's machine learning framework, noteworthy for its work with natural language processing and large language models. This framework allows developers to leverage models like GPT and Llama (likely a misspelling of "LLM" or another specific model) for their applications.
+
+- "Private data" is mentioned with sub-bullets "Embeddings" and "Vector DBs (storage & retrieval)." This indicates a discussion on how to use private data with language models, potentially through creating embeddings (numerical representations of text) and storing/retrieving them in vector databases for efficient processing.
+
+- Lastly, "Agent Frameworks" is addressed, with "LangChain (agents & tools)" and "Simulacra paper" as sub-items. LangChain may refer to a system or framework that utilizes language models within agents or tools to perform certain tasks. "Simulacra paper" could be referring to a research paper or concept related to these agent systems.
+
+The information provided in this slide suggests that it is part of a lecture dealing with the practical uses and technical details of implementing large language models, such as GPT, within different frameworks and applications. The audience is likely being educated on how to interact with, utilize, and implement large language models in the context of both public and private data as well as within agent-based systems.

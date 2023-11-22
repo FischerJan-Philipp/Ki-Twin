@@ -1,0 +1,25 @@
+The slide is about the "Decoder Self-Attention Layer" which is a key concept in the architecture of the Transformer model, commonly used in machine learning for handling sequential data such as natural language processing.
+
+The slide explains the following process:
+
+Initialization:
+- There are three weight matrices initialized: \( W_q, W_k, W_v \). These matrices are used for projecting the inputs into query, key, and value spaces, respectively.
+
+Input:
+- \( Z \): Represents the memory from the encoder module of the Transformer, which contains information processed by the encoder.
+- \( X \): Represents the data flow in the decoder, which is the input to the decoder self-attention layer.
+
+First Calculation (Calc1):
+- Query (\( Q \)): Obtained by multiplying the data flow in the decoder (\( X \)) with the weight matrix \( W_q \).
+- Key (\( K \)): Obtained by multiplying the memory from the encoder (\( Z \)) with the weight matrix \( W_k \).
+- Value (\( V \)): Obtained by multiplying the memory from the encoder (\( Z \)) with the weight matrix \( W_v \).
+
+The shapes of these calculations are provided, although the specifics are too small to be definitive. It appears that the shape of \( Q \) is intended to be (TxDxDw) x Txd = Txd x 6x64, and similarly for \( K \) and \( V \) with shapes potentially corresponding to their respective computations.
+
+Second Calculation (Calc2):
+- The attention mechanism is shown in a formula involving the softmax operation on \( Q \cdot K^T \) scaled by the inverse square root of the dimensionality of the key vectors (\( \sqrt{d} \)), and then multiplied by the value matrix \( V \).
+- The result is expected to have the shape (T x (dxd)\( \times \)(Sxd) x Txd) x Txd = Txd x 6x64, mirroring the structure of \( Q \).
+
+The output of the decoder self-attention layer is the matrix \( Z \), which is the weighted sum of the values, where the weights are determined by the softmaxed product of queries and keys.
+
+The process described outlines how self-attention in the decoder part of a Transformer model selectively focuses on different parts of the input sequence and integrates information from the encoder to produce the output sequence, one step at a time. This approach allows the model to effectively manage long-range dependencies and varying input sizes, which is crucial for tasks such as translation, summarization, and text generation.

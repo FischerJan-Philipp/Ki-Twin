@@ -1,0 +1,25 @@
+This slide explains the architecture of an encoder-decoder model, commonly used in natural language processing tasks such as machine translation. The diagram on the left represents the detailed architecture of the Transformer model, a specific type of encoder-decoder model known for its performance on a variety of tasks.
+
+In the diagram on the left, the encoder-decoder structure is depicted with different layers:
+
+- **Input**: The text input is represented at the bottom, with "Inputs" and "Outputs (shifted right)." The shifting right indicates that during training, the output sequence is offset by one position to predict the next token in the sequence.
+
+- **Positional Encoding**: Both the input and output embeddings have positional encodings added to them. This is because the Transformer model does not inherently understand the sequence order of the data; positional encodings help integrate the order information.
+
+- **Multi-Head Attention**: The multi-head attention mechanism allows the model to focus on different positions of the input sequence, which is crucial for understanding context and the relationships between words.
+
+- **Add & Norm**: After each multi-head attention and feed-forward operation, the diagram shows an "Add & Norm" step, which represents residual connections followed by layer normalization. This helps to stabilize the learning process over the deep network.
+
+- **Feed-Forward**: There is a feed-forward neural network within each encoder and decoder layer that processes the output of the attention layer.
+
+- **Output Probabilities**: At the top of the diagram, the process ends with the output layer which provides the probabilities of potential output tokens.
+
+On the right side, there is a high-level representation of an encoder-decoder stack, showing multiple encoders on the left passing information to multiple decoders on the right:
+
+- **Encoder Stack**: Multiple encoder layers (represented here by Encoder 1 up to Encoder 6), each performing the operations of multi-head attention and feed-forward neural networks.
+
+- **Decoder Stack**: Multiple decoder layers (Decoder 1 up to Decoder 6), which receive the output of the encoder stack and perform similar operations, as well as an additional multi-head attention over the encoder stack output.
+
+- **Input/Output Example**: At the bottom right, there's an example that shows an input sequence "The quick brown fox" being translated to German as "Der schnelle braune Fuchs."
+
+The Transformer model depicted here is widely influential because of its parallelization abilities and effectiveness in capturing complex dependencies in data. It's the foundation for a variety of advanced models in natural language processing, such as BERT, GPT, and others.

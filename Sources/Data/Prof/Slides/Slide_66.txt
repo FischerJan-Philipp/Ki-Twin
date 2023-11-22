@@ -1,0 +1,17 @@
+This slide presents a concept named "Masking" which is often used in natural language processing (NLP) and in the functioning of models like Transformers. The slide visually demonstrates how an input sequence is processed with a mask applied to it.
+
+Here’s an explanation of the matrices and notation based on the slide:
+
+1. The first matrix on the left represents a sequence of tokens corresponding to the German phrase "der schnelle braune fuchs" meaning "the quick brown fox." Each token (word) in the sequence is assigned a numerical value, such as 100 for "schnelle" and 80 for "braune."
+
+2. The sequence is surrounded by the tokens "<s>" and "</s>", which usually denote the beginning and end of the sequence. These boundary tokens are part of the input representations in many Transformer-based architectures.
+
+3. The second matrix in the middle represents a mask. The mask has negative infinity (-inf) values on elements where attention should not be paid to, effectively masking those positions. This can be used to prevent the model from seeing future tokens in the sequence during training (to emulate auto-regressive behavior) or to ignore padding tokens that are added to equalize the lengths of different sequences.
+
+4. The third matrix on the right shows the result of applying the mask to the input. Adding negative infinity to any real number does not change the semantics of -infinity, which represents positions suppressed in the attention mechanism, effectively disregarding these positions during matrix operations like softmax which are used for calculating attention scores.
+
+5. The equation "QxT' / √d" could conceptually represent the scaled dot-product attention calculation, where Q and T typically represent query and key matrices in the attention mechanism, and '√d' represents scaling by the square root of the dimensionality of the keys (to prevent too large dot-product values which can hinder the softmax operation).
+
+Lastly, the slide indicates that the mask shape is "T x T" (for 'Token x Token'), hence a 6x6 matrix for this example, covering all pairwise interactions between the elements of the sequence, including the start "<s>" and end "</s>" tokens.
+
+The context provided by the slide suggests that the lecture is likely concerning the mechanisms of attention within Transformer models, specifically addressing how these models deal with varying input sequence lengths and ensuring the model only attends to relevant portions of the input during training and inference.

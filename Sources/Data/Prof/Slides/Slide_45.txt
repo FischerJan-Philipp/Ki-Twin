@@ -1,0 +1,21 @@
+This slide appears to be discussing components related to the architecture of a Transformer-based neural network model, which is widely used in natural language processing tasks. Let's break down the information provided:
+
+1. The slide's title is "Input For Encoder," suggesting that this part of the lecture deals with how input data is prepared and fed into the encoder of a Transformer model.
+
+2. On the left side of the slide, a Transformer model's encoder block repetition is illustrated (labeled as Nx, suggesting that the block is repeated N times). Inside each block, the following layers are shown:
+   - "Multi-Head Attention" layer, which allows the model to jointly attend to information from different representation subspaces at different positions. It's followed by an "Add & Norm" layer, indicating residual connections followed by normalization.
+   - "Feed Forward" layer, which represents a neural network that processes the attention outputs. It's also followed by an "Add & Norm" layer.
+
+3. Positional Encoding is indicated to be added to the input embeddings. This is done because the model needs to take into account the order of the words since the multi-head attention mechanism does not inherently process sequential data.
+
+4. On the right side of the slide, a graphical representation of a sequence with a length of 4 (S = 4) is shown, alongside an embedding dimension size of 512 (D = 512). Each word in the sequence is presumably converted into a 512-dimensional vector.
+
+5. At the bottom right, an example sequence of words "The quick brown fox" is presented, implying that each word in this sequence would be transformed into a corresponding 512-dimensional embedding vector as input for the encoder.
+
+6. It also mentions that the sequence length (S) is typically longer and that any unfilled tokens are padded with a special token, exemplified by "<PAD>."
+
+7. The "Encoder" portion of the Transformer is visually represented with two main components:
+   - "Self-attention Layer" which helps the model to weight the importance of different words within the input sentence.
+   - "Feed-forward network" that processes the outputs from the self-attention layer.
+
+Overall, this slide provides an overview of how input sequences are handled by the Transformer model's encoder, including the addition of positional encoding, the transformation of words into high-dimensional embeddings, and the structure of layers within the encoder.

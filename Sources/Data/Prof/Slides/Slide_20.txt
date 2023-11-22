@@ -1,0 +1,29 @@
+The slide presents an overview of the "Evolution of Transformer Architectures," which are advanced machine learning models primarily utilized in natural language processing tasks. Transformer architectures have evolved into different families, each with specific characteristics and use cases.
+
+Here's a breakdown of the information on the slide:
+
+1. Different families of transformer architectures that have evolved are mentioned, which includes:
+   - Encoder branch: Models that primarily consist of an encoder component are listed here. This branch includes models like:
+     - BERT (Bidirectional Encoder Representations from Transformers)
+     - DistilBERT (a distilled version of BERT that is smaller and faster)
+     - RoBERTa (a robustly optimized BERT approach)
+     - XLM (Cross-lingual Language Model)
+     - XLM-R (XLM for RoBERTa)
+     - ALBERT (A Lite BERT)
+     - ELECTRA (Efficiently Learning an Encoder that Classifies Token Replacements Accurately)
+     - DeBERTa (Decoding-enhanced BERT with disentangled attention)
+
+2. Decoder branch: Consisting of models that primarily include a decoder component. This includes:
+   - GPT (Generative Pretrained Transformer)
+   - GPT-2 and GPT-3 (successive, larger versions of the original GPT)
+   - GPT-Neo (a version of GPT that is meant for open-source initiatives)
+
+3. Encoder-decoder branch: Comprises models that have both encoder and decoder components. These are often used for tasks such as machine translation. The models listed are:
+   - T5 (Text-to-Text Transfer Transformer)
+   - BART (Bidirectional and Auto-Regressive Transformers)
+   - M2M-100 (Multilingual Machine to Machine Translation model that supports 100 languages)
+   - BigBird (a transformer model designed to handle longer sequences)
+
+The graph in the slide visually represents the exponential growth in the number of parameters for some of the mentioned transformer models over time. It is evident that as we move from 2018 to 2022, these models have become significantly larger. The y-axis is logarithmic, showing the model size in terms of the number of parameters, which ranges from less than a hundred million to several billion parameters. The x-axis represents the timeline from the year 2018 to 2022.
+
+Some of the most notable points highlighted in the graph are the models with a high number of parameters, such as GPT-3 with 175 billion parameters, Megatron-Turing NLG with 530 billion, and Turing NLG with 17 billion parameters. The slide suggests an ongoing trend towards creating increasingly large transformer models, which are believed to yield improvements in performance on a variety of language-related tasks.

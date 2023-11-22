@@ -1,0 +1,19 @@
+This slide presents an overview of the decoder component of a transformer model, which is a type of neural network architecture often used in natural language processing tasks. Here are the key points from the slide:
+
+1. **Decoder Structure**: The diagram shows the internal structure of a decoder in a transformer model. The decoder is composed of several sub-layers:
+   - **Masked Multi-Head Attention Layer**: This attends to the input while masking future positions to ensure predictions for a position can depend only on the known outputs at positions before it.
+   - **Multi-Head Attention Layer**: This layer allows the model to focus on different positions of the input sequence, facilitating understanding and contextualization.
+   - **Feed-Forward Networks**: These are simple neural networks applied to each position separately and identically.
+   - **Add and Norm**: Each of the sub-layers has a residual connection around it, followed by layer normalization (Add and Norm). This is done to help in training deep networks by stabilizing the gradients.
+   
+2. **Input and Output**: The input to the decoder has the same sequence length (S) and dimensionality (D) as the model's internal representation, depicted here as 512 (D = 512). The output from the decoder has the same shape as the input.
+
+3. **Positional Encoding**: Before any layers, positional encodings are added to the input embeddings at the bottoms of the stacks to give the model information about the position of the tokens in the sequence. It's represented by a graphical depiction of a matrix with sine and cosine functions of different frequencies.
+
+4. **Layer Repetition**: The decoder is composed of a stack of N identical layers. This can be further replicated (More Decoders) to increase the capacity of the model.
+
+5. **Encoder-Decoder Attention**: The decoder also takes an output from the encoder stack (labeled 'Z - Memory from encoder to Decoder'), which is used in one of the attention steps to focus on relevant parts of the input sequence.
+
+6. **Mask Illustration**: The slide includes an illustration of a mask that is used in the masked multi-head attention to prevent the decoder from peeking at future tokens in the sequence. The mask is applied to ensure that the prediction for a particular position only depends on the known outputs of positions before it.
+
+The slide aims to explain the components and functioning of the decoder in a transformer model and how it processes input sequences to make predictions or generate text, all within the context of the attention mechanism that allows the model to weigh different parts of the input differently.

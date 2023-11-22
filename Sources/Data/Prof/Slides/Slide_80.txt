@@ -1,0 +1,20 @@
+The slide presents a three-step process regarding the training of an AI model using reinforcement learning, specifically for an AI known as ChatGPT, which presumably refers to a version of OpenAI's Generative Pre-trained Transformer (GPT) tailored for generating conversational text.
+
+Step 1: Collect demonstration data and train a supervised policy.
+- A prompt is sampled from a dataset.
+- A labeler demonstrates the desired output behavior.
+- The data from this demonstration is used to fine-tune GPT-3.5 with supervised learning.
+
+Step 2: Collect comparison data and train a reward model.
+- A prompt and various model outputs are sampled.
+- A labeler ranks these outputs from best to worst. 
+- This ranking data is then used to train a reward model.
+
+Step 3: Optimize a policy against the reward model using the PPO reinforcement learning algorithm.
+- A new prompt is sampled from the dataset.
+- The AI (presumably a version of GPT) is initialized with the supervised policy from Step 1.
+- The AI generates an output based on the prompt.
+- The reward model calculates a reward for the output.
+- The calculated reward is used to update the AI using the Proximal Policy Optimization (PPO) algorithm.
+
+The information in the slide outlines a process of iterative improvement of an AI's ability to generate text by first teaching it with human demonstrations, then refining its performance with human rankings of its outputs, and finally fine-tuning it with reinforcement learning to optimize its policy towards generating better text. The PPO algorithm mentioned is a popular choice for reinforcement learning tasks due to its efficiency and stability in training policies.

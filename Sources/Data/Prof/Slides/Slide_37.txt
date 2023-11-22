@@ -1,0 +1,11 @@
+This slide illustrates the concept of edge detection in the field of image processing. The image on the slide shows a simple numerical example of how edge detection might be performed using a convolution operation with a specific filter.
+
+On the left side of the slide, there's a matrix with numerical values - this represents a grayscale image where each cell corresponds to a pixel's intensity. The brightness of each pixel is shown by the number, with 10 indicating a lighter area and 0 a darker area.
+
+In the middle, there is a 3x3 matrix with values 1, 0, and -1. This is the convolutional filter or kernel that is used for the edge detection process. The pattern of values is significant; it will respond most strongly to edges running vertically in the image.
+
+The asterisk symbol denotes the convolution operation, which is a mathematical process used in image processing. It involves sliding the filter over the image, applying it to every location, and calculating a new value for each position by multiplying and adding up corresponding numbers.
+
+On the right side, we see the result of applying this filter to the original image, which yields a new matrix. This result highlights the vertical edge in the original image: where there is a rapid change from light to dark (10 to 0), the filter response is a large positive or negative number (in this case, 30), indicating a strong edge. This occurs at the boundary between the white and black areas in the illustrative boxes below the matrices. The resulting matrix is a simplistic representation of the edges that were detected in the original image.
+
+In summary, the slide visually exemplifies how convolution with a specific filter can emphasize the edges in an image, which is a fundamental operation in computer vision and image analysis.

@@ -1,0 +1,21 @@
+The slide appears to be detailing the components and requirements for a project titled "Digital Twin," which involves creating a digital representation of a person. Here are the key elements and their explanations:
+
+1. **Build a digital version of yourself**: This implies that the project will involve creating a virtual model that represents the person's identity, behavior, and patterns in the digital space.
+
+2. **Connectors to email, X, LinkedIn, Moodle, Whatsapp, Instagram, FB etc.**: The digital twin would integrate with various platforms and services to collect data or interact. "X" might refer to an additional unspecified platform.
+
+3. **Personal files**: The digital twin would have access to or include personal files, possibly for the purpose of learning or mimicking the person's behavior or for data aggregation.
+
+4. **Microphone transcript (record meetings, Zoom, etc.)**: This points to the digital twin having capabilities to transcribe audio from meetings and other verbal communications, potentially to analyze language usage or for record-keeping.
+
+5. **Meta Smart Glasses (record images, videos)**: The use of smart glasses, presumably to capture visual and audio input from the user's environment, suggests the digital twin could also process visual data.
+
+6. **Let LM extract additional features (e.g. personality traits, high-level reflections)**: "LM" possibly stands for a language model or learning model that would analyze data to infer or simulate personality traits or other sophisticated attributes of the user.
+
+7. **Also check Quivr (https://www.quivr.app/), Rewind (https://www.rewind.ai/), Augment (https://www.augment.co/)**: These appear to be references to additional tools or platforms that could be utilized in building the digital twin, potentially offering functions like quick information retrieval, record-keeping, or augmented reality experiences.
+
+8. **Local version with ChromaDB**: This suggests there is a local database component to the project, which might be named "ChromaDB," to store and manage the data associated with the digital twin.
+
+9. **UI to navigate personal data (https://github.com/facebookresearch/personal-timeline/tree/main)**: This is likely a reference to a user interface that helps users navigate through their personal data or the data associated with their digital twin. The provided URL is a GitHub repository, possibly hosting code or tools related to the interface for personal data navigation.
+
+Lastly, there's a section at the bottom showing a UI example for querying one's personal timeline. Users could ask questions or enter commands, and it shows interaction results, suggesting that the digital twin can interactively respond to queries about the user's personal data. The example includes a map and details of various data points such as book purchases or photographs taken, pointing to a comprehensive personal data timeline feature.

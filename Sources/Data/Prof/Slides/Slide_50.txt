@@ -1,0 +1,9 @@
+This slide presents information about the "Evolution Of Transformers: Encoder-Decoder Model for Translation." It focuses on how the sequence-to-sequence model, which relies on Recurrent Neural Networks (RNNs), has evolved to transform into the Transformer model that is now widely used for machine translation tasks.
+
+The diagram illustrates a typical encoder-decoder architecture in which both the encoder and decoder are composed of RNN cells. Each word of an input sequence ("Transformers", "are", "great", "!") is processed sequentially by the encoder's RNN cells, resulting in an accumulation of the input sequence's meaning into a final hidden state.
+
+Subsequently, the decoder takes this final state and begins generating the target sequence word by word, with the first RNN cell of the decoder producing the first word ("Transformer"), and the subsequent cells generating the following words based on the state passed from the previous cell combined with the output generated thus far.
+
+Below the diagram, the note "Information bottleneck: meaning of entire sequence in final hidden state (esp. problematic for long sequences)" refers to one of the key limitations of this architecture. The requirement that the entire meaning of the input sequence must be compressed into a single hidden state can be problematic, especially for long sequences, due to the capacity limitations of the hidden state – a phenomenon known as the "information bottleneck."
+
+This architecture laid the groundwork for the development of Transformer models, which alleviate the bottleneck problem by allowing for parallel processing of sequences and by using mechanisms like multi-head attention to maintain a global understanding of the input sequence without being restrictive to a sequential processing pattern. The Transformers are not explicitly detailed in this particular diagram but are mentioned as the next step in the evolution of this model.

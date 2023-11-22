@@ -1,0 +1,13 @@
+This slide is discussing the concept of adding an attention layer to a model that includes Recurrent Neural Networks (RNNs). The slide presents two blocks: an encoder block and a decoder block, each containing a series of RNN cells.
+
+Here's a summary of the main points from the slide:
+
+1. The encoder block processes an input sequence word by word (or token by token), where each word is processed by an RNN cell. This sequential processing results in a series of states (State 1 to State 4), which represent the model's internal understanding of the sequence at each step.
+
+2. The decoder block, which is intended to produce an output sequence, also consists of RNN cells. However, there's an "Attention" mechanism that connects encoder states to the decoder. The attention mechanism allows the decoder to focus on different parts of the encoder's output sequence when generating each word of its own output sequence.
+
+3. The output sequence produced by the decoder is meant to be a transformation of the input sequence. The example indicates a translation task, where the input in one language (English) is being transformed into another language (German). The example words shown on the slide suggest that "Transformers are great!" is being translated to "Transformer sind grossartig!"
+
+4. A key point highlighted at the bottom of the slide is that computations in RNNs are inherently sequential and cannot be parallelized across the input sequence. This is a limitation of RNNs, which can make processing long sequences time-consuming as each step depends on the previous step and must be processed in order.
+
+This slide is likely part of a lecture on Natural Language Processing (NLP) or more specifically on sequence-to-sequence models that use attention mechanisms to improve the performance of tasks like machine translation. The attention layer helps the model to dynamically weigh the importance of different inputs at different stages of the output generation, which helps to alleviate issues with longer sequences where inputs at the beginning may be "forgotten" by the time later outputs are generated.

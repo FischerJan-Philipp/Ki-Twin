@@ -1,0 +1,18 @@
+This slide is about "Project 6: Exploring Vector DBs" and discusses strategies for handling and querying vector databases (DBs).
+
+The key points outlined on the slide are:
+
+1. The concept of a digital twin that contains a large amount of information in a vector DB is introduced. A digital twin is a digital representation of a real-world entity or system.
+
+2. It explains that documents such as conversations, emails, and messages are typically split into smaller chunks in vector databases to enable only the relevant parts to be retrieved according to the needs of different queries.
+
+3. It notes that sometimes these chunks might contain either too much or too little information for a given query, which presents challenges to retrieving the right information.
+
+To address these challenges, the slide proposes several strategies:
+
+- Adding a document summary to provide a brief overview of the content for easier indexing and querying.
+- Including hypothetical questions that might help in refining the information retrieval process.
+- Extracting a large "k" (which could reference a particular number or a parameter) and then performing recursive clustering to offer different notions of relatedness or to group the data into meaningful clusters.
+- Enriching the database with high-level reflections culled from clusters of topics, such as psychograms for individuals, to provide a richer context.
+
+Lastly, the slide suggests visual exploration of vector databases, and a URL (https://projector.tensorflow.org/) is provided, which possibly points to a visualization tool that helps users interact with and understand high-dimensional data, such as that found in vector databases.

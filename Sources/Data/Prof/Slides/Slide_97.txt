@@ -1,0 +1,18 @@
+The slide appears to be providing instructions on how to use prompt templates with an example prompt given for context. The objective of the slide is to demonstrate how to describe subtasks in five-minute increments within a given scenario by utilizing specified variables in the context of a prompt.
+
+The slide outlines various variables that can be used to customize the prompt:
+- Variable 1: Comment
+- Variable 2: Surrounding schedule description
+- Variable 3: Person first name
+- Variable 4: Current action
+- Variable 5: Current time range
+- Variable 6: Current action duration in minutes
+- Variable 7: Person first names
+
+After the list of variables, there is a block titled "commentblockmarkers," which presumably should be substituted with the actual comment.
+
+Then, there is an example about a person called Kelly Bronson, age 35, who is a kindergarten teacher. The example goes into detail about Kelly's background, her aspirations, and her meticulous characteristics. Additional details about the location, daily schedule, and a list of activities that Kelly plans to do on a specific day (Saturday, May 18) are also mentioned.
+
+From 8:00 AM to 4:00 PM, the example describes Kelly's activities at different times with specific durations and time left after each task is expected to be completed. The tasks include preparing lesson plans, reviewing the curriculum, creating materials for lessons, making a breakfast, a lunch plan, and other actions related to her work as a teacher.
+
+The instructions appear to be guiding someone on how to utilize the template to provide detailed descriptions of activities and schedules, possibly for an AI model or software that relies on structured input to generate or analyze content. It's a common practice in computer science and AI fields to use such templating methods to create structured data that can be easily interpreted by computational systems.

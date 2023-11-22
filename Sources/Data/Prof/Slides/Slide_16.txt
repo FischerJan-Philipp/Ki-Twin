@@ -1,0 +1,19 @@
+This slide appears to be part of a lecture about a Transformer model, which is used in machine learning and particularly in natural language processing (NLP) tasks such as translation. The Transformer model was introduced in the paper "Attention Is All You Need" by Vaswani et al. in 2017 and has since revolutionized the field of NLP.
+
+The lecture slide is showcasing the mechanism of translating a sentence token by token from one language to another using a Transformer model. The process illustrated is an autoregressive decoding process where the translation is built up iteratively.
+
+Here are the key elements of the slide:
+
+1. There are two iterations shown. Each iteration corresponds to predicting a token (word or part of a word) of the translation.
+
+2. Input to the encoder: The sentence "The quick brown fox" is used as an input to the model. This is the sentence that is being translated.
+
+3. In the first iteration, we see the model predicts the first word/token as "der" which is German for "the". There is a probability vector (not shown) that assigns probabilities to all possible tokens and "der" has been chosen as the most probable.
+
+4. The output of the first iteration (the word "der") is used as part of the input (shifted outputs) for the next token prediction. This shows the autoregressive nature of the decoding process where the previously predicted tokens are used to predict the next one.
+
+5. The dotted lines likely represent that the process will continue in this fashion, predicting one token at a time based on both the original sentence and the sequence of tokens already predicted. In this way, the model incrementally builds up a translation.
+
+6. In the second iteration shown, the model has now predicted the next word/token as "schnelle" which is the German word for "quick" (with gender agreement in the form of an adjective).
+
+This type of token-by-token prediction process will continue until an end-of-sentence token is predicted or the translation is deemed complete. The Transformer uses self-attention mechanisms to weigh the importance of each part of the input sentence when predicting each token, making it powerful for translation tasks.

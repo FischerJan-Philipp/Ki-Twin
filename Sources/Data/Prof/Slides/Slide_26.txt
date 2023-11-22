@@ -1,0 +1,15 @@
+The slide is detailing how BERT (Bidirectional Encoder Representations from Transformers), a pre-trained language model, can be fine-tuned for various downstream Natural Language Processing (NLP) tasks. The slide consists of four diagrams, each representing a different type of task for which BERT can be adapted:
+
+(a) Sentence Pair Classification Tasks:
+The diagram illustrates how BERT can be utilized for tasks that involve classifying relationships between a pair of sentences. The class label is predicted based on the representation of the [CLS] token, which combines information from both sentences. Examples of such tasks include MNLI (Multi-Genre Natural Language Inference), QQP (Quora Question Pairs), QNLI (Question Natural Language Inference), STS-B (Semantic Textual Similarity Benchmark), MRPC (Microsoft Research Paraphrase Corpus), RTE (Recognizing Textual Entailment), and SWAG (Situations With Adversarial Generations).
+
+(b) Single Sentence Classification Tasks:
+This diagram shows how BERT can be used to classify a single sentence into a category, again using the [CLS] token's representation as the basis for prediction. Examples of tasks include SST-2 (Stanford Sentiment Treebank, version 2) and CoLA (Corpus of Linguistic Acceptability).
+
+(c) Question Answering Tasks:
+In this case, BERT is fine-tuned to answer questions based on a given paragraph. The model predicts the start and end spans of the answer within the passage. An example task given is SQuAD v1.1 (Stanford Question Answering Dataset, version 1.1).
+
+(d) Single Sentence Tagging Tasks:
+BERT can also be adapted for token-level tasks such as Named Entity Recognition (NER). The diagram shows a token-level prediction where each token in a single sentence is tagged based on its role in the context of the sentence. The example dataset mentioned is CoNLL-2003 NER.
+
+In all diagrams, the structure of BERT is represented with the input layer consisting of different word tokens (T1, T2, ..., Tn), the embedding layers (E), and a final layer that translates BERT's contextual understanding into specific tasks (e.g., classification, tagging). The use of [CLS] and [SEP] tokens is per BERT's input convention, where [CLS] is a special token used for classification tasks, and [SEP] is used to separate segments (e.g., two sentences in pair classification or a question and paragraph in question answering tasks).

@@ -1,0 +1,21 @@
+The slide is presenting an overview of the Transformer, a model architecture for natural language processing tasks, as described in the paper "Attention Is All You Need" by Vaswani et al. The Transformer is significant for its use of self-attention mechanisms, which have since become very influential in numerous areas of machine learning.
+
+The main components depicted in the slide for the Transformer architecture include:
+
+1. Encoder-Decoder Structure: The Transformer is composed of an encoder to process the input and a decoder to produce the output. Both the encoder and the decoder are made up of a stack of identical layers.
+
+2. Encoder Block: Each encoder block contains two main sub-layers: a multi-head self-attention mechanism, and a simple, position-wise fully connected feed-forward network (FFN). These blocks process the input sequence in parallel, which is one of the key advantages of the Transformer, allowing for very efficient training.
+
+3. Decoder Block: Similar to the encoder, the decoder is also composed of a stack of identical layers. Each decoder block has three main sub-layers: a multi-head self-attention mechanism, a multi-head attention over the output of the encoder stack, and again a position-wise fully connected feed-forward network (FFN).
+
+4. Self-Attention: This mechanism allows the model to weigh the importance of different words in the input sequence when processing each word. This is depicted by the "Attention" label within the encoder and decoder blocks.
+
+5. Output Probabilities: The output of the Transformer is a sequence of probabilities, which typically represents the likelihood of each word being the correct next word in the sequence.
+
+6. Add & Norm: The term "Add & Norm" refers to the residual connections around each of the sub-layers (self-attention and feed-forward networks), followed by layer normalization, which helps to stabilize learning.
+
+7. Positional Encoding: Since the Transformer uses self-attention and does not inherently process sequence elements in order, positional encodings are added to the input embeddings to give the model information about the position of the words in the sequence.
+
+8. Input/Output Embedding: The embeddings are vector representations of the input and output tokens. They are the means by which words are represented and fed into the model (input) and how the model's predictions are represented (output).
+
+Overall, the slide suggests that the Transformer architecture has proven to be very effective, the reason why it is often described as "great" for tasks involving sequential data, especially in natural language processing.

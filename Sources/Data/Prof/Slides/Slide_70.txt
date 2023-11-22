@@ -1,0 +1,13 @@
+The slide presents information about the pre-training process of BERT (Bidirectional Encoder Representations from Transformers), which is a transformative model used for natural language processing (NLP) tasks. There are two main components of the BERT pre-training process outlined in the slide:
+
+1. Masked Language Model (Mask LM): In this approach, some percentage of the input tokens are masked at random, and then the model attempts to predict the original value of the masked words, based on the context provided by the other, non-masked, words in the sequence. This is indicated by the arrows pointing to "Mask LM" on the slide.
+
+2. Next Sentence Prediction (NSP): This is a binary classification task where the model is given pairs of sentences as input and learns to predict if the second sentence in the pair is the consecutive sentence in the original document. The intention is to enable BERT to understand sentence relationships, which can be important for tasks like question answering and language inference.
+
+Tokens such as "[CLS]" and "[SEP]" are special tokens used by BERT. "[CLS]" stands for "classification" and is used at the start of the input for tasks that require a single vector representation of the input, such as sentence classification. "[SEP]" stands for "separator" and is used to separate two different sentences in tasks that involve multiple sentences.
+
+The slide visualizes the input representation, where the input sentence ("Masked Sentence A" and "Masked Sentence B") is tokenized. Each token is embedded into a vector representation ("E", where E1 to En represents the embedding of each token in Sentence A, and E1' to Em' represents the embedding of each token in Sentence B). The embeddings are then fed into the BERT model which uses layers of transformer units to generate context-aware embeddings that can then be used for various NLP tasks.
+
+The phrase "Unlabeled Sentence A and B Pair" points towards the input that is fed into the BERT model, emphasizing that the sentences are from an unlabeled dataset, which is typical during the pre-training phase where vast amounts of text data are used without explicit annotations.
+
+This process of pre-training allows BERT to gain a deep, bidirectional understanding of language context before being fine-tuned on specific tasks like question answering, named entity recognition, or sentiment analysis. The pre-trained BERT model can then be adapted to a wide range of NLP tasks with modest amounts of task-specific data, leveraging the general understanding of language it has acquired during pre-training.
