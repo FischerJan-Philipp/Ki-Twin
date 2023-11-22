@@ -9,7 +9,7 @@ Run with `streamlit run UI_prof.py`
 - `prof_vectorDB.py`: Creates vector DB with Faiss out of the transcript.
 - `slides_to_vectorDB.py`: Creates vector DB with Faiss for the slides summaries from `pdf_Summarizer.pdf`.
 
-## AI Clone
+## Directory: AI Clone
 Run with `streamlit run UI.py`
 
 - `calendar_chat.py`: Contains the logic of the chatbot.
