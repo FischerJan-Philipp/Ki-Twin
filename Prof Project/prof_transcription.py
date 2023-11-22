@@ -7,7 +7,7 @@ import whisper
 model = whisper.load_model("base")
 
 # Open the audio file
-audio_file_path = "./Data/Prof/GMT20231023-060453_Recording.m4a"
+audio_file_path = "../Sources/Data/Prof/GMT20231023-060453_Recording.m4a"
 audio = AudioSegment.from_file(audio_file_path)
 
 # Define the length of each segment in milliseconds (10 minutes = 600000 ms)
@@ -16,7 +16,7 @@ segment_length_ms = 600000
 # Calculate the number of segments
 num_segments = len(audio) // segment_length_ms
 
-with open("./Data/Prof/transcript.txt", "w") as f:
+with open("../Sources/Data/Prof/transcript.txt", "w") as f:
     # Loop over each segment
     for i in range(num_segments):
         # Extract the segment

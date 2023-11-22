@@ -10,7 +10,7 @@ from langchain.chains import LLMChain
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-directory = './Data/Prof/Slides/'
+directory = './Sources/Data/Prof/Slides/'
 
 # Initialize an empty list to store the contents of the text files
 text_array = []
@@ -43,8 +43,8 @@ docs = text_splitter.create_documents([one_string])
 faiss_index = FAISS.from_documents(docs, OpenAIEmbeddings())
 
 #save the index database
-faiss_index.save_local("Vector_DBs/prof_slides_1000_50")
+faiss_index.save_local("Sources/Vector_DBs/prof_slides_1000_50_all_slides")
 
 #load the index database
-db = FAISS.load_local("Vector_DBs/prof_slides_1000_50", OpenAIEmbeddings())
+db = FAISS.load_local("Sources/Vector_DBs/prof_slides_1000_50_all_slides", OpenAIEmbeddings())
 faiss_index = db

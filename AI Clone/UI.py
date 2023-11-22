@@ -13,19 +13,18 @@ import whisper
 import numpy as np
 import openai
 import speech_recognition as sr
-import chat_with_prof as cp
 
 model = whisper.load_model("base")
 #dotenv_path = Path('D:\Kyron\Documents\Python Scripts\Ki-Twin\.env')
 #load_dotenv(dotenv_path=dotenv_path)
 
 load_dotenv()
-voices()
+
 elevenlabs_api_key = os.getenv('ELEVENLABS_API_KEY')
 set_api_key(elevenlabs_api_key)
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
-chat = cp.ProfChat()
+chat = cc.ChatCalendar()
 
 r = sr.Recognizer()
 
@@ -42,12 +41,9 @@ st.set_page_config(layout='wide')
 st.title("Chat with AI clone")
 st.image("Stanley.png", width=200)
 
+input_text = st.text_area("Gib deine Nachricht ein")
 
-st.info("Chat Below")
-
-input_text = st.text_area("Enter your query")
-
-if st.button('Start Recording'):
+if st.button(':studio_microphone:'):
     # Use the microphone as the audio source
     with sr.Microphone() as source:
         st.text("Recording for 10 seconds...")
@@ -62,20 +58,21 @@ if st.button('Start Recording'):
     st.success(finalResult)
 
 if input_text is not None:
-    if st.button("Senden"):
-        st.info("Dein Input: " + input_text)
+    if st.button('Senden'):
+        st.info("Your Query: " + input_text)
         result = retrieve(input_text)
         st.success(result)
+        """
         audio_stream = generate(
             text=result,
             voice=Voice(
-                voice_id="94QSP7KVxljNtbZNEHHi",
+                voice_id="2sFP0IlelRrLzaBV9PuJ",
                 settings=VoiceSettings(stability=0.3, similarity_boost=0.35, style=0.66, use_speaker_boost=True)
             ),
             stream=True,
             model="eleven_multilingual_v2"
         )
-        print(audio_stream)
+        """
         #st.audio(audio_stream)
-        stream(audio_stream)
+        #stream(audio_stream)
 

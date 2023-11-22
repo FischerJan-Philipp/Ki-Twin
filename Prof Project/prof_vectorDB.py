@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-with open('Data/Prof/transcript.txt') as f:
+with open('../Sources/Data/Prof/transcript.txt') as f:
     transcript = f.read()
 
 text_splitter = RecursiveCharacterTextSplitter(
@@ -35,10 +35,10 @@ print(docs[2].page_content)
 faiss_index = FAISS.from_documents(docs, OpenAIEmbeddings())
 
 # save the index database
-faiss_index.save_local("./Vector_DBs/prof_transcript_300_30")
+faiss_index.save_local("./Sources/Vector_DBs/prof_transcript_300_30")
 
 # load the index database
-db = FAISS.load_local("./Vector_DBs/prof_transcript_300_30", OpenAIEmbeddings())
+db = FAISS.load_local("./Sources/Vector_DBs/prof_transcript_300_30", OpenAIEmbeddings())
 faiss_index = db
 
 

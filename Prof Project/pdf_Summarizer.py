@@ -22,19 +22,19 @@ def pdf_page_to_base64(pdf_path, page_number):
 
     return base64_image
 
-pdf_path = 'Data/Prof/AA_Deep_Learning_final (3).pdf'
+pdf_path = '../Sources/Data/Prof/AA_Deep_Learning_final (3).pdf'
 
 slides = fitz.open(pdf_path)
 # Specify the path to your PDF file and the page number (0-based index)
 
-for i in range(48, len(slides)):
+for i in range(49, len(slides)):
     print("Page Number: ", i)
     page_number = i # Change this to the desired page number
 
     page_to_input = pdf_page_to_base64(pdf_path, page_number)
 
 
-    config = dotenv.dotenv_values(".env")
+    config = dotenv.dotenv_values("../.env")
     openai.api_key = config['OPENAI_API_KEY']
 
     headers = {
@@ -68,7 +68,7 @@ for i in range(48, len(slides)):
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
     print(response.json())
     response_text = response.json()['choices'][0]['message']['content']
-    with open('Data/Prof/Slides/Slide_'+str(i)+'.txt', 'w', encoding='utf-8') as f:
+    with open('../Sources/Data/Prof/Slides/Slide_'+str(i)+'.txt', 'w', encoding='utf-8') as f:
         f.write(response_text)
         print("Slide saved as Slide_"+str(i)+".txt")
 

@@ -16,8 +16,8 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 
 class ProfChat:
     def __init__(self):
-        self.slides_db = FAISS.load_local("./Vector_DBs/prof_slides_1000_50", OpenAIEmbeddings())
-        self.db = FAISS.load_local("./Vector_DBs/prof_transcript_300_30", OpenAIEmbeddings())
+        self.slides_db = FAISS.load_local("../Sources/Vector_DBs/prof_slides_1000_50_all_slides", OpenAIEmbeddings())
+        self.db = FAISS.load_local("../Sources/Vector_DBs/prof_transcript_300_30", OpenAIEmbeddings())
 
     def retrieve_info(self, query):
         similar_documents = self.db.similarity_search(query, k=3)
@@ -32,7 +32,7 @@ class ProfChat:
         return page_contents_array
 
     def get_answer(self, query):
-        f = open('./Prompt_Templates/chat_calendar.txt', "r")
+        f = open('../Sources/Prompt_Templates/prof_prompt.txt', "r")
         prompt = f.read()
         prompt = prompt.replace("<query>", query)
         prompt = prompt.replace("<style>", " ".join(self.retrieve_info(query)))
@@ -50,7 +50,7 @@ class ProfChat:
         return response.choices[0].message.content
 
     def test(self, query):
-        prompt_template = open('./Prompt_Templates/prof_prompt.txt', "r")
+        prompt_template = open('../Sources/Prompt_Templates/prof_prompt.txt', "r")
         prompt = prompt_template.read()
         prompt = prompt.replace("<query>", query)
         prompt = prompt.replace("<style>", " ".join(self.retrieve_info(query)))

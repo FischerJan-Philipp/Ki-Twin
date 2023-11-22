@@ -10,7 +10,7 @@ load_dotenv()
 
 chat_messages = []
 
-with open('./Data/Chat/gefilterte_nachrichten_emoji.txt', 'r', encoding='utf-8') as chat_data_file:
+with open('../Sources/Data/Chat/gefilterte_nachrichten_emoji.txt', 'r', encoding='utf-8') as chat_data_file:
     for line in chat_data_file:
         chat_messages.append(line.strip())
 
@@ -18,7 +18,7 @@ chat_data = pd.DataFrame({'ChatMessages': chat_messages})
 
 chat_data.to_csv(f'./Data/Chat/jan_chats.csv', index=False)
 
-loader = CSVLoader(f'./Data/Chat/jan_chats.csv')
+loader = CSVLoader(f'../Sources/Data/Chat/jan_chats.csv')
 index_creator = VectorstoreIndexCreator()
 index = index_creator.from_loaders([loader])
 chain = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=index.vectorstore.as_retriever(), input_key="question")

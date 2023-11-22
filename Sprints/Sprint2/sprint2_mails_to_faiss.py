@@ -1,19 +1,10 @@
-from typing import List
-import PyPDF2
-import streamlit as st
-from langchain.document_loaders.csv_loader import CSVLoader
 from langchain.vectorstores import FAISS
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import LLMChain
-from langchain.text_splitter import CharacterTextSplitter
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_loaders import TextLoader
-from langchain.document_loaders import PyPDFLoader
-import os
-import getpass
-from APIs.Gmail_API import GmailAPI
+from Sources.APIs.Gmail_API import GmailAPI
 
 from dotenv import load_dotenv
 
