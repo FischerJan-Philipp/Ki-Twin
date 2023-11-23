@@ -36,6 +36,22 @@ def retrieve(query):
     result = chat.test(query)
     return result
 
+def generate_audio(query):
+    print("generating audio...")
+    audio_stream = generate(
+        text=query,
+        voice=Voice(
+            voice_id="2sFP0IlelRrLzaBV9PuJ",
+            settings=VoiceSettings(stability=0.3, similarity_boost=0.35, style=0.66, use_speaker_boost=True)
+        ),
+        stream=True,
+        model="eleven_multilingual_v2"
+    )
+    if audio_stream:
+        audio_bytes = b"".join(audio_stream)
+        st.audio(audio_bytes)
+        stream(audio_stream)
+
 st.set_page_config(layout='wide')
 
 st.title("Chat with Professor AI clone")
@@ -59,25 +75,12 @@ if st.button(':studio_microphone:'):
     st.text(result)
     finalResult = retrieve(result)
     st.success(finalResult)
+    generate_audio(finalResult)
 
 if input_text is not None:
     if st.button("Senden"):
         st.info("Dein Input: " + input_text)
         result = retrieve(input_text)
         st.success(result)
-
-        audio_stream = generate(
-            text=result,
-            voice=Voice(
-                voice_id="94QSP7KVxljNtbZNEHHi",
-                settings=VoiceSettings(stability=0.3, similarity_boost=0.35, style=0.66, use_speaker_boost=True)
-            ),
-            stream=True,
-            model="eleven_multilingual_v2"
-        )
-
-        if audio_stream:
-            audio_bytes = b"".join(audio_stream)
-            st.audio(audio_bytes)
-            stream(audio_stream)
+        generate_audio(result)
 
